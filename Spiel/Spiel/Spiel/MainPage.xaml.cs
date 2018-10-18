@@ -20,7 +20,8 @@ namespace Spiel
 
             //await MainGrid.TranslateTo(400, 400, 7000, Easing.Linear);
 
-            await MainGrid.RotateXTo(370, 250, Easing.Linear);
+            MainGrid.AnchorY = 5; 
+            await MainGrid.RotateTo(200, 2000, Easing.Linear);
         }
     }
 }

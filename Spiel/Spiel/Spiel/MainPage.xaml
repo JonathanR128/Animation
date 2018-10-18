@@ -16,7 +16,8 @@
               BackgroundColor="Purple"
               WidthRequest="30"
               HeightRequest="30"
-              HorizontalOptions="Center" />
+              HorizontalOptions="Center"
+              VerticalOptions="End"/>
 
     </StackLayout>
 
