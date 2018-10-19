@@ -16,8 +16,21 @@
               BackgroundColor="Purple"
               WidthRequest="30"
               HeightRequest="30"
-              HorizontalOptions="Center"
-              VerticalOptions="End"/>
+              HorizontalOptions="Center"/>
+
+
+        <Grid x:Name="SecondGrid"
+              BackgroundColor="Green"
+              WidthRequest="30"
+              HeightRequest="30"
+              HorizontalOptions="Center"/>
+
+
+        <Grid x:Name="ThirdGrid"
+              BackgroundColor="Purple"
+              WidthRequest="30"
+              HeightRequest="30"
+              HorizontalOptions="Center"/>
 
     </StackLayout>
 
