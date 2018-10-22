@@ -111,6 +111,10 @@ namespace Spiel
 
             SecondGrid.BackgroundColor = System.Drawing.Color.Purple;
 
+            double a = MainGrid.AnchorX;
+            double b = MainGrid.AnchorY;
+
+
             MainGrid.AnchorY = 1.1;
             SecondGrid.AnchorY = -0.1;
             ThirdGrid.AnchorY = -0.1;
@@ -123,10 +127,16 @@ namespace Spiel
             //  await SecondGrid.TranslateTo(-50, 40, 1500, Easing.Linear);
             await ThirdGrid.TranslateTo(0, -35, 500, Easing.Linear);
 
-            ThirdGrid.AnchorX = 1.7;
-            ThirdGrid.AnchorY = 0.5;
+            //ThirdGrid.AnchorX = 1.7;
+            //ThirdGrid.AnchorY = 0.5;
 
-            await ThirdGrid.RotateTo(180, 2000, Easing.Linear);
+            //ThirdGrid.RotateTo(180, 2000, Easing.Linear);
+            //SecondGrid.TranslateTo(35, 0, 1500, Easing.Linear);
+
+            //MainGrid.AnchorX = -0.7;
+            //MainGrid.AnchorY = 0.5;
+
+            //MainGrid.RotateTo(180, 2000, Easing.Linear);
 
 
 
