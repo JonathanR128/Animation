@@ -16,7 +16,7 @@ namespace Spiel
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await MainGrid.TranslateTo(200, 300, 1000, Easing.Linear);
+            //await MainGrid.TranslateTo(200, 300, 1000, Easing.Linear);
 
             //await MainGrid.TranslateTo(400, 400, 7000, Easing.Linear);
             //await SecondGrid.TranslateTo(100, 0, 1000, Easing.Linear);
@@ -109,28 +109,28 @@ namespace Spiel
             /////////////////////////////////////////////////////////////
             ///Gute Rotation nach Versuch Wert für Anchor beim Debuggen rauszufinden funktioniert es nicht mehr...
 
-            //SecondGrid.BackgroundColor = System.Drawing.Color.Purple;
+            SecondGrid.BackgroundColor = System.Drawing.Color.Purple;
 
-            //MainGrid.AnchorY = 1.1;
-            //SecondGrid.AnchorY = -0.1;
-            //ThirdGrid.AnchorY = -0.1;
+            MainGrid.AnchorY = 1.1;
+            SecondGrid.AnchorY = -0.1;
+            ThirdGrid.AnchorY = -0.1;
 
-           
-            //      MainGrid.RotateTo(180, 1000, Easing.Linear);
-            //      SecondGrid.RotateTo(180, 1000, Easing.Linear);
-            //      MainGrid.TranslateTo(50, 0, 1500, Easing.Linear);
-            //await SecondGrid.TranslateTo(-50, 40, 1500, Easing.Linear);
-            ////  await SecondGrid.TranslateTo(-50, 40, 1500, Easing.Linear);
-            //await ThirdGrid.TranslateTo(0, -35, 500, Easing.Linear);
 
-            //ThirdGrid.AnchorX = 1.7;
-            //ThirdGrid.AnchorY = 0;
+            MainGrid.RotateTo(180, 1000, Easing.Linear);
+            SecondGrid.RotateTo(180, 1000, Easing.Linear);
+            MainGrid.TranslateTo(50, 0, 1500, Easing.Linear);
+            await SecondGrid.TranslateTo(-50, 40, 1500, Easing.Linear);
+            //  await SecondGrid.TranslateTo(-50, 40, 1500, Easing.Linear);
+            await ThirdGrid.TranslateTo(0, -35, 500, Easing.Linear);
 
-            //await ThirdGrid.RotateTo(180, 2000, Easing.Linear);
+            ThirdGrid.AnchorX = 1.7;
+            ThirdGrid.AnchorY = 0;
 
-            
+            await ThirdGrid.RotateTo(180, 2000, Easing.Linear);
 
-            
+
+
+
 
         }
     }
