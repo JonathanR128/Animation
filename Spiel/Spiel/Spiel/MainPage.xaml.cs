@@ -118,15 +118,16 @@ namespace Spiel
 
             MainGrid.RotateTo(180, 1000, Easing.Linear);
             SecondGrid.RotateTo(180, 1000, Easing.Linear);
-            MainGrid.TranslateTo(50, 0, 1500, Easing.Linear);
-            await SecondGrid.TranslateTo(-50, 40, 1500, Easing.Linear);
+            MainGrid.TranslateTo(35, 0, 1500, Easing.Linear);
+            await SecondGrid.TranslateTo(-35, 35, 1500, Easing.Linear);
             //  await SecondGrid.TranslateTo(-50, 40, 1500, Easing.Linear);
             await ThirdGrid.TranslateTo(0, -35, 500, Easing.Linear);
 
             ThirdGrid.AnchorX = 1.7;
-            ThirdGrid.AnchorY = 0;
+            ThirdGrid.AnchorY = 0.5;
 
             await ThirdGrid.RotateTo(180, 2000, Easing.Linear);
+
 
 
 
