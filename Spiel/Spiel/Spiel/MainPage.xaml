@@ -26,11 +26,18 @@
               HorizontalOptions="Center"/>
 
 
-        <Grid x:Name="ThirdGrid"
+        <!--<Grid x:Name="ThirdGrid"
+              BackgroundColor="Purple"
+              WidthRequest="30"
+              HeightRequest="30"
+              HorizontalOptions="Center"/>-->
+        <Image x:Name="ThirdGrid"
+               
               BackgroundColor="Purple"
               WidthRequest="30"
               HeightRequest="30"
               HorizontalOptions="Center"/>
+        
 
     </StackLayout>
 
