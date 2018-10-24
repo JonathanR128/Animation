@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Spiel"
              x:Class="Spiel.MainPage">
 
-    <StackLayout>
+    <AbsoluteLayout>
 
         <Button Text="Start Animation"
                 TextColor="White"
@@ -12,33 +12,32 @@
                 Font="Large"
                 Clicked="Button_Clicked"/>
 
-        <Grid x:Name="MainGrid"
-              BackgroundColor="Purple"
+
+
+
+        <Image x:Name="FirstImage"
+              BackgroundColor="Green"
               WidthRequest="30"
               HeightRequest="30"
-              HorizontalOptions="Center"/>
+              HorizontalOptions="End"/>
 
 
-        <Grid x:Name="SecondGrid"
+        <Image x:Name="SecondImage"
               BackgroundColor="Green"
               WidthRequest="30"
               HeightRequest="30"
               HorizontalOptions="Center"/>
 
 
-        <!--<Grid x:Name="ThirdGrid"
-              BackgroundColor="Purple"
-              WidthRequest="30"
-              HeightRequest="30"
-              HorizontalOptions="Center"/>-->
-        <Image x:Name="ThirdGrid"
-               
-              BackgroundColor="Purple"
+        <Image x:Name="ThirdImage"
+              BackgroundColor="Green"
               WidthRequest="30"
               HeightRequest="30"
               HorizontalOptions="Center"/>
-        
 
-    </StackLayout>
+
+
+
+    </AbsoluteLayout>
 
 </ContentPage>

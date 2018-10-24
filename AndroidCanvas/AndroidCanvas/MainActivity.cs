@@ -18,10 +18,7 @@ namespace AndroidCanvas
             SetContentView(Resource.Layout.activity_main);
 
 
-            View surface = (View)FindViewById(Resource.Id.view1);
-            var canvas = new Canvas();
-            canvas.DrawColor(Color.Red);
-            surface.Draw(canvas);
+            View surface = FindViewById(Resource.Id.view1);
         }
 
 
