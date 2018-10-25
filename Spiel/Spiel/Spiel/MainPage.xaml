@@ -4,40 +4,20 @@
              xmlns:local="clr-namespace:Spiel"
              x:Class="Spiel.MainPage">
 
-    <AbsoluteLayout>
-
-        <Button Text="Start Animation"
-                TextColor="White"
-                BackgroundColor="Teal"
-                Font="Large"
-                Clicked="Button_Clicked"/>
-
-
-
-
-        <Image x:Name="FirstImage"
-              BackgroundColor="Green"
-              WidthRequest="30"
-              HeightRequest="30"
-              HorizontalOptions="End"/>
-
-
-        <Image x:Name="SecondImage"
-              BackgroundColor="Green"
-              WidthRequest="30"
-              HeightRequest="30"
-              HorizontalOptions="Center"/>
-
-
-        <Image x:Name="ThirdImage"
-              BackgroundColor="Green"
-              WidthRequest="30"
-              HeightRequest="30"
-              HorizontalOptions="Center"/>
-
-
-
-
-    </AbsoluteLayout>
+    <!--<ContentPage.Content>
+        <AbsoluteLayout>
+            <Label Text="I'm centered on iPhone 4 but no other device"
+                AbsoluteLayout.LayoutBounds="115,150,100,100" LineBreakMode="WordWrap"  />
+            <Label Text="I'm bottom center on every device."
+                AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All"
+                LineBreakMode="WordWrap"  />
+            <BoxView Color="Olive"  AbsoluteLayout.LayoutBounds="0.75, 1, 25, 100"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView Color="Red" AbsoluteLayout.LayoutBounds="0,.5,25,100"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView Color="Blue" AbsoluteLayout.LayoutBounds=".5,0,100,25"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+        </AbsoluteLayout>
+    </ContentPage.Content>-->
 
 </ContentPage>

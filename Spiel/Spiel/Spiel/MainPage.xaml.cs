@@ -12,36 +12,39 @@ namespace Spiel
         public MainPage()
         {
             InitializeComponent();
+            AbsoluteLayoutExplorationCode();
         }
 
-        
-
-        private async void Button_Clicked(object sender, EventArgs e)
+        public void AbsoluteLayoutExplorationCode()
         {
+            Title = "Absolute Layout Exploration - Code";
+            var layout = new AbsoluteLayout();
 
-            await Task.WhenAll(
-               FirstImage.TranslateTo(400, 50, 1000, Easing.SinInOut),
-               SecondImage.TranslateTo(400, 150, 1000, Easing.SinInOut)
-             );
+            var UpperLeftBox = new BoxView { Color = Color.Blue };
+            AbsoluteLayout.SetLayoutBounds(UpperLeftBox, new Rectangle(0, 0, 30, 30));
+            AbsoluteLayout.SetLayoutFlags(UpperLeftBox, AbsoluteLayoutFlags.PositionProportional);
 
-            await Task.WhenAll(
-                ThirdImage.TranslateTo(500, 200, 1500, Easing.Linear),
-                SecondImage.RotateTo(90, 1500, Easing.Linear)
-             );
+            var UpperRightBox = new BoxView { Color = Color.Red };
+            AbsoluteLayout.SetLayoutBounds(UpperRightBox, new Rectangle(1, 0, 30, 30));
+            AbsoluteLayout.SetLayoutFlags(UpperRightBox, AbsoluteLayoutFlags.PositionProportional);
 
-            SecondImage.AnchorX = 1.1;
-            await Task.WhenAll(
-                FirstImage.TranslateTo(700, 50, 1500, Easing.SinInOut),
-                 SecondImage.RotateTo(180, 1500, Easing.Linear)
+            var LowerLeftBox = new BoxView { Color = Color.Blue };
+            AbsoluteLayout.SetLayoutBounds(LowerLeftBox, new Rectangle(0, 1, 30, 30));
+            AbsoluteLayout.SetLayoutFlags(LowerLeftBox, AbsoluteLayoutFlags.PositionProportional);
 
-                );
+            var LowerRightBox = new BoxView { Color = Color.Blue };
+            AbsoluteLayout.SetLayoutBounds(LowerRightBox, new Rectangle(1, 1, 30, 30));
+            AbsoluteLayout.SetLayoutFlags(LowerRightBox, AbsoluteLayoutFlags.PositionProportional);
+
+            layout.Children.Add(UpperLeftBox);
+            layout.Children.Add(UpperRightBox);
+            layout.Children.Add(LowerLeftBox);
+            layout.Children.Add(LowerRightBox);
+
+            Content = layout;
         }
 
 
-        public void MakeImage()
-        {
-            
-        }
 
     }
 }
