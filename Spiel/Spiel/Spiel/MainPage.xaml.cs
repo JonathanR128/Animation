@@ -40,7 +40,7 @@ namespace Spiel
             Content = layout;
 
             double LayoutWidth = 689.5;
-            double LayoutHeigth = 386.3;
+            double LayoutHeight = 386.3;
             double UpperRightBoxHeight = 0;
             double UpperRightBoxWidth = UpperRightBox.X;
 
@@ -59,6 +59,12 @@ namespace Spiel
             //  UpperLeftBox.TranslateTo(LayoutWidth/2 - 50, LayoutHeigth/2, 3000, Easing.Linear);
 
         }
+
+        //public async Task MoveRectanglesAsync()
+        //{
+        //    UpperRightBox.TranslateTo(-200, 80 - UpperRightBoxHeight, 5000, Easing.Linear);  
+        //}
+
 
         //public void AbsoluteLayoutExplorationCode()
         //{
@@ -97,16 +103,16 @@ namespace Spiel
         //    //{
         //    //    UpperRightBoxHeight = UpperRightBox.Y;
         //    //};
-            
+
         //    UpperRightBox.PropertyChanged += (sender, e) =>
         //    {
         //        UpperRightBoxHeight = UpperRightBox.Y;
-               
+
         //    };
 
         //    UpperRightBox.TranslateTo(-200, 80 - UpperRightBoxHeight, 5000, Easing.Linear);
         //    //  UpperLeftBox.TranslateTo(LayoutWidth/2 - 50, LayoutHeigth/2, 3000, Easing.Linear);
-           
+
         //}
 
 
