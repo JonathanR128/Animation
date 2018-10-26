@@ -22,6 +22,9 @@ namespace Spiel
             var UpperLeftBox = new BoxView { Color = Color.Blue };
             BoundsOfBox(UpperLeftBox, 0, 0, 40, 40);
 
+            var UpperRightBox = new BoxView { Color = Color.Blue };
+            BoundsOfBox(UpperLeftBox, 1, 0, 40, 40);
+
             //layout.Children.Add(UpperLeftBox);
 
             Content = layout;
