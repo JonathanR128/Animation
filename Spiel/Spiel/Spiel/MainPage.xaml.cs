@@ -13,26 +13,28 @@ namespace Spiel
         {
             InitializeComponent();
 
-            var layout = new AbsoluteLayout();
-
             //var UpperLeftBox = new BoxView { Color = Color.Blue };
             //AbsoluteLayout.SetLayoutBounds(UpperLeftBox, new Rectangle(0, 0, 30, 30));
             //AbsoluteLayout.SetLayoutFlags(UpperLeftBox, AbsoluteLayoutFlags.PositionProportional);
 
+            layout = new AbsoluteLayout();
 
-            Layout = new AbsoluteLayout();
+            var UpperLeftBox = new BoxView { Color = Color.Blue };
+            BoundsOfBox(UpperLeftBox, 0, 0, 40, 40);
+
+            //layout.Children.Add(UpperLeftBox);
+
+            //Content = layout;
 
         }
-        public Layout Layout { get; set; }
+        public Layout layout { get; set; }
 
         //AbsoluteLayout.SetLayoutBounds(LowerRightBox, new Rectangle(1, 1, 30, 30));
         //    AbsoluteLayout.SetLayoutFlags(LowerRightBox, AbsoluteLayoutFlags.PositionProportional);
-        public void Bounds(BindableObject BoxName, double xProportional, double yProportional, int xSize, int ySize)
+        public void BoundsOfBox (BindableObject BoxName, double xProportional, double yProportional, int xSize, int ySize)
         {
             AbsoluteLayout.SetLayoutBounds(BoxName, new Rectangle(xProportional, yProportional, xSize, ySize));
             AbsoluteLayout.SetLayoutFlags(BoxName, AbsoluteLayoutFlags.PositionProportional);
         }
-
-
     }
 }
