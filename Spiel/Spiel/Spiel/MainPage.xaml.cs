@@ -24,10 +24,10 @@ namespace Spiel
 
             //layout.Children.Add(UpperLeftBox);
 
-            //Content = layout;
+            Content = layout;
 
         }
-        public Layout layout { get; set; }
+        public AbsoluteLayout layout { get; set; }
 
         //AbsoluteLayout.SetLayoutBounds(LowerRightBox, new Rectangle(1, 1, 30, 30));
         //    AbsoluteLayout.SetLayoutFlags(LowerRightBox, AbsoluteLayoutFlags.PositionProportional);
@@ -35,6 +35,8 @@ namespace Spiel
         {
             AbsoluteLayout.SetLayoutBounds(BoxName, new Rectangle(xProportional, yProportional, xSize, ySize));
             AbsoluteLayout.SetLayoutFlags(BoxName, AbsoluteLayoutFlags.PositionProportional);
+            View view = (View)BoxName;
+            layout.Children.Add(view);
         }
     }
 }
