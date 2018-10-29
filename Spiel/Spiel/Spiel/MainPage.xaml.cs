@@ -21,6 +21,7 @@ namespace Spiel
             IdTwo = Box2.Id;
             IdThree = Box3.Id;
             IdFour = Box4.Id;
+            IdOneAsString = Box1.Id.ToString();
             
 
 
@@ -30,7 +31,7 @@ namespace Spiel
             Box1StartHeight = 0;
             Box1StartWidth = 0;
 
-        
+
 
             Box1.PropertyChanged += (sender, e) =>
             {
@@ -82,7 +83,7 @@ namespace Spiel
         public Guid IdThree { get; set; }
         public Guid IdFour { get; set; }
         public Guid IdChanger { get; set; }
-
+        public string IdOneAsString { get; set; }
 
         public double Box1Width { get; set; }
         public double Box1Height { get; set; }
@@ -110,6 +111,7 @@ namespace Spiel
             
             await MoveToCenterInRow();
             await MoveBackInCorners();
+            await FindByIdAndMove();
         }
 
         public async Task MoveToCenter()
@@ -142,7 +144,8 @@ namespace Spiel
 
         public async Task FindByIdAndMove()
         {
-            
+            var BoxView = this.FindByName<BoxView>(IdOneAsString);
+            await BoxView.TranslateTo(1000, 10, 4000, Easing.Linear);
         }
     }
 }
