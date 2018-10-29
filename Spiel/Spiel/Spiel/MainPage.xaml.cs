@@ -13,12 +13,14 @@ namespace Spiel
         {
             InitializeComponent();
 
+            int counterPropertyChangedBox2 = 0;
+            int counterPropertyChangedBox3 = 0;
+            int counterPropertyChangedBox4 = 0;
 
 
             MoveAsync();
-
-
-            int counterPropertyChangedBox2 = 0; 
+            Box1StartHeight = 0;
+            Box1StartWidth = 0;
 
 
             Box1.PropertyChanged += (sender, e) =>
@@ -29,7 +31,7 @@ namespace Spiel
 
             Box2.PropertyChanged += (sender, e) =>
             {
-                if (counterPropertyChangedBox2 < 5)
+                if (counterPropertyChangedBox2 < 4)
                 {
                     ++counterPropertyChangedBox2;
                     Box2StartWidth = Box2.X;
@@ -42,12 +44,24 @@ namespace Spiel
 
             Box3.PropertyChanged += (sender, e) =>
             {
+                if (counterPropertyChangedBox3 < 4)
+                {
+                    ++counterPropertyChangedBox3;
+                    Box3StartWidth = Box3.X;
+                    Box3StartHeight = Box3.Y;
+                }
                 Box3Height = Box3.Y;
                 Box3Width = Box3.X;
             };
 
             Box4.PropertyChanged += (sender, e) =>
             {
+                if (counterPropertyChangedBox4 < 3)
+                {
+                    ++counterPropertyChangedBox4;
+                    Box4StartWidth = Box4.X;
+                    Box4StartHeight = Box4.Y;
+                }
                 Box4Height = Box4.Y;
                 Box4Width = Box4.X;
             };
@@ -56,6 +70,8 @@ namespace Spiel
 
         public double Box1Width { get; set; }
         public double Box1Height { get; set; }
+        public double Box1StartWidth { get; set; }
+        public double Box1StartHeight { get; set; }
 
         public double Box2Width { get; set; }
         public double Box2Height { get; set; }
@@ -64,9 +80,13 @@ namespace Spiel
 
         public double Box3Width { get; set; }
         public double Box3Height { get; set; }
+        public double Box3StartWidth { get; set; }
+        public double Box3StartHeight { get; set; }
 
         public double Box4Width { get; set; }
         public double Box4Height { get; set; }
+        public double Box4StartWidth { get; set; }
+        public double Box4StartHeight { get; set; }
 
         public async Task MoveAsync()
         {
@@ -75,9 +95,15 @@ namespace Spiel
 
         public async Task MoveToCenter()
         {
-            await Box2.TranslateTo(-400, 80, 2000, Easing.Linear);
-            await Box1.TranslateTo(140, 20, 2000, Easing.Linear);
+
+            
+            await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 2000, Easing.Linear);
+            await Box2.TranslateTo(-(Box4StartWidth / 2), Box4StartHeight / 2, 2000, Easing.Linear);
+            await Box3.TranslateTo(Box4StartWidth / 2, -(Box4StartHeight / 2), 2000, Easing.Linear);
+            await Box4.TranslateTo(-(Box4StartWidth / 2), -(Box4StartHeight / 2), 2000, Easing.Linear);
             await Box2.TranslateTo(Box2StartWidth - Box2Width, Box2StartHeight - Box2Height, 3000, Easing.Linear); // moves box 2 back in Start Position
+            await Box3.TranslateTo(Box3StartWidth - Box3Width, Box3StartHeight - Box3Height, 3000, Easing.Linear);
+
         }
     }
 }
