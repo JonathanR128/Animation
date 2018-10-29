@@ -4,34 +4,19 @@
              xmlns:local="clr-namespace:Spiel"
              x:Class="Spiel.MainPage">
 
-    <StackLayout>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+           
+            <BoxView x:Name="Box1" Color="Olive"  AbsoluteLayout.LayoutBounds="0, 0, 40, 40"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView x:Name="Box2" Color="Olive"  AbsoluteLayout.LayoutBounds="1, 0, 40, 40"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView x:Name="Box3" Color="Olive"  AbsoluteLayout.LayoutBounds="0, 1, 40, 40"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView x:Name="Box4" Color="Olive"  AbsoluteLayout.LayoutBounds="1, 1, 40, 40"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
 
-        <Button Text="Start Animation"
-                TextColor="White"
-                BackgroundColor="Teal"
-                Font="Large"
-                Clicked="Button_Clicked"/>
-
-        <Grid x:Name="MainGrid"
-              BackgroundColor="Purple"
-              WidthRequest="30"
-              HeightRequest="30"
-              HorizontalOptions="Center"/>
-
-
-        <Grid x:Name="SecondGrid"
-              BackgroundColor="Green"
-              WidthRequest="30"
-              HeightRequest="30"
-              HorizontalOptions="Center"/>
-
-
-        <Grid x:Name="ThirdGrid"
-              BackgroundColor="Purple"
-              WidthRequest="30"
-              HeightRequest="30"
-              HorizontalOptions="Center"/>
-
-    </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
 
 </ContentPage>
