@@ -12,34 +12,29 @@ namespace Spiel
         public MainPage()
         {
             InitializeComponent();
+            MoveAsync();
 
-            //var UpperLeftBox = new BoxView { Color = Color.Blue };
-            //AbsoluteLayout.SetLayoutBounds(UpperLeftBox, new Rectangle(0, 0, 30, 30));
-            //AbsoluteLayout.SetLayoutFlags(UpperLeftBox, AbsoluteLayoutFlags.PositionProportional);
 
-            layout = new AbsoluteLayout();
-
-            var UpperLeftBox = new BoxView { Color = Color.Blue };
-            BoundsOfBox(UpperLeftBox, 0, 0, 40, 40);
-
-            var UpperRightBox = new BoxView { Color = Color.Blue };
-            BoundsOfBox(UpperLeftBox, 1, 0, 40, 40);
-
-            //layout.Children.Add(UpperLeftBox);
-
-            Content = layout;
-
+            Box1.PropertyChanged += (sender, e) =>
+            {
+                Box1Height = Box1.Y;
+                Box1Width = Box1.X;
+                
+            };
         }
-        public AbsoluteLayout layout { get; set; }
 
-        //AbsoluteLayout.SetLayoutBounds(LowerRightBox, new Rectangle(1, 1, 30, 30));
-        //    AbsoluteLayout.SetLayoutFlags(LowerRightBox, AbsoluteLayoutFlags.PositionProportional);
-        public void BoundsOfBox (BindableObject BoxName, double xProportional, double yProportional, int xSize, int ySize)
+        public double Box1Width { get; set; }
+        public double Box1Height { get; set; }
+
+        public async Task MoveAsync()
         {
-            AbsoluteLayout.SetLayoutBounds(BoxName, new Rectangle(xProportional, yProportional, xSize, ySize));
-            AbsoluteLayout.SetLayoutFlags(BoxName, AbsoluteLayoutFlags.PositionProportional);
-            View view = (View)BoxName;
-            layout.Children.Add(view);
+            await MoveRectanglesAsync();
+        }
+
+        public async Task MoveRectanglesAsync()
+        {
+           await Box1.TranslateTo(200, 80, 5000, Easing.Linear);
+            await Box1.TranslateTo(- Box1Width, - Box1Height, 5000, Easing.Linear);
         }
     }
 }

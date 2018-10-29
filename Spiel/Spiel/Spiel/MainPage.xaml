@@ -4,20 +4,19 @@
              xmlns:local="clr-namespace:Spiel"
              x:Class="Spiel.MainPage">
 
-    <!--<ContentPage.Content>
+    <ContentPage.Content>
         <AbsoluteLayout>
-            <Label Text="I'm centered on iPhone 4 but no other device"
-                AbsoluteLayout.LayoutBounds="115,150,100,100" LineBreakMode="WordWrap"  />
-            <Label Text="I'm bottom center on every device."
-                AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All"
-                LineBreakMode="WordWrap"  />
-            <BoxView Color="Olive"  AbsoluteLayout.LayoutBounds="0.75, 1, 25, 100"
+           
+            <BoxView x:Name="Box1" Color="Olive"  AbsoluteLayout.LayoutBounds="0, 0, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" />
-            <BoxView Color="Red" AbsoluteLayout.LayoutBounds="0,.5,25,100"
+            <BoxView x:Name="Box2" Color="Olive"  AbsoluteLayout.LayoutBounds="1, 0, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" />
-            <BoxView Color="Blue" AbsoluteLayout.LayoutBounds=".5,0,100,25"
+            <BoxView x:Name="Box3" Color="Olive"  AbsoluteLayout.LayoutBounds="0, 1, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView x:Name="Box4" Color="Olive"  AbsoluteLayout.LayoutBounds="1, 1, 40, 40"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+
         </AbsoluteLayout>
-    </ContentPage.Content>-->
+    </ContentPage.Content>
 
 </ContentPage>
