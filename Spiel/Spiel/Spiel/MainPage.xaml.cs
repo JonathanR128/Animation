@@ -17,6 +17,7 @@ namespace Spiel
             int counterPropertyChangedBox3 = 0;
             int counterPropertyChangedBox4 = 0;
 
+            Box4.Color = System.Drawing.Color.Purple;
 
             MoveAsync();
             Box1StartHeight = 0;
@@ -90,20 +91,31 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
-             await MoveToCenter();
+            Box4.BackgroundColor = System.Drawing.Color.Purple;
+            await MoveToCenter();
+            await MoveBackInCorners();
         }
 
         public async Task MoveToCenter()
         {
 
             
+            await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 10000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
+
             await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 2000, Easing.Linear);
             await Box2.TranslateTo(-(Box4StartWidth / 2), Box4StartHeight / 2, 2000, Easing.Linear);
             await Box3.TranslateTo(Box4StartWidth / 2, -(Box4StartHeight / 2), 2000, Easing.Linear);
-            await Box4.TranslateTo(-(Box4StartWidth / 2), -(Box4StartHeight / 2), 2000, Easing.Linear);
-            await Box2.TranslateTo(Box2StartWidth - Box2Width, Box2StartHeight - Box2Height, 3000, Easing.Linear); // moves box 2 back in Start Position
-            await Box3.TranslateTo(Box3StartWidth - Box3Width, Box3StartHeight - Box3Height, 3000, Easing.Linear);
+            await Box4.TranslateTo(-(Box4StartWidth / 2), -(Box4StartHeight / 2), 2000, Easing.Linear);            
 
+        }
+
+        public async Task MoveBackInCorners()
+        {
+            Box1.Color = System.Drawing.Color.CornflowerBlue;
+            await Box1.TranslateTo(-Box1Width, -Box1Height, 2000, Easing.Linear);                                // moves box 1 back in Start Poition 
+            await Box2.TranslateTo(Box2StartWidth - Box2Width, Box2StartHeight - Box2Height, 2000, Easing.Linear); // moves box 2 back in Start Position
+            await Box3.TranslateTo(Box3StartWidth - Box3Width, Box3StartHeight - Box3Height, 2000, Easing.Linear); // moves box 3 back in Start Position
+            await Box4.TranslateTo(Box4StartWidth - Box4Width, Box4StartHeight - Box4Height, 2000, Easing.Linear); // moves box 4 back in Start Position
         }
     }
 }
