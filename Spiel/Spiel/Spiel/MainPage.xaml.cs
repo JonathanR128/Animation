@@ -17,11 +17,20 @@ namespace Spiel
             int counterPropertyChangedBox3 = 0;
             int counterPropertyChangedBox4 = 0;
 
+            IdOne = Box1.Id;
+            IdTwo = Box2.Id;
+            IdThree = Box3.Id;
+            IdFour = Box4.Id;
+            IdOneAsString = Box1.Id.ToString();
+            
+
+
             Box4.Color = System.Drawing.Color.Purple;
 
             MoveAsync();
             Box1StartHeight = 0;
             Box1StartWidth = 0;
+
 
 
             Box1.PropertyChanged += (sender, e) =>
@@ -69,6 +78,13 @@ namespace Spiel
 
         }
 
+        public Guid IdOne { get; set; }
+        public Guid IdTwo { get; set; }
+        public Guid IdThree { get; set; }
+        public Guid IdFour { get; set; }
+        public Guid IdChanger { get; set; }
+        public string IdOneAsString { get; set; }
+
         public double Box1Width { get; set; }
         public double Box1Height { get; set; }
         public double Box1StartWidth { get; set; }
@@ -92,21 +108,29 @@ namespace Spiel
         public async Task MoveAsync()
         {
             Box4.BackgroundColor = System.Drawing.Color.Purple;
-            await MoveToCenter();
+            
+            await MoveToCenterInRow();
             await MoveBackInCorners();
+            await FindByIdAndMove();
         }
 
         public async Task MoveToCenter()
-        {
-
-            
-            await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 10000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
+        {            
+            await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
 
             await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 2000, Easing.Linear);
             await Box2.TranslateTo(-(Box4StartWidth / 2), Box4StartHeight / 2, 2000, Easing.Linear);
             await Box3.TranslateTo(Box4StartWidth / 2, -(Box4StartHeight / 2), 2000, Easing.Linear);
-            await Box4.TranslateTo(-(Box4StartWidth / 2), -(Box4StartHeight / 2), 2000, Easing.Linear);            
+            await Box4.TranslateTo(-(Box4StartWidth / 2), -(Box4StartHeight / 2), 2000, Easing.Linear);
+        }
 
+        public async Task MoveToCenterInRow()
+        {
+            await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
+            await Box1.TranslateTo((Box4StartWidth / 2) - 80, Box4StartHeight / 2, 2000, Easing.Linear);
+            await Box2.TranslateTo(-(Box4StartWidth / 2) - 30, Box4StartHeight / 2, 2000, Easing.Linear);
+            await Box3.TranslateTo((Box4StartWidth / 2) + 30, -(Box4StartHeight / 2), 2000, Easing.Linear);
+            await Box4.TranslateTo(-(Box4StartWidth / 2) + 80, -(Box4StartHeight / 2), 2000, Easing.Linear);
         }
 
         public async Task MoveBackInCorners()
@@ -116,6 +140,12 @@ namespace Spiel
             await Box2.TranslateTo(Box2StartWidth - Box2Width, Box2StartHeight - Box2Height, 2000, Easing.Linear); // moves box 2 back in Start Position
             await Box3.TranslateTo(Box3StartWidth - Box3Width, Box3StartHeight - Box3Height, 2000, Easing.Linear); // moves box 3 back in Start Position
             await Box4.TranslateTo(Box4StartWidth - Box4Width, Box4StartHeight - Box4Height, 2000, Easing.Linear); // moves box 4 back in Start Position
+        }
+
+        public async Task FindByIdAndMove()
+        {
+            var BoxView = this.FindByName<BoxView>(IdOneAsString);
+            await BoxView.TranslateTo(1000, 10, 4000, Easing.Linear);
         }
     }
 }
