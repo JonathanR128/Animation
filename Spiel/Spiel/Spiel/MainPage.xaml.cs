@@ -75,6 +75,11 @@ namespace Spiel
         public string Name4 { get; set; }
         public string NameChanger { get; set; }
 
+        public BoxView LeftBox { get; set; }
+        public BoxView MiddleLeftBox { get; set; }
+        public BoxView MiddleRightBox { get; set; }
+        public BoxView RightBox { get; set; }
+
         public double Box1Width { get; set; }
         public double Box1Height { get; set; }
         public double Box1StartWidth { get; set; }
@@ -100,8 +105,7 @@ namespace Spiel
             Box4.BackgroundColor = System.Drawing.Color.Purple;
 
             await MoveToCenterInRow();
-            await MoveBackInCorners();
-            await FindByNameAndMove();          
+            await MoveWithRightNames();         
         }
 
         public async Task MoveToCenter()
@@ -136,6 +140,23 @@ namespace Spiel
         {
             var BoxView = this.FindByName<BoxView>(Name1);
             await BoxView.TranslateTo(1000, 10, 4000, Easing.Linear);
+        }
+
+        public void  StoreNames()
+        {
+            LeftBox = this.FindByName<BoxView>(Name1);
+            MiddleLeftBox = this.FindByName<BoxView>(Name2);
+            MiddleRightBox = this.FindByName<BoxView>(Name3);
+            RightBox = this.FindByName<BoxView>(Name4);
+        }
+
+        public async Task MoveWithRightNames()
+        {
+            StoreNames();
+            await LeftBox.TranslateTo(200, 100, 2000, Easing.Linear);
+            await MiddleLeftBox.TranslateTo(0, -50, 2000, Easing.Linear);
+            await MiddleRightBox.TranslateTo(0, 50, 2000, Easing.Linear);
+            await RightBox.TranslateTo(0, -50, 2000, Easing.Linear);
         }
     }
 }
