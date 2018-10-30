@@ -17,7 +17,6 @@ namespace Spiel
             int counterPropertyChangedBox3 = 0;
             int counterPropertyChangedBox4 = 0;
 
-
             Name1 = "Box1";
             Name2 = "Box2";
             Name3 = "Box3";
@@ -34,7 +33,6 @@ namespace Spiel
                 Box1Height = Box1.Y;
                 Box1Width = Box1.X;              
             };
-
             Box2.PropertyChanged += (sender, e) =>
             {
                 if (counterPropertyChangedBox2 < 4)
@@ -47,7 +45,6 @@ namespace Spiel
                 Box2Height = Box2.Y;
                 Box2Width = Box2.X;
             };
-
             Box3.PropertyChanged += (sender, e) =>
             {
                 if (counterPropertyChangedBox3 < 4)
@@ -59,7 +56,6 @@ namespace Spiel
                 Box3Height = Box3.Y;
                 Box3Width = Box3.X;
             };
-
             Box4.PropertyChanged += (sender, e) =>
             {
                 if (counterPropertyChangedBox4 < 3)
@@ -71,15 +67,13 @@ namespace Spiel
                 Box4Height = Box4.Y;
                 Box4Width = Box4.X;
             };
-
         }
 
         public string Name1 { get; set; }
         public string Name2 { get; set; }
         public string Name3 { get; set; }
         public string Name4 { get; set; }
-
-        public string IdOneAsString { get; set; }
+        public string NameChanger { get; set; }
 
         public double Box1Width { get; set; }
         public double Box1Height { get; set; }
@@ -105,10 +99,9 @@ namespace Spiel
         {
             Box4.BackgroundColor = System.Drawing.Color.Purple;
 
-            //await MoveToCenterInRow();
-            //await MoveBackInCorners();
-            await FindByNameAndMove();
-          
+            await MoveToCenterInRow();
+            await MoveBackInCorners();
+            await FindByNameAndMove();          
         }
 
         public async Task MoveToCenter()
@@ -144,6 +137,5 @@ namespace Spiel
             var BoxView = this.FindByName<BoxView>(Name1);
             await BoxView.TranslateTo(1000, 10, 4000, Easing.Linear);
         }
-
     }
 }
