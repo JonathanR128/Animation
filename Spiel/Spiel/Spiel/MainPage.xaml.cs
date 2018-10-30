@@ -153,7 +153,7 @@ namespace Spiel
         public async Task MoveWithRightNames()
         {
             StoreNames();
-            await LeftBox.TranslateTo(200, 100, 2000, Easing.Linear);
+            await LeftBox.TranslateTo(0, 100, 2000, Easing.Linear);
             await MiddleLeftBox.TranslateTo(0, -50, 2000, Easing.Linear);
             await MiddleRightBox.TranslateTo(0, 50, 2000, Easing.Linear);
             await RightBox.TranslateTo(0, -50, 2000, Easing.Linear);
