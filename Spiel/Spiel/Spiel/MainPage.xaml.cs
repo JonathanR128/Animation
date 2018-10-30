@@ -17,22 +17,18 @@ namespace Spiel
             int counterPropertyChangedBox3 = 0;
             int counterPropertyChangedBox4 = 0;
 
-            IdOne = Box1.Id;
-            IdTwo = Box2.Id;
-            IdThree = Box3.Id;
-            IdFour = Box4.Id;
-            IdOneAsString = Box1.Id.ToString();
-            
 
-
+            Name1 = "Box1";
+            Name2 = "Box2";
+            Name3 = "Box3";
+            Name4 = "Box4";
+                       
             Box4.Color = System.Drawing.Color.Purple;
 
             MoveAsync();
             Box1StartHeight = 0;
             Box1StartWidth = 0;
-
-
-
+                       
             Box1.PropertyChanged += (sender, e) =>
             {
                 Box1Height = Box1.Y;
@@ -78,11 +74,11 @@ namespace Spiel
 
         }
 
-        public Guid IdOne { get; set; }
-        public Guid IdTwo { get; set; }
-        public Guid IdThree { get; set; }
-        public Guid IdFour { get; set; }
-        public Guid IdChanger { get; set; }
+        public string Name1 { get; set; }
+        public string Name2 { get; set; }
+        public string Name3 { get; set; }
+        public string Name4 { get; set; }
+
         public string IdOneAsString { get; set; }
 
         public double Box1Width { get; set; }
@@ -108,10 +104,11 @@ namespace Spiel
         public async Task MoveAsync()
         {
             Box4.BackgroundColor = System.Drawing.Color.Purple;
-            
-            await MoveToCenterInRow();
-            await MoveBackInCorners();
-            await FindByIdAndMove();
+
+            //await MoveToCenterInRow();
+            //await MoveBackInCorners();
+            await FindByNameAndMove();
+          
         }
 
         public async Task MoveToCenter()
@@ -142,10 +139,11 @@ namespace Spiel
             await Box4.TranslateTo(Box4StartWidth - Box4Width, Box4StartHeight - Box4Height, 2000, Easing.Linear); // moves box 4 back in Start Position
         }
 
-        public async Task FindByIdAndMove()
+        public async Task FindByNameAndMove()
         {
-            var BoxView = this.FindByName<BoxView>(IdOneAsString);
+            var BoxView = this.FindByName<BoxView>(Name1);
             await BoxView.TranslateTo(1000, 10, 4000, Easing.Linear);
         }
+
     }
 }
