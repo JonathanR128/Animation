@@ -104,8 +104,6 @@ namespace Mase
         {
             Box4.BackgroundColor = System.Drawing.Color.Purple;
 
-            await MoveToCenterInRowRightNames();
-            await MoveBoxes();
         }
 
         public async Task MoveToCenter()
@@ -136,51 +134,8 @@ namespace Mase
             await Box4.TranslateTo(Box4StartWidth - Box4Width, Box4StartHeight - Box4Height, 2000, Easing.Linear); // moves box 4 back in Start Position
         }
 
-        public async Task FindByNameAndMove()
-        {
-            var BoxView = this.FindByName<BoxView>(Name1);
-            await BoxView.TranslateTo(1000, 10, 4000, Easing.Linear);
-        }
 
-        public void StoreNames()
-        {
-            LeftBox = this.FindByName<BoxView>(Name1);
-            MiddleLeftBox = this.FindByName<BoxView>(Name2);
-            MiddleRightBox = this.FindByName<BoxView>(Name3);
-            RightBox = this.FindByName<BoxView>(Name4);
-        }
 
-        public async Task MoveWithRightNames()
-        {
-            StoreNames();
-            await LeftBox.TranslateTo(0, 100, 2000, Easing.Linear);
-            await MiddleLeftBox.TranslateTo(0, -50, 2000, Easing.Linear);
-            await MiddleRightBox.TranslateTo(0, 50, 2000, Easing.Linear);
-            await RightBox.TranslateTo(0, -50, 2000, Easing.Linear);
-        }
-
-        public async Task MoveToCenterInRowRightNames()
-        {
-            StoreNames();
-            // await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
-            await LeftBox.TranslateTo(100, 100, 2000, Easing.Linear);
-            await MiddleLeftBox.TranslateTo(-100, 100, 2000, Easing.Linear);
-            await MiddleRightBox.TranslateTo(100, -100, 2000, Easing.Linear);
-            await RightBox.TranslateTo(-100, -100, 2000, Easing.Linear);
-            Name1 = "Box4";
-            Name2 = "Box3";
-            Name3 = "Box2";
-            Name4 = "Box1";
-
-        }
-
-        public async Task MoveBoxes()
-        {
-            StoreNames();
-            await LeftBox.TranslateTo(10, 10, 3000, Easing.Linear);
-            await MiddleLeftBox.TranslateTo(10, 10, 3000, Easing.Linear);
-            await MiddleRightBox.TranslateTo(10, 10, 3000, Easing.Linear);
-            await RightBox.TranslateTo(10, 10, 3000, Easing.Linear);
-        }
+     
     }
 }
