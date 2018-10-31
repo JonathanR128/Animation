@@ -106,6 +106,7 @@ namespace Spiel
 
             await MoveToCenterInRow();
             await RotateOne();
+            await RotateTwo();
         }
 
         public async Task MoveToCenter()
@@ -133,11 +134,51 @@ namespace Spiel
             Box2.AnchorX = 1.125;
             Box3.AnchorX = -0.125;
             Box4.AnchorX = -1.375;
-            await Box4.RotateTo(180, 3000, Easing.Linear);
-            await Box3.RotateTo(180, 3000, Easing.Linear);
-            await Box2.RotateTo(180, 3000, Easing.Linear);
-            await Box1.RotateTo(180, 3000, Easing.Linear);
+            await Task.WhenAll(
+            Box4.RotateTo(180, 3000, Easing.Linear),
+            Box3.RotateTo(180, 3000, Easing.Linear),
+            Box2.RotateTo(180, 3000, Easing.Linear),
+            Box1.RotateTo(180, 3000, Easing.Linear));
+            NameLeft = "Box4"; NameMiddleLeft = "Box3"; NameMiddleRight = "Box2"; NameRight = "Box1";
+
         }
+
+        public async Task RotateTwo()
+        {
+            
+
+
+            Box4.AnchorX = 2.375;
+            Box3.AnchorX = 1.125;
+            Box2.AnchorX = -0.125;
+            Box1.AnchorX = -1.375;
+            await Box4.RotateTo(180, 5000, Easing.Linear);
+            await Task.WhenAll(
+            Box1.RotateTo(180, 3000, Easing.Linear),
+            Box2.RotateTo(180, 3000, Easing.Linear),
+            Box3.RotateTo(180, 3000, Easing.Linear),
+            Box4.RotateTo(180, 3000, Easing.Linear));
+           // NameLeft = "Box4"; NameMiddleLeft = "Box3"; NameMiddleRight = "Box2"; NameRight = "Box1";
+
+        }
+
+        //public async Task RotateTwo()
+        //{
+
+        //    StoreNames();
+        //    await Box1.TranslateTo(0.1, 0, 1000, Easing.Linear);
+        //    LeftBox.AnchorX = 2.375;
+        //    MiddleLeftBox.AnchorX = 1.125;
+        //    MiddleRightBox.AnchorX = -0.125;
+        //    RightBox.AnchorX = -1.375;
+        //    await Task.WhenAll(
+        //    RightBox.RotateTo(180, 3000, Easing.Linear),
+        //    MiddleRightBox.RotateTo(180, 3000, Easing.Linear),
+        //    MiddleLeftBox.RotateTo(180, 3000, Easing.Linear),
+        //    LeftBox.RotateTo(180, 3000, Easing.Linear));
+        //    // NameLeft = "Box4"; NameMiddleLeft = "Box3"; NameMiddleRight = "Box2"; NameRight = "Box1";
+
+        //}
 
         public async Task MoveBackInCorners()
         {
