@@ -21,7 +21,7 @@ namespace Spiel
             Name2 = "Box2";
             Name3 = "Box3";
             Name4 = "Box4";
-                       
+
             Box4.Color = System.Drawing.Color.Purple;
 
             MoveAsync();
@@ -104,8 +104,8 @@ namespace Spiel
         {
             Box4.BackgroundColor = System.Drawing.Color.Purple;
 
-            await MoveToCenterInRow();
-            await MoveWithRightNames();         
+            await MoveToCenterInRowRightNames();
+            await MoveBoxes();
         }
 
         public async Task MoveToCenter()
@@ -157,6 +157,30 @@ namespace Spiel
             await MiddleLeftBox.TranslateTo(0, -50, 2000, Easing.Linear);
             await MiddleRightBox.TranslateTo(0, 50, 2000, Easing.Linear);
             await RightBox.TranslateTo(0, -50, 2000, Easing.Linear);
+        }
+
+        public async Task MoveToCenterInRowRightNames()
+        {
+            StoreNames();
+           // await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
+            await LeftBox.TranslateTo(100, 100, 2000, Easing.Linear);
+            await MiddleLeftBox.TranslateTo(-100, 100, 2000, Easing.Linear);
+            await MiddleRightBox.TranslateTo(100, - 100, 2000, Easing.Linear);
+            await RightBox.TranslateTo(-100, -100, 2000, Easing.Linear);
+            Name1 = "Box4";
+            Name2 = "Box3";
+            Name3 = "Box2";
+            Name4 = "Box1";
+
+        }
+
+        public async Task MoveBoxes()
+        {
+            StoreNames();
+            await LeftBox.TranslateTo(10, 10, 3000, Easing.Linear);
+            await MiddleLeftBox.TranslateTo(10, 10, 3000, Easing.Linear);
+            await MiddleRightBox.TranslateTo(10, 10, 3000, Easing.Linear);
+            await RightBox.TranslateTo(10, 10, 3000, Easing.Linear);
         }
     }
 }
