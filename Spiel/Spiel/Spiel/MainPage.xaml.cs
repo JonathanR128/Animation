@@ -17,10 +17,10 @@ namespace Spiel
             int counterPropertyChangedBox3 = 0;
             int counterPropertyChangedBox4 = 0;
 
-            Name1 = "Box1";
-            Name2 = "Box2";
-            Name3 = "Box3";
-            Name4 = "Box4";
+            NameLeft = "Box1";
+            NameMiddleLeft = "Box2";
+            NameMiddleRight = "Box3";
+            NameRight = "Box4";
 
             Box4.Color = System.Drawing.Color.Purple;
 
@@ -69,10 +69,10 @@ namespace Spiel
             };
         }
 
-        public string Name1 { get; set; }
-        public string Name2 { get; set; }
-        public string Name3 { get; set; }
-        public string Name4 { get; set; }
+        public string NameLeft { get; set; }
+        public string NameMiddleLeft { get; set; }
+        public string NameMiddleRight { get; set; }
+        public string NameRight { get; set; }
         public string NameChanger { get; set; }
 
         public BoxView LeftBox { get; set; }
@@ -104,8 +104,8 @@ namespace Spiel
         {
             Box4.BackgroundColor = System.Drawing.Color.Purple;
 
-            await MoveToCenterInRowRightNames();
-            await MoveBoxes();
+            await MoveToCenterInRow();
+            await RotateOne();
         }
 
         public async Task MoveToCenter()
@@ -120,67 +120,74 @@ namespace Spiel
 
         public async Task MoveToCenterInRow()
         {
-            await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
-            await Box1.TranslateTo((Box4StartWidth / 2) - 80, Box4StartHeight / 2, 2000, Easing.Linear);
-            await Box2.TranslateTo(-(Box4StartWidth / 2) - 30, Box4StartHeight / 2, 2000, Easing.Linear);
-            await Box3.TranslateTo((Box4StartWidth / 2) + 30, -(Box4StartHeight / 2), 2000, Easing.Linear);
-            await Box4.TranslateTo(-(Box4StartWidth / 2) + 80, -(Box4StartHeight / 2), 2000, Easing.Linear);
+            await Box1.TranslateTo(10, 10, 4000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
+            await Box1.TranslateTo((Box4StartWidth / 2) - 75, Box4StartHeight / 2, 2000, Easing.Linear);
+            await Box2.TranslateTo(-(Box4StartWidth / 2) - 25, Box4StartHeight / 2, 2000, Easing.Linear);
+            await Box3.TranslateTo((Box4StartWidth / 2) + 25, -(Box4StartHeight / 2), 2000, Easing.Linear);
+            await Box4.TranslateTo(-(Box4StartWidth / 2) + 75, -(Box4StartHeight / 2), 2000, Easing.Linear);
+        }
+
+        public async Task RotateOne()
+        {
+            Box1.AnchorX = 2.375;
+            Box2.AnchorX = 1.125;
+            Box3.AnchorX = -0.125;
+            Box4.AnchorX = -1.375;
+            await Box4.RotateTo(180, 3000, Easing.Linear);
+            await Box3.RotateTo(180, 3000, Easing.Linear);
+            await Box2.RotateTo(180, 3000, Easing.Linear);
+            await Box1.RotateTo(180, 3000, Easing.Linear);
         }
 
         public async Task MoveBackInCorners()
         {
-            Box1.Color = System.Drawing.Color.CornflowerBlue;
+            Box1.Color = System.Drawing.Color.Black;
             await Box1.TranslateTo(-Box1Width, -Box1Height, 2000, Easing.Linear);                                // moves box 1 back in Start Poition 
             await Box2.TranslateTo(Box2StartWidth - Box2Width, Box2StartHeight - Box2Height, 2000, Easing.Linear); // moves box 2 back in Start Position
             await Box3.TranslateTo(Box3StartWidth - Box3Width, Box3StartHeight - Box3Height, 2000, Easing.Linear); // moves box 3 back in Start Position
             await Box4.TranslateTo(Box4StartWidth - Box4Width, Box4StartHeight - Box4Height, 2000, Easing.Linear); // moves box 4 back in Start Position
         }
 
-        public async Task FindByNameAndMove()
-        {
-            var BoxView = this.FindByName<BoxView>(Name1);
-            await BoxView.TranslateTo(1000, 10, 4000, Easing.Linear);
-        }
 
         public void  StoreNames()
         {
-            LeftBox = this.FindByName<BoxView>(Name1);
-            MiddleLeftBox = this.FindByName<BoxView>(Name2);
-            MiddleRightBox = this.FindByName<BoxView>(Name3);
-            RightBox = this.FindByName<BoxView>(Name4);
+            LeftBox = this.FindByName<BoxView>(NameLeft);
+            MiddleLeftBox = this.FindByName<BoxView>(NameMiddleLeft);
+            MiddleRightBox = this.FindByName<BoxView>(NameMiddleRight);
+            RightBox = this.FindByName<BoxView>(NameRight);
         }
 
-        public async Task MoveWithRightNames()
-        {
-            StoreNames();
-            await LeftBox.TranslateTo(0, 100, 2000, Easing.Linear);
-            await MiddleLeftBox.TranslateTo(0, -50, 2000, Easing.Linear);
-            await MiddleRightBox.TranslateTo(0, 50, 2000, Easing.Linear);
-            await RightBox.TranslateTo(0, -50, 2000, Easing.Linear);
-        }
+        //public async Task MoveWithRightNames()
+        //{
+        //    StoreNames();
+        //    await LeftBox.TranslateTo(0, 100, 2000, Easing.Linear);
+        //    await MiddleLeftBox.TranslateTo(0, -50, 2000, Easing.Linear);
+        //    await MiddleRightBox.TranslateTo(0, 50, 2000, Easing.Linear);
+        //    await RightBox.TranslateTo(0, -50, 2000, Easing.Linear);
+        //}
 
-        public async Task MoveToCenterInRowRightNames()
-        {
-            StoreNames();
-           // await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
-            await LeftBox.TranslateTo(100, 100, 2000, Easing.Linear);
-            await MiddleLeftBox.TranslateTo(-100, 100, 2000, Easing.Linear);
-            await MiddleRightBox.TranslateTo(100, - 100, 2000, Easing.Linear);
-            await RightBox.TranslateTo(-100, -100, 2000, Easing.Linear);
-            Name1 = "Box4";
-            Name2 = "Box3";
-            Name3 = "Box2";
-            Name4 = "Box1";
+        //public async Task MoveToCenterInRowRightNames()
+        //{
+        //    StoreNames();
+        //   // await Box1.TranslateTo(Box4StartWidth / 2, Box4StartHeight / 2, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
+        //    await LeftBox.TranslateTo(100, 100, 2000, Easing.Linear);
+        //    await MiddleLeftBox.TranslateTo(-100, 100, 2000, Easing.Linear);
+        //    await MiddleRightBox.TranslateTo(100, - 100, 2000, Easing.Linear);
+        //    await RightBox.TranslateTo(-100, -100, 2000, Easing.Linear);
+        //    NameLeft = "Box4";
+        //    NameMiddleLeft = "Box3";
+        //    NameMiddleRight = "Box2";
+        //    NameRight = "Box1";
 
-        }
+        //}
 
-        public async Task MoveBoxes()
-        {
-            StoreNames();
-            await LeftBox.TranslateTo(10, 10, 3000, Easing.Linear);
-            await MiddleLeftBox.TranslateTo(10, 10, 3000, Easing.Linear);
-            await MiddleRightBox.TranslateTo(10, 10, 3000, Easing.Linear);
-            await RightBox.TranslateTo(10, 10, 3000, Easing.Linear);
-        }
+        //public async Task MoveBoxes()
+        //{
+        //    StoreNames();
+        //    await LeftBox.TranslateTo(10, 10, 3000, Easing.Linear);
+        //    await MiddleLeftBox.TranslateTo(10, 10, 3000, Easing.Linear);
+        //    await MiddleRightBox.TranslateTo(10, 10, 3000, Easing.Linear);
+        //    await RightBox.TranslateTo(10, 10, 3000, Easing.Linear);
+        //}
     }
 }
