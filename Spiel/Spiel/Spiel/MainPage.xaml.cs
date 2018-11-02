@@ -146,6 +146,7 @@ namespace Spiel
         public async Task RotateTwo()
         {
             Box4.AnchorX = 0.5;
+            await Box4.TranslateTo(Box4Width, Box4Height, 1);
             await Box4.RotateTo(0, 1);
 
 
