@@ -121,7 +121,7 @@ namespace Spiel
 
         public async Task MoveToCenterInRow()
         {
-            await Box1.TranslateTo(10, 10, 4000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
+            await Box1.TranslateTo(10, 10, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
             await Box1.TranslateTo((Box4StartWidth / 2) - 75, Box4StartHeight / 2, 2000, Easing.Linear);
             await Box2.TranslateTo(-(Box4StartWidth / 2) - 25, Box4StartHeight / 2, 2000, Easing.Linear);
             await Box3.TranslateTo((Box4StartWidth / 2) + 25, -(Box4StartHeight / 2), 2000, Easing.Linear);
@@ -145,18 +145,20 @@ namespace Spiel
 
         public async Task RotateTwo()
         {
-            
+            Box4.AnchorX = 0.5;
+            await Box4.RotateTo(0, 1);
 
 
             Box4.AnchorX = 2.375;
             Box3.AnchorX = 1.125;
             Box2.AnchorX = -0.125;
             Box1.AnchorX = -1.375;
-            await Box4.RotateTo(180, 5000, Easing.Linear);
+            // await Box4.RotateTo(180, 5000, Easing.Linear);
+            
             await Task.WhenAll(
-            Box1.RotateTo(180, 3000, Easing.Linear),
-            Box2.RotateTo(180, 3000, Easing.Linear),
-            Box3.RotateTo(180, 3000, Easing.Linear),
+            Box1.RotateTo(360, 3000, Easing.Linear),
+            Box2.RotateTo(360, 3000, Easing.Linear),
+            Box3.RotateTo(360, 3000, Easing.Linear),
             Box4.RotateTo(180, 3000, Easing.Linear));
            // NameLeft = "Box4"; NameMiddleLeft = "Box3"; NameMiddleRight = "Box2"; NameRight = "Box1";
 
