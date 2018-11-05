@@ -108,10 +108,13 @@ namespace Spiel
             Box1.TranslationX = 0;
             Box1.TranslationY = 0;
             await Box1.TranslateTo(20, 20, 3000, Easing.Linear);
+            Box1.AnchorX = 1;
+            await Box1.RotateTo(180, 3000);
+            Box1.TranslationX = 40;
             await Box1.TranslateTo(30, 0, 3000);
             await Box1.TranslateTo(0, 50, 3000);
-            await RotateOne();
-            await MoveBackInCorners();
+
+           
         }
 
         public async Task MoveToCenter()
