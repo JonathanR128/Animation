@@ -104,9 +104,14 @@ namespace Spiel
         {
             Box4.BackgroundColor = System.Drawing.Color.Purple;
 
-            await MoveToCenterInRow();
+            await Box1.TranslateTo(20, 20, 3000);
+            Box1.TranslationX = 0;
+            Box1.TranslationY = 0;
+            await Box1.TranslateTo(20, 20, 3000, Easing.Linear);
+            await Box1.TranslateTo(30, 0, 3000);
+            await Box1.TranslateTo(0, 50, 3000);
             await RotateOne();
-            await RotateTwo();
+            await MoveBackInCorners();
         }
 
         public async Task MoveToCenter()
@@ -140,6 +145,7 @@ namespace Spiel
             Box2.RotateTo(180, 3000, Easing.Linear),
             Box1.RotateTo(180, 3000, Easing.Linear));
             NameLeft = "Box4"; NameMiddleLeft = "Box3"; NameMiddleRight = "Box2"; NameRight = "Box1";
+            Box1.TranslationX = 50;
 
         }
 
