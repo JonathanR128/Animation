@@ -106,15 +106,15 @@ namespace Spiel
 
             await Task.Delay(1200);
             Box1.AnchorX = 1.5;
-            await Box1.RotateTo(180, 6000);
-            Box1.AnchorX = -0.5;
+            await Box1.RotateTo(180, 2000);
+            Box1.AnchorX = 0.5;
             // Compensate for the change in AnchorX and AnchorY.
-            Box1.TranslationX += 160;
+            Box1.TranslationX += 80;
+            Box1.Rotation = 0;
 
 
-
-            await Box1.RotateTo(360, 8000, Easing.Linear);
-         
+            Box1.AnchorX = 1.5;
+            await Box1.RotateTo(180, 2000, Easing.Linear);
 
             
 
