@@ -102,19 +102,22 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
-            Box4.BackgroundColor = System.Drawing.Color.Purple;
+            //Box4.BackgroundColor = System.Drawing.Color.Purple;
 
-            await Box1.TranslateTo(20, 20, 3000);
-            Box1.TranslationX = 0;
-            Box1.TranslationY = 0;
-            await Box1.TranslateTo(20, 20, 3000, Easing.Linear);
-            Box1.AnchorX = 1;
-            await Box1.RotateTo(180, 3000);
-            Box1.TranslationX = 40;
-            await Box1.TranslateTo(30, 0, 3000);
-            await Box1.TranslateTo(0, 50, 3000);
+            await Task.Delay(1200);
+            Box1.AnchorX = 1.5;
+            await Box1.RotateTo(180, 6000);
+            Box1.AnchorX = -0.5;
+            // Compensate for the change in AnchorX and AnchorY.
+            Box1.TranslationX += 160;
 
-           
+
+
+            await Box1.RotateTo(360, 8000, Easing.Linear);
+         
+
+            
+
         }
 
         public async Task MoveToCenter()
