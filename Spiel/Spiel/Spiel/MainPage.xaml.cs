@@ -92,11 +92,22 @@ namespace Spiel
             LeftBox.TranslationX += 150;
             MiddleLeftBox.TranslationX += 50;
             MiddleRightBox.TranslationX += -50;
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
 
-            NameChanger = NameLeft;
-            NameLeft = NameMiddleRight;
-            NameMiddleRight = NameMiddleLeft;
-            NameMiddleLeft = NameChanger;
+            //NameChanger = NameLeft;
+            //NameLeft = NameMiddleRight;
+            //NameMiddleRight = NameMiddleLeft;
+            //NameMiddleLeft = NameChanger;
+
+            NameChanger = NameRight;
+            NameRight = NameRight;
+            NameChanger = NameMiddleRight;
+            NameMiddleRight = NameLeft;
+            NameLeft = NameChanger;
+            
             
                 
         }
