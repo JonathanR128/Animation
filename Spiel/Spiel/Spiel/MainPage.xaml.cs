@@ -71,8 +71,9 @@ namespace Spiel
         public async Task RotateOne()
         {
             StoreNames();
-            await RightBox.TranslateTo(50, 0, 3000);
-        
+
+
+       
             LeftBox.AnchorX = DreiPositionen;
             MiddleLeftBox.AnchorX = EinePosition;
             MiddleRightBox.AnchorX = -(EinePosition - 1);
@@ -80,8 +81,16 @@ namespace Spiel
                 LeftBox.RotateTo(180, 3000),
                 MiddleLeftBox.RotateTo(-180, 3000),
                 MiddleRightBox.RotateTo(- 180, 3000),
-                RightBox.TranslateTo(50, 0, 3000)
+                RightBox.TranslateTo(RightBox.TranslationX + 50,RightBox.TranslationY + 0, 3000)
                 );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            LeftBox.TranslationX += 150;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleRightBox.TranslationX += -50;
                 
         }
 
