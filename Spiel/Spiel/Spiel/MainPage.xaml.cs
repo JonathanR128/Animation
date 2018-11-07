@@ -62,6 +62,7 @@ namespace Spiel
 
             await MoveToCenterInRow();
             await RotateOne();
+            await RotateOne();
             await MoveBackInCorners();
 
             
@@ -71,7 +72,7 @@ namespace Spiel
         public async Task RotateOne()
         {
             StoreNames();
-
+            await Task.Delay(1000);
 
        
             LeftBox.AnchorX = DreiPositionen;
@@ -91,6 +92,12 @@ namespace Spiel
             LeftBox.TranslationX += 150;
             MiddleLeftBox.TranslationX += 50;
             MiddleRightBox.TranslationX += -50;
+
+            NameChanger = NameLeft;
+            NameLeft = NameMiddleRight;
+            NameMiddleRight = NameMiddleLeft;
+            NameMiddleLeft = NameChanger;
+            
                 
         }
 
