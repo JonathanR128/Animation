@@ -17,13 +17,19 @@ namespace Spiel
             NameMiddleLeft = "Box2";
             NameMiddleRight = "Box3";
             NameRight = "Box4";
-            VierPositionen = 3.5;
+            VierPositionen = 3;
+            DreiPositionen = 2.375;
+            ZweiPositionen = 1.75;
+            EinePosition = 1.125;
 
             Box4.Color = System.Drawing.Color.Purple;
-
+            
             MoveAsync();     
         
         }
+        public double EinePosition { get; set; }
+        public double ZweiPositionen { get; set; }
+        public double DreiPositionen { get; set; }
         public double VierPositionen { get; set; }
 
         public string NameLeft { get; set; }
@@ -65,10 +71,21 @@ namespace Spiel
         public async Task RotateOne()
         {
             StoreNames();
+            await RightBox.TranslateTo(50, 0, 3000);
         
-            LeftBox.AnchorX = VierPositionen;
-            await LeftBox.RotateTo(180, 3000);
+            LeftBox.AnchorX = DreiPositionen;
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, 3000),
+                MiddleLeftBox.RotateTo(-180, 3000),
+                MiddleRightBox.RotateTo(- 180, 3000),
+                RightBox.TranslateTo(50, 0, 3000)
+                );
+                
         }
+
+        
 
         public async Task MoveToCenter()
         {            
