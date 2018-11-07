@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <AbsoluteLayout>
            
-            <BoxView x:Name="Box1" Color="Olive"  AbsoluteLayout.LayoutBounds="0.5, 0.5, 40, 40"
+            <BoxView x:Name="Box1" Color="Olive"  AbsoluteLayout.LayoutBounds="0, 0, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" />
             <BoxView x:Name="Box2" Color="Olive"  AbsoluteLayout.LayoutBounds="1, 0, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" />
