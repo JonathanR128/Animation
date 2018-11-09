@@ -67,9 +67,7 @@ namespace Spiel
             await RotateTwo();
             await RotateOne();
             await RotateTwo();
-            await MoveBackInCorners();
-
-            
+            await MoveBackInCorners();           
 
         }
 
@@ -110,8 +108,7 @@ namespace Spiel
             NameRight = NameRight;
             NameChanger = NameMiddleRight;
             NameMiddleRight = NameLeft;
-            NameLeft = NameChanger;
-            
+            NameLeft = NameChanger;         
             
                 
         }
@@ -190,6 +187,51 @@ namespace Spiel
 
 
         }
+
+
+        //public async Task RotateWhatEver()
+        //{
+        //    StoreNames();
+        //    await Task.Delay(200);
+
+        //    LeftBox.AnchorX = AnchorLeft;
+        //    MiddleLeftBox.AnchorX = AnchorMiddleLeft;
+        //    MiddleRightBox.AnchorX = AnchorMiddleRight;
+        //    RightBox.AnchorX = AnchorRight;
+
+        //    await Task.WhenAll(
+        //        LeftBox.RotateTo(degreesLeft, time, easing),
+        //        MiddleLeftBox.RotateTo(degreesLeft, time, easing),
+        //        MiddleRightBox.RotateTo(degreesLeft, time, easing),
+        //        RightBox.RotateTo(degreesLeft, time, easing),
+
+        //        LeftBox.TranslateTo(LeftBox.TranslationX + LeftTranslationX, LeftBox.TranslationY + LeftTranslationY, time, easing),
+        //        MiddleLeftBox.TranslateTo(LeftBox.TranslationX + LeftTranslationX, LeftBox.TranslationY + LeftTranslationY, time, easing),
+        //        MiddleLeftBox.TranslateTo(LeftBox.TranslationX + LeftTranslationX, LeftBox.TranslationY + LeftTranslationY, time, easing),
+        //        MiddleLeftBox.TranslateTo(LeftBox.TranslationX + LeftTranslationX, LeftBox.TranslationY + LeftTranslationY, time, easing)
+        //        );
+
+        //    // Set Anchor to normal and compensate the translation
+        //    LeftBox.AnchorX = 0.5;
+        //    MiddleLeftBox.AnchorX = 0.5;      
+        //    MiddleRightBox.AnchorX = 0.5;
+        //    RightBox.AnchorX = 0.5;
+
+        //    LeftBox.TranslationX += LeftBoxTranslationThroughRotation;
+        //    LeftBox.TranslationX += LeftBoxTranslationThroughRotation;
+        //    LeftBox.TranslationX += LeftBoxTranslationThroughRotation;
+        //    LeftBox.TranslationX += LeftBoxTranslationThroughRotation;
+
+        //    LeftBox.Rotation = 0;
+        //    MiddleLeftBox.Rotation = 0;
+        //    MiddleRightBox.Rotation = 0;
+        //    RightBox.Rotation = 0;
+        //    // irgendwie Namechanging allgemein?
+        //    //NameChanger = NameMiddleLeft;
+        //    //NameMiddleLeft = NameRight;
+        //    //NameRight = NameChanger;
+
+        //}
 
         public async Task MoveToCenter()
         {            
