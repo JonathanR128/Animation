@@ -59,8 +59,11 @@ namespace Spiel
             //await Box1.TranslateTo(20, 5);
             //Box1.AnchorX = 1.5;
             //await Box1.RotateTo(180, 2000, Easing.Linear);
-
+            await Task.Delay(2000);
             await MoveToCenterInRow();
+            await RotateSix();
+            await RotateSix();
+            await RotateFive();
             await RotateThreePlus();
             await RotateThreePlus();
             await RotateOne();
@@ -225,7 +228,113 @@ namespace Spiel
             NameRight = NameChanger;
         }
 
+        public async Task RotateFive()
+        {
+            StoreNames();
+            await Task.Delay(200);
 
+            LeftBox.AnchorX = VierPositionen;
+            RightBox.AnchorX = -(VierPositionen -1);
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, 1200),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX - 50, MiddleLeftBox.TranslationY, 2400),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX + 50, MiddleRightBox.TranslationY, 2400),
+                RightBox.RotateTo(180, 1200)
+
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+            LeftBox.TranslationX += 200;
+            RightBox.TranslationX += -200;
+
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            LeftBox.AnchorX = -(ZweiPositionen - 1);
+            RightBox.AnchorX = ZweiPositionen;
+
+            await Task.WhenAll(
+            LeftBox.RotateTo(-180, 1000),
+            RightBox.RotateTo(180, 1000)
+            );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+            LeftBox.TranslationX += -100;
+            RightBox.TranslationX += 100;
+
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            NameChanger = NameLeft;
+            NameLeft = NameMiddleLeft;
+            NameMiddleLeft = NameRight;
+            NameRight = NameMiddleRight;
+            NameMiddleRight  = NameChanger;
+
+
+        }
+
+        public async Task RotateSix()
+        {
+            StoreNames();
+            await Task.Delay(200);
+
+            MiddleLeftBox.AnchorX = VierPositionen;
+            MiddleRightBox.AnchorX = ZweiPositionen;
+            RightBox.AnchorX = -( DreiPositionen-1);
+
+
+            await Task.WhenAll(
+                RightBox.RotateTo(180, 1200),
+                MiddleRightBox.RotateTo(180, 1200),
+                MiddleLeftBox.RotateTo(180, 1200),
+                LeftBox.TranslateTo(LeftBox.TranslationX + 50, LeftBox.TranslationY, 1200)
+                
+                );
+
+            // Set Anchor to normal and compensate the translation
+            RightBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            LeftBox.AnchorX = 0.5;
+            RightBox.TranslationX += -150;
+            MiddleRightBox.TranslationX += 100;
+            MiddleLeftBox.TranslationX += 200;
+
+            await Task.WhenAll(
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX - 100, MiddleRightBox.TranslationY, 1200),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX - 100, MiddleLeftBox.TranslationY, 1200)
+
+                );
+
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameMiddleLeft;
+            NameMiddleLeft = NameChanger;
+        }
         //public async Task RotateWhatEver()
         //{
         //    StoreNames();
