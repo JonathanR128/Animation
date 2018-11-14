@@ -21,8 +21,6 @@ namespace Spiel
             DreiPositionen = 2.375;
             ZweiPositionen = 1.75;
             EinePosition = 1.125;
-
-            Box4.Color = System.Drawing.Color.Purple;
             
             MoveAsync();
         }
@@ -56,34 +54,10 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
-
-            DrawPaintOnBoxes();
-            await Task.Delay(100);
+            await Task.Delay(500);
             await MoveToCenterInRow();
 
-            await RotateTwelve();
 
-            await RotateEleven();
-            await RotateEleven();
-            await RotateTen();
-            await RotateNine();
-            await RotateNine();
-            await RotateEight();
-            await RotateEight();
-            await RotateSeven();
-            await RotateSeven();
-            await RotateFourPointOne();
-            await RotateFourPointOne();
-            await RotateFour();
-            await RotateFour();
-            await RotateSix();
-            await RotateSix();
-            await RotateFive();
-            await RotateThreePlus();
-            await RotateThreePlus();
-            await RotateOne();
-            await RotateTwo();
-            await RotateOne();
             await RotateTwo();
             await MoveBackInCorners();           
 
@@ -862,10 +836,10 @@ namespace Spiel
             RightBox.AnchorY = 0.5;
 
 
-            LeftBox.TranslationX += 200;
+            LeftBox.TranslationX += 150;
             MiddleLeftBox.TranslationX += 50;
             MiddleRightBox.TranslationX += -50;
-            RightBox.TranslationX += -200;
+            RightBox.TranslationX += -150;
 
             LeftBox.Rotation = 0;
             MiddleLeftBox.Rotation = 0;
@@ -878,6 +852,12 @@ namespace Spiel
                 RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY + 50, 750)
                 );
 
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameChanger;
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameMiddleRight;
+            NameMiddleRight = NameChanger;
         }
 
 
@@ -928,28 +908,18 @@ namespace Spiel
 
         //}
 
-        public async Task MoveToCenter()
-        {            
-            await Box1.TranslateTo(Box4.X / 2, Box4.Y / 2, 1000, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
-
-            await Box1.TranslateTo(Box4.X / 2, Box4.Y / 2, 2000, Easing.Linear);
-            await Box2.TranslateTo(-(Box4.X / 2), Box4.Y / 2, 2000, Easing.Linear);
-            await Box3.TranslateTo(Box4.X / 2, -(Box4.Y / 2), 2000, Easing.Linear);
-            await Box4.TranslateTo(-(Box4.X / 2), -(Box4.Y / 2), 2000, Easing.Linear);
-        }
 
         public async Task MoveToCenterInRow()
         {
-            await Box1.TranslateTo(10, 10, 400, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
-            await Box1.TranslateTo((Box4.X / 2) - 75, Box4.Y / 2, 500, Easing.Linear);
-            await Box2.TranslateTo(-(Box4.X / 2) - 25, Box4.Y / 2, 500, Easing.Linear);
-            await Box3.TranslateTo((Box4.X / 2) + 25, -(Box4.Y / 2), 500, Easing.Linear);
-            await Box4.TranslateTo(-(Box4.X / 2) + 75, -(Box4.Y / 2), 500, Easing.Linear);
+            await Box1.TranslateTo(10, 10, 1, Easing.Linear); // bewirkt nichts, weil der den ersten Befehl hier nicht packt..
+            await Box1.TranslateTo((Box4.X / 2) - 75, Box4.Y / 2, 0, Easing.Linear);
+            await Box2.TranslateTo(-(Box4.X / 2) - 25, Box4.Y / 2, 0, Easing.Linear);
+            await Box3.TranslateTo((Box4.X / 2) + 25, -(Box4.Y / 2), 0, Easing.Linear);
+            await Box4.TranslateTo(-(Box4.X / 2) + 75, -(Box4.Y / 2), 0, Easing.Linear);
         }
 
         public async Task MoveBackInCorners()
         {
-            Box1.Color = System.Drawing.Color.Black;
             await Box1.TranslateTo(0, 0, 2000, Easing.Linear);                                // moves box 1 back in Start Poition 
             await Box2.TranslateTo(0, 0, 2000, Easing.Linear); // moves box 2 back in Start Position
             await Box3.TranslateTo(0, 0, 2000, Easing.Linear); // moves box 3 back in Start Position
@@ -963,7 +933,6 @@ namespace Spiel
             MiddleRightBox = this.FindByName<BoxView>(NameMiddleRight);
             RightBox = this.FindByName<BoxView>(NameRight);
         }
-
 
 
         //public async Task RotateWhatEver()
