@@ -14,6 +14,7 @@ namespace Spiel.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 

@@ -12,6 +12,7 @@ namespace Spiel
         public MainPage()
         {
             InitializeComponent();
+           
 
             NameLeft = "Box1";
             NameMiddleLeft = "Box2";
@@ -46,48 +47,39 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
-            await Task.Delay(500);
+            await Task.Delay(1000);
             
             await MoveToCenterInRow();
-            DrawBoxRed(3);
+            DrawBoxRed(4);
             await FadeBoxesToOne(2000);
             DrawBoxesGreen();
+            await Task.Delay(1000);
 
-            await RotateTwelve();
+
+            await RotateFive();
+            await RotateEight();
+            await RotateSeven();
             await RotateEleven();
-            await RotateEleven(10000);
-            await RotateTen(500, 500, 500);
-            await RotateNine(500, 500, 500);
-            await RotateEight(750, 1000, 500);
-            await RotateEight(750, 1000, 500);
-            await RotateSeven(750, 1000);
-            await RotateSeven(750, 1000);
-            await RotateFive(750, 750);
-            await RotateFive(750, 750);
-            await RotateFour(500, 500, 1000);
-            await RotateOne(500);
-            await RotateTwo(500);
-            await RotateTwo(500);
-            await RotateTwo(500);
-            await RotateEleven(1500);
+            await RotateTen();
 
-            await RotateTwo(500);
+
             await MoveBackInCorners();           
 
         }
 
-        public async Task RotateOne(uint t = 500)
+        public async Task RotateOne(uint t = 350)
         {
             StoreNames();
-       
+
+            Easing easing = Easing.SinInOut;
             LeftBox.AnchorX = DreiPositionen;
             MiddleLeftBox.AnchorX = EinePosition;
             MiddleRightBox.AnchorX = -(EinePosition - 1);
             await Task.WhenAll(
-                LeftBox.RotateTo(180, t),
-                MiddleLeftBox.RotateTo(-180, t),
-                MiddleRightBox.RotateTo(- 180, t),
-                RightBox.TranslateTo(RightBox.TranslationX + 50,RightBox.TranslationY + 0, t)
+                LeftBox.RotateTo(180, t, easing),
+                MiddleLeftBox.RotateTo(-180, t, easing),
+                MiddleRightBox.RotateTo(- 180, t, easing),
+                RightBox.TranslateTo(RightBox.TranslationX + 50,RightBox.TranslationY + 0, t, easing)
                 );
 
             // Set Anchor to normal and compensate the translation
@@ -109,7 +101,7 @@ namespace Spiel
             NameLeft = NameChanger;    
         }
 
-        public async Task RotateTwo(uint t = 500)
+        public async Task RotateTwo(uint t = 350)
         {
             StoreNames();
 
@@ -140,7 +132,7 @@ namespace Spiel
             NameRight = NameChanger;
         }
 
-        public async Task RotateThree(uint t = 500)
+        public async Task RotateThree(uint t = 350)
         {
             StoreNames();
 
@@ -176,7 +168,7 @@ namespace Spiel
             NameRight = NameChanger;
         }
 
-        public async Task RotateThreePlus(uint t = 500)
+        public async Task RotateThreePlus(uint t = 350)
         {
             StoreNames();
 
@@ -788,7 +780,7 @@ namespace Spiel
 
         }
 
-        public async Task RotateTwelve(uint t = 750, uint t2 = 750, uint t3 = 750)
+        public async Task RotateTwelve(uint t = 500, uint t2 = 750, uint t3 = 500)
         {
             StoreNames();
 
