@@ -15,13 +15,13 @@
             <Label x:Name="Label4" Text="4" FontSize="Large" TextColor="Black" AbsoluteLayout.LayoutBounds="1, 1, 60, 60"
                   AbsoluteLayout.LayoutFlags="PositionProportional" />
             <BoxView x:Name="Box1" Color="Green"  AbsoluteLayout.LayoutBounds="0, 0, 40, 40"
-                AbsoluteLayout.LayoutFlags="PositionProportional" />
+                AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
             <BoxView x:Name="Box2" Color="Green"  AbsoluteLayout.LayoutBounds="1, 0, 40, 40"
-                AbsoluteLayout.LayoutFlags="PositionProportional" />
+                AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
             <BoxView x:Name="Box3" Color="Green"  AbsoluteLayout.LayoutBounds="0, 1, 40, 40"
-                AbsoluteLayout.LayoutFlags="PositionProportional" />
+                AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0" />
             <BoxView x:Name="Box4" Color="Green"  AbsoluteLayout.LayoutBounds="1, 1, 40, 40"
-                AbsoluteLayout.LayoutFlags="PositionProportional" />
+                AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0" />
 
         </AbsoluteLayout>
     </ContentPage.Content>

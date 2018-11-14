@@ -41,29 +41,28 @@ namespace Spiel
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
 
-        public void DrawPaintOnBoxes()
-        {
 
-            Box1.Color = System.Drawing.Color.Black;
-            Box2.Color = System.Drawing.Color.Blue;
-            Box3.Color = System.Drawing.Color.LawnGreen;
-            Box4.Color = System.Drawing.Color.DeepPink;
-
-        }
 
 
         public async Task MoveAsync()
         {
             await Task.Delay(500);
+            
             await MoveToCenterInRow();
+            DrawBoxRed(3);
+            await FadeBoxesToOne(2000);
+            DrawBoxesGreen();
 
-
+            await RotateOne(500);
+            await RotateEleven();
+            await RotateNine();
             await RotateTwo();
+            await RotateEight();
             await MoveBackInCorners();           
 
         }
 
-        public async Task RotateOne()
+        public async Task RotateOne(uint t)
         {
             StoreNames();
             await Task.Delay(200);
@@ -72,10 +71,10 @@ namespace Spiel
             MiddleLeftBox.AnchorX = EinePosition;
             MiddleRightBox.AnchorX = -(EinePosition - 1);
             await Task.WhenAll(
-                LeftBox.RotateTo(180, 1200),
-                MiddleLeftBox.RotateTo(-180, 1200),
-                MiddleRightBox.RotateTo(- 180, 1200),
-                RightBox.TranslateTo(RightBox.TranslationX + 50,RightBox.TranslationY + 0, 1200)
+                LeftBox.RotateTo(180, t),
+                MiddleLeftBox.RotateTo(-180, t),
+                MiddleRightBox.RotateTo(- 180, t),
+                RightBox.TranslateTo(RightBox.TranslationX + 50,RightBox.TranslationY + 0, t)
                 );
 
             // Set Anchor to normal and compensate the translation
@@ -934,6 +933,63 @@ namespace Spiel
             RightBox = this.FindByName<BoxView>(NameRight);
         }
 
+        public void FadeBoxesToZero()
+        {
+            Box1.FadeTo(0, 0);
+            Box2.FadeTo(0, 0);
+            Box3.FadeTo(0, 0);
+            Box4.FadeTo(0, 0);
+        }
+
+        public async Task FadeBoxesToOne(uint t)
+        {
+            await Task.WhenAll(
+                  Box1.FadeTo(1, t),
+                  Box2.FadeTo(1, t),
+                  Box3.FadeTo(1, t),
+                  Box4.FadeTo(1, t)
+                );
+        }
+
+        public void DrawBoxRed (int i)
+        {
+            if (i == 1)
+            {
+                Box1.Color = System.Drawing.Color.Red;
+            }
+            if (i == 2)
+            {
+                Box2.Color = System.Drawing.Color.Red;
+            }
+            if (i == 3)
+            {
+                Box3.Color = System.Drawing.Color.Red;
+            }
+            if (i == 4)
+            {
+                Box4.Color = System.Drawing.Color.Red;
+            }
+        }
+
+        public void DrawPaintOnBoxes()
+        {
+
+            Box1.Color = System.Drawing.Color.Black;
+            Box2.Color = System.Drawing.Color.Blue;
+            Box3.Color = System.Drawing.Color.LawnGreen;
+            Box4.Color = System.Drawing.Color.DeepPink;
+
+        }
+
+        public void DrawBoxesGreen()
+        {
+
+            Box1.Color = System.Drawing.Color.Green;
+            Box2.Color = System.Drawing.Color.Green;
+            Box3.Color = System.Drawing.Color.Green;
+            Box4.Color = System.Drawing.Color.Green;
+
+        }
 
         //public async Task RotateWhatEver()
         //{
