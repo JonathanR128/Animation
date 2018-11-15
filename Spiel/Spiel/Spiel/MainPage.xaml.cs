@@ -43,12 +43,10 @@ namespace Spiel
         public BoxView MiddleLeftBox { get; set; }
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
-        public Random random = new Random();
-       
+     
 
         public async Task RotationRandom(int i)
         {
-
             switch (i)
             {
                 case 1:
@@ -64,6 +62,7 @@ namespace Spiel
                     break;
                 case 4:
                     await RotateFour();
+                    PositionMovedToTheRight += -1;
                     break;
                 case 5:
                     await RotateFive();
@@ -92,18 +91,6 @@ namespace Spiel
                     break;
 
             }
-            //if (i == 1)
-            //{
-            //    await RotateOne();
-            //}
-            //if (i == 2)
-            //{
-            //    await RotateTwo();
-            //}
-            //if (i == 3)
-            //{
-            //    await RotateThree();
-            //}
         }
             
 
@@ -117,30 +104,21 @@ namespace Spiel
                 PositionMovedToTheRight = 0;
                 await Task.Delay(2000);
 
-                int randomRotation1 = random.Next(1, 12);
-                int randomRotation2 = random.Next(1, 12);
-                int randomRotation3 = random.Next(1, 12);
-                int randomRotation4 = random.Next(1, 12);
-                int randomRedBox = random.Next(1, 4);
-
                 await FadeBoxesToZero(2000);
                 DrawBoxesGreen();
                 await MoveToCenterInRow();
-                DrawBoxRed(randomRedBox);
+                DrawBoxRed(1);
                 await FadeBoxesToOne(2000);
                 DrawBoxesGreen();
                 await Task.Delay(1000);
 
-                await RotationRandom(1);
-                await RotationRandom(2);
-
-                //await RotationRandom(randomRotation1);
-                //await RotationRandom(randomRotation2);
-                //await RotationRandom(randomRotation3);
-                //await RotationRandom(randomRotation4);
+                await RotationRandom(3);
+                await RotationRandom(12);
+                await RotationRandom(6);
+                await RotationRandom(8);
 
                 await MoveBackInCorners();
-                DrawBoxRed(randomRedBox);
+                DrawBoxRed(1);
 
             }
            
