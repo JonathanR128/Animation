@@ -22,7 +22,16 @@ namespace Spiel
             DreiPositionen = 2.375;
             ZweiPositionen = 1.75;
             EinePosition = 1.125;
-            
+
+            rotations.Add(() => RotateOne());
+            rotations.Add(() => RotateTwo());
+            rotations.Add(() => RotateThree());
+            rotations.Add(() => RotateFour());
+            rotations.Add(() => RotateFive());
+            rotations.Add(() => RotateSix());
+            rotations.Add(() => RotateSeven());
+            rotations.Add(() => RotateEight());
+
             MoveAsync();
         }
 
@@ -42,12 +51,47 @@ namespace Spiel
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
 
+       public List<Action> rotations = new List<Action>();
+       
 
+        public async Task RotationRandom(int i)
+        {
+
+            switch (i)
+            {
+                case 1:
+                    await RotateOne();
+                    break;
+                case 2:
+                    await RotateTwo();
+                    break;
+                case 3:
+                    await RotateThree();
+                    break;
+                case 4:
+                    await RotateFour();
+                    break;
+
+            }
+            //if (i == 1)
+            //{
+            //    await RotateOne();
+            //}
+            //if (i == 2)
+            //{
+            //    await RotateTwo();
+            //}
+            //if (i == 3)
+            //{
+            //    await RotateThree();
+            //}
+        }
+            
 
 
         public async Task MoveAsync()
         {
-            await Task.Delay(1000);
+            await Task.Delay(2000);
             
             await MoveToCenterInRow();
             DrawBoxRed(4);
@@ -55,19 +99,17 @@ namespace Spiel
             DrawBoxesGreen();
             await Task.Delay(1000);
 
+            //foreach(var action in rotations)
+            //         rotations.Invoke();
 
-            await RotateFive();
-            await RotateEight();
-            await RotateSeven();
-            await RotateEleven();
-            await RotateTen();
-
+            await RotationRandom(1);
+            await RotationRandom(2);
 
             await MoveBackInCorners();           
 
         }
 
-        public async Task RotateOne(uint t = 350)
+        public async Task RotateOne(uint t = 500)
         {
             StoreNames();
 
@@ -101,7 +143,7 @@ namespace Spiel
             NameLeft = NameChanger;    
         }
 
-        public async Task RotateTwo(uint t = 350)
+        public async Task RotateTwo(uint t = 500)
         {
             StoreNames();
 
@@ -132,7 +174,7 @@ namespace Spiel
             NameRight = NameChanger;
         }
 
-        public async Task RotateThree(uint t = 350)
+        public async Task RotateThree(uint t = 500)
         {
             StoreNames();
 
@@ -142,8 +184,8 @@ namespace Spiel
             await Task.WhenAll(
                 RightBox.RotateTo(-180, t),
                 LeftBox.RotateTo(180, t),
-                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX - 50, MiddleLeftBox.TranslationY + 0, t),
-                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX + 50, MiddleRightBox.TranslationY + 0, t)
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX - 50, MiddleLeftBox.TranslationY + 0, t, Easing.CubicIn),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX + 50, MiddleRightBox.TranslationY + 0, t, Easing.CubicIn)
                 );
 
             // Set Anchor to normal and compensate the translation
@@ -168,7 +210,7 @@ namespace Spiel
             NameRight = NameChanger;
         }
 
-        public async Task RotateThreePlus(uint t = 350)
+        public async Task RotateThreePlus(uint t = 500)
         {
             StoreNames();
 
