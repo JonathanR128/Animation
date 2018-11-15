@@ -35,6 +35,7 @@ namespace Spiel
             MoveAsync();
         }
 
+        public int PositionMovedToTheRight { get; set; }
         public double EinePosition { get; set; }
         public double ZweiPositionen { get; set; }
         public double DreiPositionen { get; set; }
@@ -50,6 +51,7 @@ namespace Spiel
         public BoxView MiddleLeftBox { get; set; }
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
+        public Random random = new Random();
 
        public List<Action> rotations = new List<Action>();
        
@@ -61,15 +63,42 @@ namespace Spiel
             {
                 case 1:
                     await RotateOne();
+                    PositionMovedToTheRight += 1;
                     break;
                 case 2:
                     await RotateTwo();
+                    PositionMovedToTheRight += -1;
                     break;
                 case 3:
                     await RotateThree();
                     break;
                 case 4:
                     await RotateFour();
+                    break;
+                case 5:
+                    await RotateFive();
+                    break;
+                case 6:
+                    await RotateSix();
+                    break;
+                case 7:
+                    await RotateSeven();
+                    break;
+                case 8:
+                    await RotateEight();
+                    break;
+                case 9:
+                    await RotateNine();
+                    PositionMovedToTheRight += 1;
+                    break;
+                case 10:
+                    await RotateTen();
+                    break;
+                case 11:
+                    await RotateEleven();
+                    break;
+                case 12:
+                    await RotateTwelve();
                     break;
 
             }
@@ -91,21 +120,42 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
-            await Task.Delay(2000);
-            
-            await MoveToCenterInRow();
-            DrawBoxRed(4);
-            await FadeBoxesToOne(2000);
-            DrawBoxesGreen();
-            await Task.Delay(1000);
+           
 
             //foreach(var action in rotations)
             //         rotations.Invoke();
 
-            await RotationRandom(1);
-            await RotationRandom(2);
+            for (int i = 1; i < 10; i++)
+            {
+                PositionMovedToTheRight = 0;
+                await Task.Delay(2000);
 
-            await MoveBackInCorners();           
+                int randomRotation1 = random.Next(1, 12);
+                int randomRotation2 = random.Next(1, 12);
+                int randomRotation3 = random.Next(1, 12);
+                int randomRotation4 = random.Next(1, 12);
+                int randomRedBox = random.Next(1, 4);
+
+                await FadeBoxesToZero(2000);
+                await MoveToCenterInRow();
+                DrawBoxRed(randomRedBox);
+                await FadeBoxesToOne(2000);
+                DrawBoxesGreen();
+                await Task.Delay(1000);
+
+                await RotationRandom(2);
+                await RotationRandom(2);
+
+                //await RotationRandom(randomRotation1);
+                //await RotationRandom(randomRotation2);
+                //await RotationRandom(randomRotation3);
+                //await RotationRandom(randomRotation4);
+
+                await MoveBackInCorners();
+                DrawBoxRed(randomRedBox);
+
+            }
+           
 
         }
 
@@ -941,14 +991,20 @@ namespace Spiel
             await Box2.TranslateTo(-(Box4.X / 2) - 25, Box4.Y / 2, 0, Easing.Linear);
             await Box3.TranslateTo((Box4.X / 2) + 25, -(Box4.Y / 2), 0, Easing.Linear);
             await Box4.TranslateTo(-(Box4.X / 2) + 75, -(Box4.Y / 2), 0, Easing.Linear);
+
+            NameLeft = "Box1";
+            NameMiddleLeft = "Box2";
+            NameMiddleRight = "Box3";
+            NameRight = "Box4";
         }
 
         public async Task MoveBackInCorners()
         {
-            await Box1.TranslateTo(0, 0, 2000, Easing.Linear);                                // moves box 1 back in Start Poition 
-            await Box2.TranslateTo(0, 0, 2000, Easing.Linear); // moves box 2 back in Start Position
-            await Box3.TranslateTo(0, 0, 2000, Easing.Linear); // moves box 3 back in Start Position
-            await Box4.TranslateTo(0, 0, 2000, Easing.Linear); // moves box 4 back in Start Position
+            StoreNames();
+            await LeftBox.TranslateTo(LeftBox.TranslationX - ((Box4.X / 2) - 75) - (PositionMovedToTheRight * 50),LeftBox.TranslationY -(Box4.Y / 2), 2000, Easing.Linear);                                // moves box 1 back in Start Poition 
+            await MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + (Box4.X / 2) + 25 - (PositionMovedToTheRight * 50), MiddleLeftBox.TranslationY - (Box4.Y / 2), 2000, Easing.Linear); // moves box 2 back in Start Position
+            await MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX -(Box4.X / 2) - 25 - (PositionMovedToTheRight * 50), MiddleRightBox.TranslationY + (Box4.Y / 2), 2000, Easing.Linear); // moves box 3 back in Start Position
+            await RightBox.TranslateTo(RightBox.TranslationX + (Box4.X / 2) - 75 - (PositionMovedToTheRight * 50), RightBox.TranslationY + (Box4.Y / 2), 2000, Easing.Linear); // moves box 4 back in Start Position
         }
 
         public void  StoreNames()
@@ -959,12 +1015,14 @@ namespace Spiel
             RightBox = this.FindByName<BoxView>(NameRight);
         }
 
-        public void FadeBoxesToZero()
+        public async Task FadeBoxesToZero(uint t)
         {
-            Box1.FadeTo(0, 0);
-            Box2.FadeTo(0, 0);
-            Box3.FadeTo(0, 0);
-            Box4.FadeTo(0, 0);
+            await Task.WhenAll(
+                  Box1.FadeTo(0, t),
+                  Box2.FadeTo(0, t),
+                  Box3.FadeTo(0, t),
+                  Box4.FadeTo(0, t)
+                );
         }
 
         public async Task FadeBoxesToOne(uint t)
