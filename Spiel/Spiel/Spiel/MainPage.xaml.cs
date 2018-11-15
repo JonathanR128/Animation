@@ -23,14 +23,6 @@ namespace Spiel
             ZweiPositionen = 1.75;
             EinePosition = 1.125;
 
-            rotations.Add(() => RotateOne());
-            rotations.Add(() => RotateTwo());
-            rotations.Add(() => RotateThree());
-            rotations.Add(() => RotateFour());
-            rotations.Add(() => RotateFive());
-            rotations.Add(() => RotateSix());
-            rotations.Add(() => RotateSeven());
-            rotations.Add(() => RotateEight());
 
             MoveAsync();
         }
@@ -52,8 +44,6 @@ namespace Spiel
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
         public Random random = new Random();
-
-       public List<Action> rotations = new List<Action>();
        
 
         public async Task RotationRandom(int i)
@@ -122,9 +112,6 @@ namespace Spiel
         {
            
 
-            //foreach(var action in rotations)
-            //         rotations.Invoke();
-
             for (int i = 1; i < 10; i++)
             {
                 PositionMovedToTheRight = 0;
@@ -137,13 +124,14 @@ namespace Spiel
                 int randomRedBox = random.Next(1, 4);
 
                 await FadeBoxesToZero(2000);
+                DrawBoxesGreen();
                 await MoveToCenterInRow();
                 DrawBoxRed(randomRedBox);
                 await FadeBoxesToOne(2000);
                 DrawBoxesGreen();
                 await Task.Delay(1000);
 
-                await RotationRandom(2);
+                await RotationRandom(1);
                 await RotationRandom(2);
 
                 //await RotationRandom(randomRotation1);
