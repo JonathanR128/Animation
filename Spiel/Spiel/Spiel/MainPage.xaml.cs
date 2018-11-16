@@ -57,7 +57,8 @@ namespace Spiel
         public BoxView MiddleLeftBox { get; set; }
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
-     
+
+        public int[] Rotationsreihenfolge = new int[] { 3, 6, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7, 7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4};
 
         public async Task RotationRandom(int i)
         {
@@ -111,13 +112,10 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
+            await Task.Delay(2000);
+          //  await StartSequenz();
 
-
-
-            await StartSequenz();
-
-
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 5; i++)
             {
                 PositionMovedToTheRight = 0;
                 DrawBoxesGreen();
@@ -128,18 +126,16 @@ namespace Spiel
                 DrawBoxesGreen();
                 await Task.Delay(1000);
 
-                await RotationRandom(3);
-                await RotationRandom(12);
-                await RotationRandom(6);
-                await RotationRandom(8);
+                await RotationRandom(Rotationsreihenfolge[(i-1)*4]);
+                await RotationRandom(Rotationsreihenfolge[(i + ((i - 1) * 4))]);
+                await RotationRandom(Rotationsreihenfolge[(i + 1 + ((i - 1) * 4))]);
+                await RotationRandom(Rotationsreihenfolge[(i + 2 + ((i - 1) * 4))]);
 
                 await MoveBackInCorners();
                 DrawBoxRed(1);
                 await Task.Delay(1000);
                 await FadeBoxesToZero(1000);
-
-            }
-           
+            }          
 
         }
 
@@ -1019,10 +1015,20 @@ namespace Spiel
         public async Task MoveBackInCorners()
         {
             StoreNames();
-            await LeftBox.TranslateTo(LeftBox.TranslationX - ((Box4.X / 2) - 75) - (PositionMovedToTheRight * 50),LeftBox.TranslationY -(Box4.Y / 2), 2000, Easing.Linear);                                // moves box 1 back in Start Poition 
-            await MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + (Box4.X / 2) + 25 - (PositionMovedToTheRight * 50), MiddleLeftBox.TranslationY - (Box4.Y / 2), 2000, Easing.Linear); // moves box 2 back in Start Position
-            await MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX -(Box4.X / 2) - 25 - (PositionMovedToTheRight * 50), MiddleRightBox.TranslationY + (Box4.Y / 2), 2000, Easing.Linear); // moves box 3 back in Start Position
-            await RightBox.TranslateTo(RightBox.TranslationX + (Box4.X / 2) - 75 - (PositionMovedToTheRight * 50), RightBox.TranslationY + (Box4.Y / 2), 2000, Easing.Linear); // moves box 4 back in Start Position
+
+            await Task.WhenAll(
+              LeftBox.TranslateTo(LeftBox.TranslationX - 75, LeftBox.TranslationY - 75, 500, Easing.SinInOut),                  
+              MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 75, 500, Easing.SinInOut), 
+              MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 75, 500, Easing.SinInOut), 
+              RightBox.TranslateTo(RightBox.TranslationX + 75, RightBox.TranslationY + 75, 500, Easing.SinInOut) 
+             );
+
+            await Task.WhenAll(
+             LeftBox.TranslateTo(LeftBox.TranslationX - ((Box4.X / 2) - 75) - (PositionMovedToTheRight * 50) +75,LeftBox.TranslationY -(Box4.Y / 2) +75, 1000, Easing.SinInOut),                
+             MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + (Box4.X / 2) + 25 - (PositionMovedToTheRight * 50), MiddleLeftBox.TranslationY - (Box4.Y / 2)+75, 1000, Easing.SinInOut),   
+             MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX -(Box4.X / 2) - 25 - (PositionMovedToTheRight * 50), MiddleRightBox.TranslationY + (Box4.Y / 2)-75, 1000, Easing.SinInOut), 
+             RightBox.TranslateTo(RightBox.TranslationX + (Box4.X / 2) - 75 - (PositionMovedToTheRight * 50)-75, RightBox.TranslationY + (Box4.Y / 2)-75, 1000, Easing.SinInOut)                
+            );
         }
 
         public void  StoreNames()
