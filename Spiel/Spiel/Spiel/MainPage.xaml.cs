@@ -46,7 +46,13 @@ namespace Spiel
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
 
-        public int[] Rotationsreihenfolge = new int[] { 3, 6, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7, 7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4};
+        public int[] Rotationsreihenfolge = new int[] { 3, 6, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7,
+            7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,
+            7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,8 , 9,
+            10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7, 7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3
+        };
+
+        public int[] RedBox = new int[] { 2, 1, 4, 2, 1, 4, 3, 3, 2, 1, 4, 1, 2, 2, 3, 1, 4, 4, 1, 1, 2, 3, 1, 4, 1, 2, 3, 1, 2, 3, 1 };
 
         public async Task RotationRandom(int i)
         {
@@ -100,27 +106,30 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
-            await Task.Delay(2000);
+            await Task.Delay(1000);
+            await Countdown10.FadeTo(0, 1000);
           //  await StartSequenz();
 
-            for (int i = 1; i < 5; i++)
+            for (int i = 1; i < 21; i++)
             {
                 PositionMovedToTheRight = 0;
                 DrawBoxesGreen();
                 await MoveToCenterInRow();
-                DrawBoxRed(1);
+                DrawBoxRed(RedBox[i - 1]);
                 await FadeBoxesToOne(1000);
                 await Task.Delay(1000);
                 DrawBoxesGreen();
                 await Task.Delay(1000);
 
-                await RotationRandom(Rotationsreihenfolge[(i-1)*4]);
-                await RotationRandom(Rotationsreihenfolge[(i + ((i - 1) * 4))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 1 + ((i - 1) * 4))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 2 + ((i - 1) * 4))]);
+                await RotationRandom(Rotationsreihenfolge[(i-1)*6]);
+                await RotationRandom(Rotationsreihenfolge[(i + ((i - 1) * 6))]);
+                await RotationRandom(Rotationsreihenfolge[(i + 1 + ((i - 1) * 6))]);
+                await RotationRandom(Rotationsreihenfolge[(i + 2 + ((i - 1) * 6))]);
+                await RotationRandom(Rotationsreihenfolge[(i + 3 + ((i - 1) * 6))]);
+                await RotationRandom(Rotationsreihenfolge[(i + 4 + ((i - 1) * 6))]);
 
                 await MoveBackInCorners();
-                DrawBoxRed(1);
+                DrawBoxRed(RedBox[i - 1]);
                 await Task.Delay(1000);
                 await FadeBoxesToZero(1000);
             }          
