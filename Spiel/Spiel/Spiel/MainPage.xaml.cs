@@ -24,19 +24,19 @@ namespace Spiel
             ZweiPositionen = 1.75;
             EinePosition = 1.125;
 
-            using (var reader = new StreamReader(@"C:\Users\user\Source\Animation\Spiel\Spiel\Spiel\TestCSV.csv"))
-            {
-                List<string> listA = new List<string>();
-                List<string> listB = new List<string>();
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    var values = line.Split(';');
+            //using (var reader = new StreamReader("TestCSV.csv"))
+            //{
+            //    List<string> listA = new List<string>();
+            //    List<string> listB = new List<string>();
+            //    while (!reader.EndOfStream)
+            //    {
+            //        var line = reader.ReadLine();
+            //        var values = line.Split(';');
 
-                    listA.Add(values[0]);
-                    listB.Add(values[1]);
-                }
-            }
+            //        listA.Add(values[0]);
+            //        listB.Add(values[1]);
+            //    }
+            //}
 
             MoveAsync();
         }
@@ -111,18 +111,20 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
-           
+
+
+
+            await StartSequenz();
+
 
             for (int i = 1; i < 10; i++)
             {
                 PositionMovedToTheRight = 0;
-                await Task.Delay(2000);
-
-                await FadeBoxesToZero(2000);
                 DrawBoxesGreen();
                 await MoveToCenterInRow();
                 DrawBoxRed(1);
-                await FadeBoxesToOne(2000);
+                await FadeBoxesToOne(1000);
+                await Task.Delay(1000);
                 DrawBoxesGreen();
                 await Task.Delay(1000);
 
@@ -133,9 +135,45 @@ namespace Spiel
 
                 await MoveBackInCorners();
                 DrawBoxRed(1);
+                await Task.Delay(1000);
+                await FadeBoxesToZero(1000);
 
             }
            
+
+        }
+
+        public async Task StartSequenz()
+        {
+            await Task.Delay(1000);
+            await Countdown10.FadeTo(0, 100);
+            await Countdown9.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown9.FadeTo(0, 100, Easing.SinIn);
+            await Countdown8.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown8.FadeTo(0, 100, Easing.SinIn);
+            await Countdown7.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown7.FadeTo(0, 100, Easing.SinIn);
+            await Countdown6.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown6.FadeTo(0, 100, Easing.SinIn);
+            await Countdown5.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown5.FadeTo(0, 100, Easing.SinIn);
+            await Countdown4.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown4.FadeTo(0, 100, Easing.SinIn);
+            await Countdown3.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown3.FadeTo(0, 100, Easing.SinIn);
+            await Countdown2.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown2.FadeTo(0, 100, Easing.SinIn);
+            await Countdown1.FadeTo(1, 100);
+            await Task.Delay(800);
+            await Countdown1.FadeTo(0, 100, Easing.SinIn);
 
         }
 
