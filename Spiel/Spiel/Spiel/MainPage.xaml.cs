@@ -46,7 +46,7 @@ namespace Spiel
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
 
-        public int[] Rotationsreihenfolge = new int[] { 3, 6, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7,
+        public int[] Rotationsreihenfolge = new int[] { 2, 7, 6, 10, 1, 12, 4, 3, 10, 5, 8, 0, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7,
             7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,
             7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,8 , 9,
             10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7, 7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3
@@ -98,6 +98,8 @@ namespace Spiel
                 case 12:
                     await RotateTwelve();
                     break;
+                default:
+                    break;
 
             }
         }
@@ -108,7 +110,7 @@ namespace Spiel
         {
             await Task.Delay(1000);
             await Countdown10.FadeTo(0, 1000);
-          //  await StartSequenz();
+            //await StartSequenz();
 
             for (int i = 1; i < 21; i++)
             {
@@ -140,33 +142,33 @@ namespace Spiel
         {
             await Task.Delay(1000);
             await Countdown10.FadeTo(0, 100);
-            await Countdown9.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown9.FadeTo(0, 100, Easing.SinIn);
-            await Countdown8.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown8.FadeTo(0, 100, Easing.SinIn);
-            await Countdown7.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown7.FadeTo(0, 100, Easing.SinIn);
-            await Countdown6.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown6.FadeTo(0, 100, Easing.SinIn);
-            await Countdown5.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown5.FadeTo(0, 100, Easing.SinIn);
-            await Countdown4.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown4.FadeTo(0, 100, Easing.SinIn);
-            await Countdown3.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown3.FadeTo(0, 100, Easing.SinIn);
-            await Countdown2.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown2.FadeTo(0, 100, Easing.SinIn);
-            await Countdown1.FadeTo(1, 100);
-            await Task.Delay(800);
-            await Countdown1.FadeTo(0, 100, Easing.SinIn);
+            await Countdown9.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown9.FadeTo(0, 50, Easing.SinIn);
+            await Countdown8.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown8.FadeTo(0, 50, Easing.SinIn);
+            await Countdown7.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown7.FadeTo(0, 50, Easing.SinIn);
+            await Countdown6.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown6.FadeTo(0, 50, Easing.SinIn);
+            await Countdown5.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown5.FadeTo(0, 50, Easing.SinIn);
+            await Countdown4.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown4.FadeTo(0, 50, Easing.SinIn);
+            await Countdown3.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown3.FadeTo(0, 50, Easing.SinIn);
+            await Countdown2.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown2.FadeTo(0, 50, Easing.SinIn);
+            await Countdown1.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown1.FadeTo(0, 50, Easing.SinIn);
 
         }
 
