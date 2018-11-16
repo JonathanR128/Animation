@@ -10,7 +10,7 @@ namespace ReihenfolgeVonRotationenFestlegen
     {
         static void Main(string[] args)
         {
-
+            List<int> GewaehlteZahlen = new List<int>();
             t = 6000;
             while (t > 0)
             {
@@ -20,9 +20,19 @@ namespace ReihenfolgeVonRotationenFestlegen
                 a = b;
                 Zeitrunterzaehlen();
 
+                GewaehlteZahlen.Add(a);
+
+
             }
 
             Console.WriteLine("Diese Zahlen haben Sie gewählt:");
+
+            //Console.WriteLine();
+            foreach (int Rotation in GewaehlteZahlen)
+            {
+                Console.WriteLine(Rotation);
+            }
+            Console.ReadLine();
 
 
 
