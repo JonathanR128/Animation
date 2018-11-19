@@ -7,13 +7,13 @@
     <ContentPage.Content>
         <AbsoluteLayout>
             <Label x:Name="Label1" Text="1" FontSize="78" TextColor="Black" AbsoluteLayout.LayoutBounds="0, 0, 120, 120"
-                  AbsoluteLayout.LayoutFlags="PositionProportional" />
+                  AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0" />
             <Label x:Name="Label2" Text="2" FontSize="78" XAlign="End"  YAlign="Start" TextColor="Black" AbsoluteLayout.LayoutBounds="1, 0, 120, 120"
-                  AbsoluteLayout.LayoutFlags="PositionProportional" />
+                  AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
             <Label x:Name="Label3" Text="3" XAlign="Start" YAlign="End" FontSize="78" TextColor="Black" AbsoluteLayout.LayoutBounds="0, 1, 120, 120"
-                  AbsoluteLayout.LayoutFlags="PositionProportional" />
+                  AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
             <Label x:Name="Label4" Text="4" FontSize="78" TextColor="Black" XAlign="End" YAlign="End" AbsoluteLayout.LayoutBounds="1, 1, 120, 120"
-                  AbsoluteLayout.LayoutFlags="PositionProportional" />
+                  AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
             <BoxView x:Name="Box1" Color="Green"  AbsoluteLayout.LayoutBounds="0, 0, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
             <BoxView x:Name="Box2" Color="Green"  AbsoluteLayout.LayoutBounds="1, 0, 40, 40"

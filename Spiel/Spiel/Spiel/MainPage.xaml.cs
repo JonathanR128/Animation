@@ -46,10 +46,14 @@ namespace Spiel
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
 
-        public int[] Rotationsreihenfolge = new int[] { 2, 8, 6, 10, 1, 12, 8, 3, 10, 5, 8, 0, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7,
-            7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,
-            7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,8 , 9,
-            10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7, 7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3
+        public int[] Rotationsreihenfolge = new int[] { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0, 12, 2, 10, 4, 1, 0, 0, 0, 0, 0, 0, 0, 7, 3, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 10, 12, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0,
+            2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 6, 10, 0, 0, 0, 0, 0, 0, 0, 0
         };
 
         public int[] RedBox = new int[] { 2, 1, 4, 2, 1, 4, 3, 3, 2, 1, 4, 1, 2, 2, 3, 1, 4, 4, 1, 1, 2, 3, 1, 4, 1, 2, 3, 1, 2, 3, 1 };
@@ -110,31 +114,47 @@ namespace Spiel
 
              await StartSequenz();
 
-            for (int i = 1; i < 21; i++)
+            for (int i = 0; i < 20; i++)
             {
                 PositionMovedToTheRight = 0;
                 DrawBoxesGreen();
                 await MoveToCenterInRow();
-                DrawBoxRed(RedBox[i - 1]);
+                DrawBoxRed(RedBox[i]);
                 await FadeBoxesToOne(1000);
                 await Task.Delay(1000);
                 DrawBoxesGreen();
                 await Task.Delay(1000);
 
-                await RotationRandom(Rotationsreihenfolge[(i-1)*6]);
-                await RotationRandom(Rotationsreihenfolge[(i + ((i - 1) * 6))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 1 + ((i - 1) * 6))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 2 + ((i - 1) * 6))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 3 + ((i - 1) * 6))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 4 + ((i - 1) * 6))]);
+                await RotationRandom(Rotationsreihenfolge[i * 12]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 1]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 2]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 3]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 4]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 5]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 6]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 7]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 8]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 9]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 10]);
+                await RotationRandom(Rotationsreihenfolge[(i * 12) + 11]);
+
+                Label1.FadeTo(1);
+                Label2.FadeTo(1);
+                Label3.FadeTo(1);
+                Label4.FadeTo(1);
 
                 await MoveBackInCorners();
                 await Fragezeichen.FadeTo(1, 50);
                 await Task.Delay(900);
                 await Fragezeichen.FadeTo(0, 50);
-                DrawBoxRed(RedBox[i - 1]);
+                DrawBoxRed(RedBox[i]);
                 await Task.Delay(3000);
                 await FadeBoxesToZero(1000);
+
+                Label1.FadeTo(0);
+                Label2.FadeTo(0);
+                Label3.FadeTo(0);
+                Label4.FadeTo(0);
             }          
 
         }
