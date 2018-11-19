@@ -68,7 +68,7 @@ namespace ReihenfolgeVonRotationenFestlegen
                     t -= 1500;
                     break;
                 case 8:
-                    t -= 2250;
+                    t -= 2500;
                     break;
                 case 9:
                     t -= 1500;
