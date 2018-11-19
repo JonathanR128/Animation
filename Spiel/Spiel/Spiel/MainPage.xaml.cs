@@ -145,10 +145,10 @@ namespace Spiel
 
                 await MoveBackInCorners();
                 await Fragezeichen.FadeTo(1, 50);
-                await Task.Delay(900);
+                await Task.Delay(1150);
                 await Fragezeichen.FadeTo(0, 50);
                 DrawBoxRed(RedBox[i]);
-                await Task.Delay(3000);
+                await Task.Delay(2750);
                 await FadeBoxesToZero(1000);
 
                 Label1.FadeTo(0);
