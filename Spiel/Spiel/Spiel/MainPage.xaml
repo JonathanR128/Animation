@@ -41,8 +41,10 @@
             <Label x:Name="Countdown2" Text="2" XAlign="Center" YAlign="Center" FontSize="66" TextColor="DarkBlue" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
             <Label x:Name="Countdown1" Text="1" XAlign="Center" YAlign="Center" FontSize="66" TextColor="DarkBlue" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
-                   AbsoluteLayout.LayoutFlags="All" Opacity="0"/>          
-            
+                   AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
+            <Label x:Name="Fragezeichen" Text="?" XAlign="Center" YAlign="Center" FontSize="72" TextColor="Green" AbsoluteLayout.LayoutBounds="0.5, 0.5, 120, 120" 
+                   AbsoluteLayout.LayoutFlags="All" Opacity="0" />
+
         </AbsoluteLayout>
     </ContentPage.Content>
 

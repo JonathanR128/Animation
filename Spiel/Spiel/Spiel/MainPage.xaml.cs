@@ -102,8 +102,7 @@ namespace Spiel
                     break;
 
             }
-        }
-            
+        }            
 
 
         public async Task MoveAsync()
@@ -130,13 +129,16 @@ namespace Spiel
                 await RotationRandom(Rotationsreihenfolge[(i + 4 + ((i - 1) * 6))]);
 
                 await MoveBackInCorners();
+                await Fragezeichen.FadeTo(1, 50);
+                await Task.Delay(900);
+                await Fragezeichen.FadeTo(0, 50);
                 DrawBoxRed(RedBox[i - 1]);
                 await Task.Delay(3000);
                 await FadeBoxesToZero(1000);
             }          
 
         }
-
+         
         public async Task StartSequenz()
         {
             await Task.Delay(1000);
@@ -946,7 +948,6 @@ namespace Spiel
             NameMiddleLeft = NameMiddleRight;
             NameMiddleRight = NameChanger;
         }
-
 
 
         //public async Task Grundgeruest()
