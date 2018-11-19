@@ -108,9 +108,8 @@ namespace Spiel
 
         public async Task MoveAsync()
         {
-            await Task.Delay(1000);
-            await Countdown10.FadeTo(0, 1000);
-            //await StartSequenz();
+
+             await StartSequenz();
 
             for (int i = 1; i < 21; i++)
             {
@@ -620,7 +619,7 @@ namespace Spiel
             NameMiddleLeft = NameChanger;
         }
 
-        public async Task RotateEight(uint t = 750, uint t2 = 1000, uint t3 = 500)
+        public async Task RotateEight(uint t = 750, uint t2 = 1250, uint t3 = 500)
         {
             StoreNames();
 
