@@ -46,7 +46,7 @@ namespace Spiel
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
 
-        public int[] Rotationsreihenfolge = new int[] { 2, 7, 6, 10, 1, 12, 4, 3, 10, 5, 8, 0, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7,
+        public int[] Rotationsreihenfolge = new int[] { 2, 8, 6, 10, 1, 12, 8, 3, 10, 5, 8, 0, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7,
             7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,
             7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,8 , 9,
             10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7, 7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3
@@ -131,7 +131,7 @@ namespace Spiel
 
                 await MoveBackInCorners();
                 DrawBoxRed(RedBox[i - 1]);
-                await Task.Delay(1000);
+                await Task.Delay(3000);
                 await FadeBoxesToZero(1000);
             }          
 
@@ -1022,10 +1022,10 @@ namespace Spiel
              );
 
             await Task.WhenAll(
-             LeftBox.TranslateTo(LeftBox.TranslationX - ((Box4.X / 2) - 75) - (PositionMovedToTheRight * 50) +75,LeftBox.TranslationY -(Box4.Y / 2) +75, t2, Easing.SinInOut),                
-             MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + (Box4.X / 2) + 25 - (PositionMovedToTheRight * 50), MiddleLeftBox.TranslationY - (Box4.Y / 2)+75, t2, Easing.SinInOut),   
-             MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX -(Box4.X / 2) - 25 - (PositionMovedToTheRight * 50), MiddleRightBox.TranslationY + (Box4.Y / 2)-75, t2, Easing.SinInOut), 
-             RightBox.TranslateTo(RightBox.TranslationX + (Box4.X / 2) - 75 - (PositionMovedToTheRight * 50)-75, RightBox.TranslationY + (Box4.Y / 2)-75, t2, Easing.SinInOut)                
+             LeftBox.TranslateTo(LeftBox.TranslationX - ((Box4.X / 2) - 75) - (PositionMovedToTheRight * 50) +75 + 90,LeftBox.TranslationY -(Box4.Y / 2) +75 + 90, t2, Easing.SinInOut),                
+             MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + (Box4.X / 2) + 25 - (PositionMovedToTheRight * 50) - 90, MiddleLeftBox.TranslationY - (Box4.Y / 2)+75 + 90, t2, Easing.SinInOut),   
+             MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX -(Box4.X / 2) - 25 - (PositionMovedToTheRight * 50) + 90, MiddleRightBox.TranslationY + (Box4.Y / 2)-75 - 90, t2, Easing.SinInOut), 
+             RightBox.TranslateTo(RightBox.TranslationX + (Box4.X / 2) - 75 - (PositionMovedToTheRight * 50)-75 - 90, RightBox.TranslationY + (Box4.Y / 2)-75 - 90, t2, Easing.SinInOut)                
             );
         }
 
