@@ -82,18 +82,15 @@ namespace Spiel
             {
                 case 1:
                     await RotateOne();
-                    PositionMovedToTheRight += 1;
                     break;
                 case 2:
                     await RotateTwo();
-                    PositionMovedToTheRight += -1;
                     break;
                 case 3:
                     await RotateThree();
                     break;
                 case 4:
                     await RotateFour();
-                    PositionMovedToTheRight += -1;
                     break;
                 case 5:
                     await RotateFive();
@@ -108,8 +105,7 @@ namespace Spiel
                     await RotateEight();
                     break;
                 case 9:
-                    await RotateNine();
-                    PositionMovedToTheRight += 1;
+                    await RotateNine();                    
                     break;
                 case 10:
                     await RotateTen();
@@ -119,6 +115,36 @@ namespace Spiel
                     break;
                 case 12:
                     await RotateTwelve();
+                    break;
+                case 13:
+                    await RotateThirteen();
+                    break;
+                case 14:
+                    await RotateThreePointOne();
+                    break;
+                case 15:
+                    await RotateFourPointOne();
+                    break;
+                case 16:
+                    await RotateSixPointOne();
+                    break;
+                case 17:
+                    await RotateSixPointTwo();
+                    break;
+                case 18:
+                    await RotateEightPointOne();
+                    break;
+                case 19:
+                    await RotateEightPointTwo();
+                    break;
+                case 20:
+                    await RotateElevenPointOne();
+                    break;
+                case 21:
+                    await RotateElevenPointTwo();
+                    break;
+                case 22:
+                    await RotateTwelvePointOne();
                     break;
                 default:
                     break;
@@ -189,9 +215,8 @@ namespace Spiel
             DrawPaintOnBoxes();
             await Task.Delay(1000);
 
-            await RotateSixPointTwo();
-            await RotateSixPointTwo();
-            await RotateSixPointTwo(3000, 5000);
+            await RotateOne();
+
 
 
             await MoveBackInCorners();
@@ -236,6 +261,7 @@ namespace Spiel
         public async Task RotateOne(uint t = 500)
         {
             StoreNames();
+            PositionMovedToTheRight += 1;
 
             Easing easing = Easing.SinInOut;
             LeftBox.AnchorX = DreiPositionen;
@@ -270,6 +296,7 @@ namespace Spiel
         public async Task RotateTwo(uint t = 500)
         {
             StoreNames();
+            PositionMovedToTheRight += -1;
 
             RightBox.AnchorX = -(DreiPositionen-1);
             MiddleLeftBox.AnchorX = EinePosition;
@@ -334,7 +361,7 @@ namespace Spiel
             NameRight = NameChanger;
         }
 
-        public async Task RotateThreePlus(uint t = 500)
+        public async Task RotateThreePointOne(uint t = 500)
         {
             StoreNames();
 
@@ -378,6 +405,7 @@ namespace Spiel
         public async Task RotateFour(uint t = 500, uint t2 = 750, uint t3 = 1000)
         {
             StoreNames();
+            PositionMovedToTheRight += -1;
 
             Easing easing = Easing.SinInOut;
             await Task.WhenAll(
@@ -441,6 +469,7 @@ namespace Spiel
         public async Task RotateFourPointOne(uint t = 500, uint t2 = 750, uint t3 = 1000)
         {
             StoreNames();
+            PositionMovedToTheRight += -1;
             Easing easing = Easing.SinInOut;
 
             await Task.WhenAll(
@@ -1119,6 +1148,7 @@ namespace Spiel
         public async Task RotateNine(uint t = 500, uint t2 = 500, uint t3 = 500)
         {
             StoreNames();
+            PositionMovedToTheRight += 1;
 
             LeftBox.AnchorX = ZweiPositionen;
             MiddleLeftBox.AnchorX = ZweiPositionen;
