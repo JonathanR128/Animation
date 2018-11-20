@@ -56,7 +56,7 @@ namespace ReihenfolgeVonRotationenFestlegen
                     t -= 500;
                     break;
                 case 4:
-                    t -= 2000;
+                    t -= 2250;
                     break;
                 case 5:
                     t -= 1500;
@@ -68,7 +68,7 @@ namespace ReihenfolgeVonRotationenFestlegen
                     t -= 1500;
                     break;
                 case 8:
-                    t -= 2500;
+                    t -= 2750;
                     break;
                 case 9:
                     t -= 1500;
@@ -77,7 +77,7 @@ namespace ReihenfolgeVonRotationenFestlegen
                     t -= 1500;
                     break;
                 case 11:
-                    t -= 1500;
+                    t -= 1750;
                     break;
                 case 12:
                     t -= 1750;
