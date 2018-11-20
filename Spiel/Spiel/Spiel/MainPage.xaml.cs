@@ -189,10 +189,10 @@ namespace Spiel
             DrawPaintOnBoxes();
             await Task.Delay(1000);
 
-            await RotateElevenPointTwo();
-            await RotateElevenPointTwo();
-     
-            
+            await RotateTwelvePointOne();
+            await RotateTwelvePointOne();
+
+
             await MoveBackInCorners();
             await Task.Delay(2750);
             await FadeBoxesToZero(1000);
@@ -1267,6 +1267,69 @@ namespace Spiel
                 MiddleLeftBox.RotateTo(270, t2),
                 MiddleRightBox.RotateTo(270, t2),
                 RightBox.RotateTo(270, t2)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            LeftBox.AnchorY = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorY = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorY = 0.5;
+            RightBox.AnchorX = 0.5;
+            RightBox.AnchorY = 0.5;
+
+
+            LeftBox.TranslationX += 150;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleRightBox.TranslationX += -50;
+            RightBox.TranslationX += -150;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            await Task.WhenAll(
+                LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY - 100, t3),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 50, t3),
+                RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY + 50, t3)
+                );
+
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameChanger;
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameMiddleRight;
+            NameMiddleRight = NameChanger;
+        }
+
+        public async Task RotateTwelvePointOne(uint t = 500, uint t2 = 2000, uint t3 = 500)
+        {
+            StoreNames();
+            Easing easing = Easing.SinInOut;
+
+            await Task.WhenAll(
+
+                LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY + 100, t),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY + 50, t),
+                RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY - 50, t)
+                );
+
+            LeftBox.AnchorX = DreiPositionen;
+            LeftBox.AnchorY = -(DreiPositionen - 1);
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleLeftBox.AnchorY = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorY = EinePosition;
+            RightBox.AnchorX = -(DreiPositionen - 1);
+            RightBox.AnchorY = DreiPositionen;
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(630, t2, easing),
+                MiddleLeftBox.RotateTo(630, t2, easing),
+                MiddleRightBox.RotateTo(630, t2, easing),
+                RightBox.RotateTo(630, t2, easing)
                 );
 
             // Set Anchor to normal and compensate the translation
