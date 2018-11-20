@@ -26,8 +26,8 @@ namespace Spiel
             EinePosition = 1.125;
 
 
-            //  MoveAsync();
-            MoveTester();
+            MoveAsync();
+            //MoveTester();
         }
 
         public int PositionMovedToTheRight { get; set; }
@@ -189,8 +189,8 @@ namespace Spiel
             DrawPaintOnBoxes();
             await Task.Delay(1000);
 
-            await RotateTwelvePointOne();
-            await RotateTwelvePointOne();
+            await RotateThirteen();
+            await RotateThirteen();
 
 
             await MoveBackInCorners();
@@ -1358,6 +1358,44 @@ namespace Spiel
                 MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 50, t3),
                 RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY + 50, t3)
                 );
+
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameChanger;
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameMiddleRight;
+            NameMiddleRight = NameChanger;
+        }
+
+        public async Task RotateThirteen(uint t = 750)
+        {
+            StoreNames();
+            Easing easing = Easing.SinInOut;
+
+            LeftBox.AnchorX = DreiPositionen;
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            RightBox.AnchorX = -(DreiPositionen - 1);
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, t, easing),
+                MiddleLeftBox.RotateTo(180, t, easing),
+                MiddleRightBox.RotateTo(180, t, easing),
+                RightBox.RotateTo(180, t, easing)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            LeftBox.TranslationX += 150;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleRightBox.TranslationX += -50;
+            RightBox.TranslationX += -150;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
 
             NameChanger = NameLeft;
             NameLeft = NameRight;
