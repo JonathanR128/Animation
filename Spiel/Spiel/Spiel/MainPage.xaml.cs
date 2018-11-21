@@ -1316,7 +1316,6 @@ namespace Spiel
 
         }
 
-
         public async Task RotateElevenPointOne(uint t = 1500)
         {
             StoreNames();
@@ -1367,7 +1366,6 @@ namespace Spiel
             NameMiddleLeft = NameChanger;
 
         }
-
 
         public async Task RotateElevenPointTwo(uint t = 1250)
         {
