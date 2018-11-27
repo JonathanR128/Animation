@@ -27,6 +27,7 @@ namespace Spiel
 
 
             MoveAsync();
+            //MoveTester();
         }
 
         public int PositionMovedToTheRight { get; set; }
@@ -46,13 +47,33 @@ namespace Spiel
         public BoxView MiddleRightBox { get; set; }
         public BoxView RightBox { get; set; }
 
-        public int[] Rotationsreihenfolge = new int[] { 2, 7, 6, 10, 1, 12, 4, 3, 10, 5, 8, 0, 3, 2 ,8 , 9, 10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7,
-            7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,
-            7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2,  8, 4, 3, 2 ,8 , 9, 10, 4, 4, 7, 5,8 , 9,
-            10, 4, 4, 7, 5, 3 ,1 , 9, 12, 1, 2, 12, 5 ,3, 5, 6, 7, 7, 8, 9, 4, 3, 5, 12, 11, 11, 8, 8 , 9, 4, 7, 8, 1, 12, 3, 10, 5, 8, 4, 3, 2, 4, 7, 8, 1, 7, 8, 1, 12, 3
+
+        public int[,] Rotationsreihenfolge = new int[,] 
+        { 
+            { 20, 5, 17, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
+            { 22, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 10, 19, 16, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 15, 6, 9, 13, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 7, 12, 11, 14, 1, 0, 0, 0, 0, 0, 0, 0},
+            { 6, 3, 8, 21, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 5, 17, 1, 20, 13, 0, 0, 0, 0, 0, 0, 0 },
+            { 7, 22, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 16, 19, 2, 10, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 3, 6, 8, 21, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 13, 6, 15, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 7, 12, 11, 14, 1, 0, 0, 0, 0, 0, 0, 0},
+            { 6, 3, 8, 21, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 20, 5, 17, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
+            { 7, 22, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 16, 10, 19, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 9, 6, 25, 13, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 7, 12, 1, 11, 14, 0, 0, 0, 0, 0, 0, 0}
+
         };
 
-        public int[] RedBox = new int[] { 2, 1, 4, 2, 1, 4, 3, 3, 2, 1, 4, 1, 2, 2, 3, 1, 4, 4, 1, 1, 2, 3, 1, 4, 1, 2, 3, 1, 2, 3, 1 };
+        public int[] RedBox = new int[] { 1, 4, 3, 4, 1, 2, 4, 1, 3, 2, 2, 2, 3, 4, 2, 3, 3, 2, 3, 4 };
 
         public async Task RotationRandom(int i)
         {
@@ -60,18 +81,15 @@ namespace Spiel
             {
                 case 1:
                     await RotateOne();
-                    PositionMovedToTheRight += 1;
                     break;
                 case 2:
                     await RotateTwo();
-                    PositionMovedToTheRight += -1;
                     break;
                 case 3:
                     await RotateThree();
                     break;
                 case 4:
                     await RotateFour();
-                    PositionMovedToTheRight += -1;
                     break;
                 case 5:
                     await RotateFive();
@@ -86,8 +104,7 @@ namespace Spiel
                     await RotateEight();
                     break;
                 case 9:
-                    await RotateNine();
-                    PositionMovedToTheRight += 1;
+                    await RotateNine();                    
                     break;
                 case 10:
                     await RotateTen();
@@ -98,46 +115,114 @@ namespace Spiel
                 case 12:
                     await RotateTwelve();
                     break;
+                case 13:
+                    await RotateThirteen();
+                    break;
+                case 14:
+                    await RotateThreePointOne();
+                    break;
+                case 15:
+                    await RotateFourPointOne();
+                    break;
+                case 16:
+                    await RotateSixPointOne();
+                    break;
+                case 17:
+                    await RotateSixPointTwo();
+                    break;
+                case 18:
+                    await RotateEightPointOne();
+                    break;
+                case 19:
+                    await RotateEightPointTwo();
+                    break;
+                case 20:
+                    await RotateElevenPointOne();
+                    break;
+                case 21:
+                    await RotateElevenPointTwo();
+                    break;
+                case 22:
+                    await RotateTwelvePointOne();
+                    break;
                 default:
                     break;
 
             }
-        }
-            
+        }            
 
 
         public async Task MoveAsync()
         {
-            await Task.Delay(1000);
-            await Countdown10.FadeTo(0, 1000);
-            //await StartSequenz();
+            
+             await StartSequenz();
 
-            for (int i = 1; i < 21; i++)
+            for (int i = 0; i < 20; i++)
             {
                 PositionMovedToTheRight = 0;
                 DrawBoxesGreen();
                 await MoveToCenterInRow();
-                DrawBoxRed(RedBox[i - 1]);
+                DrawBoxRed(RedBox[i]);
                 await FadeBoxesToOne(1000);
                 await Task.Delay(1000);
                 DrawBoxesGreen();
                 await Task.Delay(1000);
 
-                await RotationRandom(Rotationsreihenfolge[(i-1)*6]);
-                await RotationRandom(Rotationsreihenfolge[(i + ((i - 1) * 6))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 1 + ((i - 1) * 6))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 2 + ((i - 1) * 6))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 3 + ((i - 1) * 6))]);
-                await RotationRandom(Rotationsreihenfolge[(i + 4 + ((i - 1) * 6))]);
+                await RotationRandom(Rotationsreihenfolge[i , 0]);
+                await RotationRandom(Rotationsreihenfolge[i, 1]);
+                await RotationRandom(Rotationsreihenfolge[i, 2]);
+                await RotationRandom(Rotationsreihenfolge[i, 3]);
+                await RotationRandom(Rotationsreihenfolge[i, 4]);
+                await RotationRandom(Rotationsreihenfolge[i, 5]);
+                await RotationRandom(Rotationsreihenfolge[i, 6]);
+                await RotationRandom(Rotationsreihenfolge[i, 7]);
+                await RotationRandom(Rotationsreihenfolge[i, 8]);
+                await RotationRandom(Rotationsreihenfolge[i, 9]);
+                await RotationRandom(Rotationsreihenfolge[i, 10]);
+                await RotationRandom(Rotationsreihenfolge[i, 11]);
+
+                Label1.FadeTo(1);
+                Label2.FadeTo(1);
+                Label3.FadeTo(1);
+                Label4.FadeTo(1);
 
                 await MoveBackInCorners();
-                DrawBoxRed(RedBox[i - 1]);
-                await Task.Delay(1000);
+                await Fragezeichen.FadeTo(1, 50);
+                await Task.Delay(1150);
+                await Fragezeichen.FadeTo(0, 50);
+                DrawBoxRed(RedBox[i]);
+                await Task.Delay(2750);
                 await FadeBoxesToZero(1000);
+
+                Label1.FadeTo(0);
+                Label2.FadeTo(0);
+                Label3.FadeTo(0);
+                Label4.FadeTo(0);
             }          
 
         }
 
+        public async Task MoveTester()
+        {
+            await Task.Delay(1200);
+            Countdown10.FadeTo(0, 0);
+            PositionMovedToTheRight = 0;
+            DrawBoxesGreen();
+            await MoveToCenterInRow();
+            await FadeBoxesToOne(1000);
+            await Task.Delay(1000);
+            DrawPaintOnBoxes();
+            await Task.Delay(1000);
+
+            await RotateOne();
+
+
+
+            await MoveBackInCorners();
+            await Task.Delay(2750);
+            await FadeBoxesToZero(1000);
+        }
+         
         public async Task StartSequenz()
         {
             await Task.Delay(1000);
@@ -175,6 +260,7 @@ namespace Spiel
         public async Task RotateOne(uint t = 500)
         {
             StoreNames();
+            PositionMovedToTheRight += 1;
 
             Easing easing = Easing.SinInOut;
             LeftBox.AnchorX = DreiPositionen;
@@ -209,6 +295,7 @@ namespace Spiel
         public async Task RotateTwo(uint t = 500)
         {
             StoreNames();
+            PositionMovedToTheRight += -1;
 
             RightBox.AnchorX = -(DreiPositionen-1);
             MiddleLeftBox.AnchorX = EinePosition;
@@ -273,7 +360,7 @@ namespace Spiel
             NameRight = NameChanger;
         }
 
-        public async Task RotateThreePlus(uint t = 500)
+        public async Task RotateThreePointOne(uint t = 500)
         {
             StoreNames();
 
@@ -314,11 +401,12 @@ namespace Spiel
             NameRight = NameChanger;
         }
 
-        public async Task RotateFour(uint t = 500, uint t2 = 500, uint t3 = 1000)
+        public async Task RotateFour(uint t = 500, uint t2 = 750, uint t3 = 1000)
         {
             StoreNames();
+            PositionMovedToTheRight += -1;
 
-
+            Easing easing = Easing.SinInOut;
             await Task.WhenAll(
                 LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY + 50, t),
                 MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 50, t),
@@ -333,10 +421,10 @@ namespace Spiel
             RightBox.AnchorX = -(ZweiPositionen - 1);
 
             await Task.WhenAll(
-                LeftBox.RotateTo(180, t2),
-                MiddleLeftBox.RotateTo(-360, t2),
-                MiddleRightBox.RotateTo(180, t2),
-                RightBox.RotateTo(-360, t2)
+                LeftBox.RotateTo(180, t2, easing),
+                MiddleLeftBox.RotateTo(-360, t2, easing),
+                MiddleRightBox.RotateTo(180, t2, easing),
+                RightBox.RotateTo(-360, t2, easing)
                 );
 
 
@@ -377,10 +465,11 @@ namespace Spiel
 
         }
 
-        public async Task RotateFourPointOne(uint t = 500, uint t2 = 500, uint t3 = 1000)
+        public async Task RotateFourPointOne(uint t = 500, uint t2 = 750, uint t3 = 1000)
         {
             StoreNames();
-
+            PositionMovedToTheRight += -1;
+            Easing easing = Easing.SinInOut;
 
             await Task.WhenAll(
                 LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY - 50, t),
@@ -396,10 +485,10 @@ namespace Spiel
             RightBox.AnchorX = -(ZweiPositionen - 1);
 
             await Task.WhenAll(
-                LeftBox.RotateTo(-180, t2),
-                MiddleLeftBox.RotateTo(+360, t2),
-                MiddleRightBox.RotateTo(-180, t2),
-                RightBox.RotateTo(+360, t2)
+                LeftBox.RotateTo(-180, t2, easing),
+                MiddleLeftBox.RotateTo(+360, t2, easing),
+                MiddleRightBox.RotateTo(-180, t2, easing),
+                RightBox.RotateTo(+360, t2, easing)
                 );
 
 
@@ -546,6 +635,155 @@ namespace Spiel
             NameMiddleLeft = NameChanger;
         }
 
+        public async Task RotateSixPointOne(uint t = 750, uint t2 = 1000)
+        {
+            StoreNames();
+
+            MiddleLeftBox.AnchorX = VierPositionen;
+            MiddleRightBox.AnchorX = ZweiPositionen;
+            RightBox.AnchorX = -(DreiPositionen - 1);
+
+
+            await Task.WhenAll(
+                RightBox.RotateTo(180, t),
+                MiddleRightBox.RotateTo(180, t),
+                MiddleLeftBox.RotateTo(180, t),
+                LeftBox.TranslateTo(LeftBox.TranslationX + 50, LeftBox.TranslationY, t)
+
+                );
+
+            // Set Anchor to normal and compensate the translation            
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.TranslationX += 200;
+            MiddleRightBox.TranslationX += 100;
+            RightBox.TranslationX += -150;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+
+            ////// Zweiter Teil
+
+            MiddleLeftBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = EinePosition;
+
+
+            await Task.WhenAll(
+
+                MiddleLeftBox.RotateTo(180, t2),
+                MiddleRightBox.RotateTo(180, t2),
+
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX - 100, MiddleLeftBox.TranslationY, t2),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX - 100, MiddleRightBox.TranslationY, t2)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+
+            LeftBox.TranslationX += 0;
+            MiddleLeftBox.TranslationX += -50;
+            MiddleRightBox.TranslationX += 50;
+            RightBox.TranslationX += 0;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameMiddleRight;
+            NameMiddleRight = NameMiddleLeft;
+            NameMiddleLeft = NameChanger;
+        }
+
+        public async Task RotateSixPointTwo(uint t = 750, uint t2 = 1000)
+        {
+            StoreNames();
+
+            MiddleLeftBox.AnchorX = VierPositionen;
+            MiddleRightBox.AnchorX = ZweiPositionen;
+            RightBox.AnchorX = -(DreiPositionen - 1);
+
+
+            await Task.WhenAll(
+                RightBox.RotateTo(180, t),
+                MiddleRightBox.RotateTo(180, t),
+                MiddleLeftBox.RotateTo(180, t),
+                LeftBox.TranslateTo(LeftBox.TranslationX + 50, LeftBox.TranslationY, t)
+
+                );
+
+            // Set Anchor to normal and compensate the translation            
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.TranslationX += 200;
+            MiddleRightBox.TranslationX += 100;
+            RightBox.TranslationX += -150;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+
+            ////// Zweiter Teil
+
+            LeftBox.AnchorX = -(EinePosition - 1);
+            MiddleLeftBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = EinePosition;
+            RightBox.AnchorX = EinePosition;
+
+
+            await Task.WhenAll(
+
+                LeftBox.RotateTo(180, t2),
+                MiddleLeftBox.RotateTo(180, t2),
+                MiddleRightBox.RotateTo(180, t2),
+                RightBox.RotateTo(180, t2),
+
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX - 100, MiddleLeftBox.TranslationY, t2),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX - 100, MiddleRightBox.TranslationY, t2)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+
+            LeftBox.TranslationX += -50;
+            MiddleLeftBox.TranslationX += -50;
+            MiddleRightBox.TranslationX += 50;
+            RightBox.TranslationX += 50;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameRight;
+            NameRight = NameMiddleRight;
+            NameMiddleRight = NameChanger;
+        }
+
         public async Task RotateSeven(uint t = 750, uint t2 = 1000)
         {
             StoreNames();
@@ -620,7 +858,7 @@ namespace Spiel
             NameMiddleLeft = NameChanger;
         }
 
-        public async Task RotateEight(uint t = 750, uint t2 = 1000, uint t3 = 500)
+        public async Task RotateEight(uint t = 750, uint t2 = 1500, uint t3 = 500)
         {
             StoreNames();
 
@@ -666,12 +904,13 @@ namespace Spiel
             RightBox.AnchorX = EinePosition;
             RightBox.AnchorY = EinePosition;
 
+            Easing easing = Easing.SinInOut;
 
             await Task.WhenAll(
-                LeftBox.RotateTo(540, t2),
-                MiddleLeftBox.RotateTo(540, t2),
-                MiddleRightBox.RotateTo(540, t2),
-                RightBox.RotateTo(540, t2)
+                LeftBox.RotateTo(540, t2, easing),
+                MiddleLeftBox.RotateTo(540, t2, easing),
+                MiddleRightBox.RotateTo(540, t2, easing),
+                RightBox.RotateTo(540, t2, easing)
 
                 );
 
@@ -714,9 +953,201 @@ namespace Spiel
 
         }
 
+        public async Task RotateEightPointOne(uint t = 750, uint t2 = 750, uint t3 = 500)
+        {
+            StoreNames();
+
+            LeftBox.AnchorX = ZweiPositionen;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = -(ZweiPositionen - 1);
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, t - 100, Easing.CubicIn),
+                RightBox.RotateTo(-180, t, Easing.CubicOut),
+
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY + 50, t),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 50, t)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+
+
+            LeftBox.TranslationX += 100;
+            MiddleLeftBox.TranslationX += 0;
+            MiddleRightBox.TranslationX += 0;
+            RightBox.TranslationX += -100;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            // Zweiter Teil
+
+            LeftBox.AnchorX = -(EinePosition - 1);
+            LeftBox.AnchorY = EinePosition;
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleLeftBox.AnchorY = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorY = -(EinePosition - 1);
+            RightBox.AnchorX = EinePosition;
+            RightBox.AnchorY = EinePosition;
+
+            Easing easing = Easing.SinInOut;
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, t2, easing),
+                MiddleLeftBox.RotateTo(180, t2, easing),
+                MiddleRightBox.RotateTo(180, t2, easing),
+                RightBox.RotateTo(180, t2, easing)
+
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            LeftBox.AnchorY = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorY = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorY = 0.5;
+            RightBox.AnchorX = 0.5;
+            RightBox.AnchorY = 0.5;
+
+
+            LeftBox.TranslationX += -50;
+            LeftBox.TranslationY += 50;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleLeftBox.TranslationY += -50;
+            MiddleRightBox.TranslationX += -50;
+            MiddleRightBox.TranslationY += -50;
+            RightBox.TranslationX += 50;
+            RightBox.TranslationY += 50;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            // Teil Drei
+
+
+            await Task.WhenAll(
+                LeftBox.TranslateTo(LeftBox.TranslationX - 50, LeftBox.TranslationY - 50, t3),
+                RightBox.TranslateTo(RightBox.TranslationX + 50, RightBox.TranslationY - 50, t3)
+                );
+
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameMiddleRight;
+            NameMiddleRight = NameChanger;
+
+        }
+
+        public async Task RotateEightPointTwo(uint t = 750, uint t2 = 1000, uint t3 = 500)
+        {
+            StoreNames();
+
+            LeftBox.AnchorX = ZweiPositionen;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = -(ZweiPositionen - 1);
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, t - 100, Easing.CubicIn),
+                RightBox.RotateTo(-180, t, Easing.CubicOut),
+
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY + 50, t),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 50, t)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+
+
+            LeftBox.TranslationX += 100;
+            MiddleLeftBox.TranslationX += 0;
+            MiddleRightBox.TranslationX += 0;
+            RightBox.TranslationX += -100;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            // Zweiter Teil
+
+            LeftBox.AnchorX = -(EinePosition - 1);
+            LeftBox.AnchorY = EinePosition;
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleLeftBox.AnchorY = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorY = -(EinePosition - 1);
+            RightBox.AnchorX = EinePosition;
+            RightBox.AnchorY = EinePosition;
+
+            Easing easing = Easing.SinInOut;
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(270, t2, easing),
+                MiddleLeftBox.RotateTo(270, t2, easing),
+                MiddleRightBox.RotateTo(270, t2, easing),
+                RightBox.RotateTo(270, t2, easing)
+
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            LeftBox.AnchorY = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorY = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorY = 0.5;
+            RightBox.AnchorX = 0.5;
+            RightBox.AnchorY = 0.5;
+
+
+            LeftBox.TranslationX += -50;
+            LeftBox.TranslationY += 0;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleLeftBox.TranslationY += 0;
+            MiddleRightBox.TranslationX += 0;
+            MiddleRightBox.TranslationY += -50;
+            RightBox.TranslationX += 0;
+            RightBox.TranslationY += 50;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            // Teil Drei
+
+
+            await Task.WhenAll(
+                RightBox.TranslateTo(RightBox.TranslationX - 50, RightBox.TranslationY - 50, t3),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + 50, MiddleLeftBox.TranslationY - 50, t3)
+                );
+
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameMiddleLeft;
+            NameMiddleLeft = NameChanger;
+
+        }
+
         public async Task RotateNine(uint t = 500, uint t2 = 500, uint t3 = 500)
         {
             StoreNames();
+            PositionMovedToTheRight += 1;
 
             LeftBox.AnchorX = ZweiPositionen;
             MiddleLeftBox.AnchorX = ZweiPositionen;
@@ -834,7 +1265,7 @@ namespace Spiel
             NameMiddleLeft = NameChanger;
         }
 
-        public async Task RotateEleven(uint t = 1500)
+        public async Task RotateEleven(uint t = 1750)
         {
             StoreNames();
 
@@ -848,6 +1279,108 @@ namespace Spiel
                 MiddleLeftBox.RotateTo(900, t),
                 MiddleRightBox.RotateTo(720, t),
                 RightBox.RotateTo(720, t),
+
+                LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY - 75, t / 2, Easing.SinInOut),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 75, t / 2, Easing.SinInOut),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 75, t / 2, Easing.SinInOut),
+                RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY + 75, t / 2, Easing.SinInOut)
+                );
+
+            await Task.WhenAll(
+                  LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY + 75, t / 2, Easing.SinInOut),
+                  MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY + 75, t / 2, Easing.SinInOut),
+                  MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY - 75, t / 2, Easing.SinInOut),
+                  RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY - 75, t / 2, Easing.SinInOut)
+                  );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+
+            LeftBox.TranslationX += 50;
+            MiddleLeftBox.TranslationX += -50;
+            MiddleRightBox.TranslationX += 0;
+            RightBox.TranslationX += 0;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            NameChanger = NameLeft;
+            NameLeft = NameMiddleLeft;
+            NameMiddleLeft = NameChanger;
+
+        }
+
+        public async Task RotateElevenPointOne(uint t = 1500)
+        {
+            StoreNames();
+
+            LeftBox.AnchorX = EinePosition;
+            MiddleLeftBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = EinePosition;
+            RightBox.AnchorX = -(EinePosition - 1);
+
+            await Task.WhenAny(
+                LeftBox.RotateTo(540, t),
+                MiddleLeftBox.RotateTo(540, t),
+                MiddleRightBox.RotateTo(360, t),
+                RightBox.RotateTo(360, t),
+
+                LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY - 75, t / 2, Easing.SinInOut),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 75, t / 2, Easing.SinInOut),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 75, t / 2, Easing.SinInOut),
+                RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY + 75, t / 2, Easing.SinInOut)
+                );
+
+            await Task.WhenAll(
+                  LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY + 75, t / 2, Easing.SinInOut),
+                  MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY + 75, t / 2, Easing.SinInOut),
+                  MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY - 75, t / 2, Easing.SinInOut),
+                  RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY - 75, t / 2, Easing.SinInOut)
+                  );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+
+            LeftBox.TranslationX += 50;
+            MiddleLeftBox.TranslationX += -50;
+            MiddleRightBox.TranslationX += 0;
+            RightBox.TranslationX += 0;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            NameChanger = NameLeft;
+            NameLeft = NameMiddleLeft;
+            NameMiddleLeft = NameChanger;
+
+        }
+
+        public async Task RotateElevenPointTwo(uint t = 1250)
+        {
+            StoreNames();
+
+            LeftBox.AnchorX = EinePosition;
+            MiddleLeftBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = EinePosition;
+            RightBox.AnchorX = -(EinePosition - 1);
+
+            await Task.WhenAny(
+                LeftBox.RotateTo(180, t),
+                MiddleLeftBox.RotateTo(180, t),
+                MiddleRightBox.RotateTo(360, t),
+                RightBox.RotateTo(360, t),
 
                 LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY - 75, t / 2, Easing.SinInOut),
                 MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 75, t / 2, Easing.SinInOut),
@@ -948,6 +1481,106 @@ namespace Spiel
             NameMiddleRight = NameChanger;
         }
 
+        public async Task RotateTwelvePointOne(uint t = 500, uint t2 = 2000, uint t3 = 500)
+        {
+            StoreNames();
+            Easing easing = Easing.SinInOut;
+
+            await Task.WhenAll(
+
+                LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY + 100, t),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY + 50, t),
+                RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY - 50, t)
+                );
+
+            LeftBox.AnchorX = DreiPositionen;
+            LeftBox.AnchorY = -(DreiPositionen - 1);
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleLeftBox.AnchorY = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorY = EinePosition;
+            RightBox.AnchorX = -(DreiPositionen - 1);
+            RightBox.AnchorY = DreiPositionen;
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(630, t2, easing),
+                MiddleLeftBox.RotateTo(630, t2, easing),
+                MiddleRightBox.RotateTo(630, t2, easing),
+                RightBox.RotateTo(630, t2, easing)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            LeftBox.AnchorY = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorY = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorY = 0.5;
+            RightBox.AnchorX = 0.5;
+            RightBox.AnchorY = 0.5;
+
+
+            LeftBox.TranslationX += 150;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleRightBox.TranslationX += -50;
+            RightBox.TranslationX += -150;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            await Task.WhenAll(
+                LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY - 100, t3),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 50, t3),
+                RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY + 50, t3)
+                );
+
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameChanger;
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameMiddleRight;
+            NameMiddleRight = NameChanger;
+        }
+
+        public async Task RotateThirteen(uint t = 750)
+        {
+            StoreNames();
+            Easing easing = Easing.SinInOut;
+
+            LeftBox.AnchorX = DreiPositionen;
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            RightBox.AnchorX = -(DreiPositionen - 1);
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, t, easing),
+                MiddleLeftBox.RotateTo(180, t, easing),
+                MiddleRightBox.RotateTo(180, t, easing),
+                RightBox.RotateTo(180, t, easing)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            LeftBox.TranslationX += 150;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleRightBox.TranslationX += -50;
+            RightBox.TranslationX += -150;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameChanger;
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameMiddleRight;
+            NameMiddleRight = NameChanger;
+        }
 
 
         //public async Task Grundgeruest()
@@ -1011,22 +1644,23 @@ namespace Spiel
             NameRight = "Box4";
         }
 
-        public async Task MoveBackInCorners(uint t = 500, uint t2 = 750)
+        public async Task MoveBackInCorners(uint t = 250, uint t2 = 750)
         {
             StoreNames();
 
+
             await Task.WhenAll(
-              LeftBox.TranslateTo(LeftBox.TranslationX - 75, LeftBox.TranslationY - 75, t, Easing.SinInOut),                  
-              MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 75, t, Easing.SinInOut), 
-              MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 75, t, Easing.SinInOut), 
-              RightBox.TranslateTo(RightBox.TranslationX + 75, RightBox.TranslationY + 75, t, Easing.SinInOut) 
+              LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY - 25, t, Easing.SinInOut),                  
+              MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 25, t, Easing.SinInOut), 
+              MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 25, t, Easing.SinInOut), 
+              RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY + 25, t, Easing.SinInOut) 
              );
 
             await Task.WhenAll(
-             LeftBox.TranslateTo(LeftBox.TranslationX - ((Box4.X / 2) - 75) - (PositionMovedToTheRight * 50) +75,LeftBox.TranslationY -(Box4.Y / 2) +75, t2, Easing.SinInOut),                
-             MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + (Box4.X / 2) + 25 - (PositionMovedToTheRight * 50), MiddleLeftBox.TranslationY - (Box4.Y / 2)+75, t2, Easing.SinInOut),   
-             MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX -(Box4.X / 2) - 25 - (PositionMovedToTheRight * 50), MiddleRightBox.TranslationY + (Box4.Y / 2)-75, t2, Easing.SinInOut), 
-             RightBox.TranslateTo(RightBox.TranslationX + (Box4.X / 2) - 75 - (PositionMovedToTheRight * 50)-75, RightBox.TranslationY + (Box4.Y / 2)-75, t2, Easing.SinInOut)                
+             LeftBox.TranslateTo(LeftBox.TranslationX - ((Box4.X / 2) - 75) - (PositionMovedToTheRight * 50) + 90,LeftBox.TranslationY -(Box4.Y / 2) + 25 + 90, t2, Easing.SinInOut),                
+             MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + (Box4.X / 2) + 25 - (PositionMovedToTheRight * 50) - 90, MiddleLeftBox.TranslationY - (Box4.Y / 2)+ 25 + 90, t2, Easing.SinInOut),   
+             MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX -(Box4.X / 2) - 25 - (PositionMovedToTheRight * 50) + 90, MiddleRightBox.TranslationY + (Box4.Y / 2)- 25 - 90, t2, Easing.SinInOut), 
+             RightBox.TranslateTo(RightBox.TranslationX + (Box4.X / 2) - (PositionMovedToTheRight * 50)-75 - 90, RightBox.TranslationY + (Box4.Y / 2)- 25 - 90, t2, Easing.SinInOut)                
             );
         }
 
