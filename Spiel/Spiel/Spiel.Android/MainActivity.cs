@@ -33,7 +33,8 @@ namespace Spiel.Droid
 
             if (keyCode == Keycode.VolumeUp)
             {
-                
+
+                App.Current.MainPage = new RundeEins();
                 return true;
             }
             return base.OnKeyUp(keyCode, e);
