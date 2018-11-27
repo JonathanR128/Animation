@@ -22,5 +22,33 @@ namespace Spiel.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+        public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
+        {
+            if (keyCode == Keycode.VolumeDown)
+            {
+                return true;
+            }
+
+            if (keyCode == Keycode.VolumeUp)
+            {
+                return true;
+            }
+            return base.OnKeyUp(keyCode, e);
+        }
+
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            if (keyCode == Keycode.VolumeDown)
+            {
+                return true;
+            }
+
+            if (keyCode == Keycode.VolumeUp)
+            {
+                return true;
+            }
+            return base.OnKeyDown(keyCode, e);
+        }
+        
     }
 }
