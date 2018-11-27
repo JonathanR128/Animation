@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Spiel.ErsterDurchlauf">
-  <ContentView.Content>
+             x:Class="Spiel.RundeEins">
+    <ContentPage.Content>
+
         <AbsoluteLayout>
             <Label x:Name="Label1" Text="1" FontSize="78" TextColor="Black" AbsoluteLayout.LayoutBounds="0, 0, 120, 120"
                   AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0" />
@@ -44,5 +45,6 @@
                    AbsoluteLayout.LayoutFlags="All" Opacity="0" />
 
         </AbsoluteLayout>
-    </ContentView.Content>
-</ContentView>
+
+    </ContentPage.Content>
+</ContentPage>

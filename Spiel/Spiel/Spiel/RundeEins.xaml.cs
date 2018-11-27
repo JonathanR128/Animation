@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Spiel
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ErsterDurchlauf : ContentView
+	public partial class RundeEins : ContentPage
 	{
-		public ErsterDurchlauf ()
+		public RundeEins ()
 		{
 			InitializeComponent ();
 
@@ -30,6 +30,7 @@ namespace Spiel
             MoveAsync();
             //MoveTester();
         }
+
 
         public int PositionMovedToTheRight { get; set; }
         public double EinePosition { get; set; }
@@ -1776,6 +1777,5 @@ namespace Spiel
         //    //NameRight = NameChanger;
 
         //}
-
     }
 }

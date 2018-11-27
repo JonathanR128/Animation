@@ -26,11 +26,14 @@ namespace Spiel.Droid
         {
             if (keyCode == Keycode.VolumeDown)
             {
+                
                 return true;
+
             }
 
             if (keyCode == Keycode.VolumeUp)
             {
+                
                 return true;
             }
             return base.OnKeyUp(keyCode, e);
