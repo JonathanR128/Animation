@@ -24,17 +24,20 @@ namespace Spiel.Droid
         }
         public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
         {
-            if (keyCode == Keycode.VolumeDown)
-            {
-                
+            if (keyCode == Keycode.DpadRight)
+            {               
                 return true;
-
             }
-
-            if (keyCode == Keycode.VolumeUp)
+            if (keyCode == Keycode.DpadLeft)
             {
-
-                App.Current.MainPage = new RundeEins();
+                return true;
+            }
+            if (keyCode == Keycode.Enter)
+            {
+                return true;
+            }
+            if (keyCode == Keycode.Back)
+            {
                 return true;
             }
             return base.OnKeyUp(keyCode, e);
@@ -42,17 +45,50 @@ namespace Spiel.Droid
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
-            if (keyCode == Keycode.VolumeDown)
+            if (keyCode == Keycode.DpadRight)
             {
+                App.Current.MainPage = new RundeEins();
+                return true;
+            }
+            if (keyCode == Keycode.DpadLeft)
+            {
+                App.Current.MainPage = new RundeEins();
+                return true;
+            }
+            if (keyCode == Keycode.Enter)
+            {
+                App.Current.MainPage = new RundeEins();
+                return true;
+            }
+            if (keyCode == Keycode.Back)
+            {
+                App.Current.MainPage = new MainPage();
+            }
+            if (keyCode == Keycode.DpadUp)
+            {
+                App.Current.MainPage = new RundeEins();
                 return true;
             }
 
-            if (keyCode == Keycode.VolumeUp)
-            {
-                return true;
-            }
             return base.OnKeyDown(keyCode, e);
         }
-        
+
+
+
+        public override bool OnTouchEvent(MotionEvent e)
+        {
+            
+            return base.OnTouchEvent(e);
+        }
+
+        //public override bool OnTouchEvent(MotionEvent e)
+        //{
+
+
+        //    App.Current.MainPage = new RundeEins();
+
+        //    return true;
+        //}
+
     }
 }

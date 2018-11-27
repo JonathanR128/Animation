@@ -26,7 +26,7 @@ namespace Spiel
         public void Button_Clicked(object sender, EventArgs e)
         {
 
-           // App.Current.MainPage = new RundeEins();
+            App.Current.MainPage = new RundeEins();
         }
         public int a { get; set; }
     }
