@@ -18,10 +18,14 @@ namespace Spiel.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+           
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+
+        public int value { get; set; }
+
         public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
         {
             if (keyCode == Keycode.DpadRight)
@@ -40,6 +44,11 @@ namespace Spiel.Droid
             {
                 return true;
             }
+            if (keyCode == Keycode.VolumeUp)
+            {
+                return true;
+            }
+
             return base.OnKeyUp(keyCode, e);
         }
 
@@ -47,31 +56,38 @@ namespace Spiel.Droid
         {
             if (keyCode == Keycode.DpadRight)
             {
-                App.Current.MainPage = new RundeEins();
+                
                 return true;
             }
             if (keyCode == Keycode.DpadLeft)
             {
-                App.Current.MainPage = new RundeEins();
+              
                 return true;
             }
             if (keyCode == Keycode.Enter)
             {
-                App.Current.MainPage = new RundeEins();
+              
                 return true;
             }
             if (keyCode == Keycode.Back)
             {
-                App.Current.MainPage = new MainPage();
+                return true;
             }
             if (keyCode == Keycode.DpadUp)
             {
-                App.Current.MainPage = new RundeEins();
+   
+                return true;
+            }
+            if (keyCode == Keycode.VolumeUp)
+            {
+                value += 1;
+                App.Current.MainPage = new MainPage(value);
                 return true;
             }
 
             return base.OnKeyDown(keyCode, e);
         }
+
 
 
 
