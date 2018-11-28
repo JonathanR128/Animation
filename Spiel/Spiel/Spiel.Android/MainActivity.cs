@@ -74,25 +74,30 @@ namespace Spiel.Droid
                     return true;
 
                 }
-                if (keyCode == Keycode.Enter)
-                {
-                    enter += 1;
-                    if (enter == 1)                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
-                    {
-                        App.Current.MainPage = new MainPage(value, enter);
-                    }
-                    return true;
-                }
-                if (keyCode == Keycode.Back)
-                {
-                    return true;
-                }
                 if (keyCode == Keycode.DpadUp)
                 {
 
                     return true;
                 }
-            }           
+            }
+            if (keyCode == Keycode.Enter)
+            {
+                enter += 1;
+                if (enter == 1)                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
+                {
+                    App.Current.MainPage = new MainPage(value, enter);
+                }
+                else
+                {
+                    enter = 0;
+                }
+                return true;
+            }
+            if (keyCode == Keycode.Back)
+            {
+                enter = 0;
+                App.Current.MainPage = new MainPage(value, enter);
+            }
 
             return base.OnKeyDown(keyCode, e);
         }
