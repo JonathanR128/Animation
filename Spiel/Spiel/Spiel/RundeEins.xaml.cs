@@ -227,8 +227,12 @@ namespace Spiel
 
         public async Task StartSequenz()
         {
-            await Task.Delay(1000);
-            await Countdown10.FadeTo(0, 100);
+            await Task.Delay(4500);
+            await AnzeigeSpielNummer.FadeTo(0, 500);
+
+            await Countdown10.FadeTo(1, 50);
+            await Task.Delay(900);
+            await Countdown10.FadeTo(0, 50, Easing.SinIn);
             await Countdown9.FadeTo(1, 50);
             await Task.Delay(900);
             await Countdown9.FadeTo(0, 50, Easing.SinIn);
