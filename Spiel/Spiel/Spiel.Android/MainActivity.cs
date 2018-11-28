@@ -25,6 +25,7 @@ namespace Spiel.Droid
         }
 
         public int value { get; set; }
+        public int enter { get; set; }
 
         public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
         {
@@ -44,10 +45,6 @@ namespace Spiel.Droid
             {
                 return true;
             }
-            if (keyCode == Keycode.VolumeUp)
-            {
-                return true;
-            }
 
             return base.OnKeyUp(keyCode, e);
         }
@@ -56,17 +53,32 @@ namespace Spiel.Droid
         {
             if (keyCode == Keycode.DpadRight)
             {
-                
+                if (value == 0)
+                {
+                    value = 7;
+                }
+                value += -1;
+                App.Current.MainPage = new MainPage(value, enter);
                 return true;
             }
             if (keyCode == Keycode.DpadLeft)
             {
-              
+                if (value == 6)
+                {
+                    value = 0;
+                }
+                value += 1;
+                App.Current.MainPage = new MainPage(value, enter);
                 return true;
+
             }
             if (keyCode == Keycode.Enter)
             {
-              
+                enter += 1;
+                if (enter == 1)                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
+                {
+                    App.Current.MainPage = new MainPage(value, enter);
+                }
                 return true;
             }
             if (keyCode == Keycode.Back)
@@ -76,12 +88,6 @@ namespace Spiel.Droid
             if (keyCode == Keycode.DpadUp)
             {
    
-                return true;
-            }
-            if (keyCode == Keycode.VolumeUp)
-            {
-                value += 1;
-                App.Current.MainPage = new MainPage(value);
                 return true;
             }
 

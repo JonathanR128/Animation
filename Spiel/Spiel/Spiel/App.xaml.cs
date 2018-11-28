@@ -10,7 +10,7 @@ namespace Spiel
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage(0);
+            MainPage = new MainPage(0, 0);
         }
 
         protected override void OnStart()

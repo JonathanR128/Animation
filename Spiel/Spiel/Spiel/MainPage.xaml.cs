@@ -11,13 +11,14 @@ namespace Spiel
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage(int value)
+        public MainPage(int value, int enter)
         {
             InitializeComponent();       
             
 
-            switch (a)
+            switch (value)
             {
+
                 case 1:
                     Button1.BackgroundColor = System.Drawing.Color.Green;
                     break;
@@ -36,22 +37,44 @@ namespace Spiel
                 case 6:
                     Button6.BackgroundColor = System.Drawing.Color.Green;
                     break;
-                //case 7:
-                //    value = 1;   so ändert das nicht value von MainActivity.. noch anders machen..
-                //    break;
                 default:
                     break;
-            }       
+            }   
+            
+            if (enter == 1)
+            {
+                LoadSpiel(value);
+            } 
             
         }
 
         public int a { get; set; }
 
 
-        public async Task NeueSeite()
+        public async Task LoadSpiel(int i)
         {
             await Task.Delay(10);
-            App.Current.MainPage = new RundeEins();
+            switch (i)
+            {
+                case 1:
+                    App.Current.MainPage = new RundeEins();
+                    break;
+                case 2:
+                    App.Current.MainPage = new RundeZwei();
+                    break;
+                case 3:
+                    App.Current.MainPage = new RundeDrei();
+                    break;
+                case 4:
+                    App.Current.MainPage = new RundeVier();
+                    break;
+                case 5:
+                    App.Current.MainPage = new RundeFuenf();
+                    break;
+                case 6:
+                    App.Current.MainPage = new RundeSechs();
+                    break;
+            }
         }
 
 
@@ -68,25 +91,24 @@ namespace Spiel
             App.Current.MainPage = new RundeZwei();
         }
 
-
         private void Button_Clicked_3(object sender, EventArgs e)
         {
-
+            App.Current.MainPage = new RundeDrei();
         }
 
         private void Button_Clicked_4(object sender, EventArgs e)
         {
-
+            App.Current.MainPage = new RundeVier();
         }
 
         private void Button_Clicked_5(object sender, EventArgs e)
         {
-
+            App.Current.MainPage = new RundeFuenf();
         }
 
         private void Button_Clicked_6(object sender, EventArgs e)
         {
-
+            App.Current.MainPage = new RundeSechs();
         }
     }
 }
