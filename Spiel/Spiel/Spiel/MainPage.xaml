@@ -6,9 +6,13 @@
 
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-            <Button  Text="Spiel1" Clicked="Button_Clicked" />
-            <Button  Text="Spiel2" />
-            
+            <Button  Text="Spiel1" Clicked="Button_Clicked_1"   x:Name="Button1"/>
+            <Button  Text="Spiel2" Clicked="Button_Clicked_2" x:Name="Button2" />
+            <Button Text="Spiel3" Clicked="Button_Clicked_3" x:Name="Button3" />
+            <Button Text="Spiel 4" Clicked="Button_Clicked_4" x:Name="Button4" />
+            <Button Text="Spiel 5" Clicked="Button_Clicked_5" x:Name="Button5" />
+            <Button Text="Spiel 6" Clicked="Button_Clicked_6" x:Name="Button6" />
+
         </StackLayout>
     </ContentPage.Content>
 
