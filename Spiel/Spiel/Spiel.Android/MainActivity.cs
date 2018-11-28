@@ -51,45 +51,48 @@ namespace Spiel.Droid
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
-            if (keyCode == Keycode.DpadRight)
+            if (enter == 0)
             {
-                if (value == 1 || value == 0)
+                if (keyCode == Keycode.DpadRight)
                 {
-                    value = 7;
-                }
-                value += -1;
-                App.Current.MainPage = new MainPage(value, enter);
-                return true;
-            }
-            if (keyCode == Keycode.DpadLeft)
-            {
-                if (value == 6)
-                {
-                    value = 0;
-                }
-                value += 1;
-                App.Current.MainPage = new MainPage(value, enter);
-                return true;
-
-            }
-            if (keyCode == Keycode.Enter)
-            {
-                enter += 1;
-                if (enter == 1)                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
-                {
+                    if (value == 1 || value == 0)
+                    {
+                        value = 7;
+                    }
+                    value += -1;
                     App.Current.MainPage = new MainPage(value, enter);
+                    return true;
                 }
-                return true;
-            }
-            if (keyCode == Keycode.Back)
-            {
-                return true;
-            }
-            if (keyCode == Keycode.DpadUp)
-            {
-   
-                return true;
-            }
+                if (keyCode == Keycode.DpadLeft)
+                {
+                    if (value == 6)
+                    {
+                        value = 0;
+                    }
+                    value += 1;
+                    App.Current.MainPage = new MainPage(value, enter);
+                    return true;
+
+                }
+                if (keyCode == Keycode.Enter)
+                {
+                    enter += 1;
+                    if (enter == 1)                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
+                    {
+                        App.Current.MainPage = new MainPage(value, enter);
+                    }
+                    return true;
+                }
+                if (keyCode == Keycode.Back)
+                {
+                    return true;
+                }
+                if (keyCode == Keycode.DpadUp)
+                {
+
+                    return true;
+                }
+            }           
 
             return base.OnKeyDown(keyCode, e);
         }
