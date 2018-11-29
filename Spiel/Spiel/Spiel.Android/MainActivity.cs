@@ -82,15 +82,13 @@ namespace Spiel.Droid
             }
             if (keyCode == Keycode.Enter)
             {
-                enter += 1;
-                if (enter == 1)                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
+                
+                if ((enter == 0) && (value != 0))                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
                 {
+                    enter += 1;
                     App.Current.MainPage = new MainPage(value, enter);
                 }
-                else
-                {
-                    enter = 0;
-                }
+
                 return true;
             }
             if (keyCode == Keycode.Back)
