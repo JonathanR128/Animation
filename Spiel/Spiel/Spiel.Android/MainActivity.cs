@@ -29,22 +29,15 @@ namespace Spiel.Droid
 
         public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
         {
-            if (keyCode == Keycode.DpadRight)
-            {               
-                return true;
-            }
-            if (keyCode == Keycode.DpadLeft)
-            {
-                return true;
-            }
-            if (keyCode == Keycode.Enter)
-            {
-                return true;
-            }
             if (keyCode == Keycode.Back)
             {
                 return true;
             }
+            if (keyCode == Keycode.DpadCenter)
+            {
+                return true;
+            }
+
 
             return base.OnKeyUp(keyCode, e);
         }
@@ -53,17 +46,8 @@ namespace Spiel.Droid
         {
             if (enter == 0)
             {
-                if (keyCode == Keycode.DpadRight)
-                {
-                    if (value == 1 || value == 0)
-                    {
-                        value = 7;
-                    }
-                    value += -1;
-                    App.Current.MainPage = new MainPage(value, enter);
-                    return true;
-                }
-                if (keyCode == Keycode.DpadLeft)
+
+                if (keyCode == Keycode.Back)
                 {
                     if (value == 6)
                     {
@@ -74,13 +58,9 @@ namespace Spiel.Droid
                     return true;
 
                 }
-                if (keyCode == Keycode.DpadUp)
-                {
-
-                    return true;
-                }
+               
             }
-            if (keyCode == Keycode.Enter)
+            if (keyCode == Keycode.DpadCenter)
             {
                 
                 if ((enter == 0) && (value != 0))                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
@@ -91,32 +71,15 @@ namespace Spiel.Droid
 
                 return true;
             }
-            if (keyCode == Keycode.Back)
-            {
-                enter = 0;
-                App.Current.MainPage = new MainPage(value, enter);
-            }
 
-            return base.OnKeyDown(keyCode, e);
+            return true;
         }
-
-
-
+               
 
         public override bool OnTouchEvent(MotionEvent e)
         {
             
             return base.OnTouchEvent(e);
         }
-
-        //public override bool OnTouchEvent(MotionEvent e)
-        //{
-
-
-        //    App.Current.MainPage = new RundeEins();
-
-        //    return true;
-        //}
-
     }
 }
