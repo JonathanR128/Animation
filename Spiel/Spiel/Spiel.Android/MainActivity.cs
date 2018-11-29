@@ -74,12 +74,6 @@ namespace Spiel.Droid
 
             return true;
         }
-               
 
-        public override bool OnTouchEvent(MotionEvent e)
-        {
-            
-            return base.OnTouchEvent(e);
-        }
     }
 }
