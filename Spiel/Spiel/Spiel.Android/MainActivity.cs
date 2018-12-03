@@ -55,21 +55,22 @@ namespace Spiel.Droid
             {
                 if (keyCode == Keycode.DpadRight)
                 {
-                    if (value == 1 || value == 0)
-                    {
-                        value = 7;
-                    }
-                    value += -1;
-                    App.Current.MainPage = new MainPage(value, enter);
-                    return true;
-                }
-                if (keyCode == Keycode.DpadLeft)
-                {
                     if (value == 6)
                     {
                         value = 0;
                     }
                     value += 1;
+                    App.Current.MainPage = new MainPage(value, enter);
+                    return true;
+                }
+                if (keyCode == Keycode.DpadLeft)
+                {  
+
+                    if (value == 1 || value == 0)
+                    {
+                        value = 7;
+                    }
+                    value += -1;
                     App.Current.MainPage = new MainPage(value, enter);
                     return true;
 
