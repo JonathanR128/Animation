@@ -6,14 +6,15 @@
 
     <ContentPage.Content>
 
-        <AbsoluteLayout>
-            <Button  Text="Spiel1" Clicked="Button_Clicked_1" x:Name="Button1" AbsoluteLayout.LayoutBounds="0.2, 0.3, 0.4, 0.3"  AbsoluteLayout.LayoutFlags="All"/>
-            <Button  Text="Spiel2" Clicked="Button_Clicked_2" x:Name="Button2"  AbsoluteLayout.LayoutBounds="0.5, 0.0625, 0.35, 0.25"  AbsoluteLayout.LayoutFlags="All" Opacity="0" />
-            <Button Text="Spiel3" Clicked="Button_Clicked_3" x:Name="Button3"  AbsoluteLayout.LayoutBounds="0.1, 0.375, 0.35, 0.25"  AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Button Text="Spiel 4" Clicked="Button_Clicked_4" x:Name="Button4"  AbsoluteLayout.LayoutBounds="0.45, 0.375, 0.35, 0.25"  AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Button Text="Spiel 5" Clicked="Button_Clicked_5" x:Name="Button5"  AbsoluteLayout.LayoutBounds="0.1, 0.6875, 0.35, 0.25"  AbsoluteLayout.LayoutFlags="All"/>
-            <Button Text="Spiel 6" Clicked="Button_Clicked_6" x:Name="Button6"  AbsoluteLayout.LayoutBounds="0.45, 0.6875, 0.35, 0.25"  AbsoluteLayout.LayoutFlags="All"/>
+        <AbsoluteLayout BackgroundColor="Black" Opacity="0.85">
+            <Button  Text="Spiel 1" FontSize="34" Clicked="Button_Clicked_1" x:Name="Button1" AbsoluteLayout.LayoutBounds="0, 0, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button  Text="Spiel 2" FontSize="34" Clicked="Button_Clicked_2" x:Name="Button2"  AbsoluteLayout.LayoutBounds="1, 0, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button Text="Spiel 3" FontSize="34" Clicked="Button_Clicked_3" x:Name="Button3"  AbsoluteLayout.LayoutBounds="0, 0.5, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button Text="Spiel 4" FontSize="34" Clicked="Button_Clicked_4" x:Name="Button4"  AbsoluteLayout.LayoutBounds="1, 0.5, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button Text="Spiel 5" FontSize="34"  Clicked="Button_Clicked_5" x:Name="Button5"  AbsoluteLayout.LayoutBounds="0, 1, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button Text="Spiel 6" FontSize="34" Clicked="Button_Clicked_6" x:Name="Button6"  AbsoluteLayout.LayoutBounds="1, 1, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
 
+           
         </AbsoluteLayout>
     </ContentPage.Content>
 
