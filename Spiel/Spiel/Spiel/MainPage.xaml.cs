@@ -20,22 +20,22 @@ namespace Spiel
             {
 
                 case 1:
-                    Button1.BackgroundColor = System.Drawing.Color.Green;
+                    Button1.BackgroundColor = System.Drawing.Color.Yellow;
                     break;
                 case 2:
-                    Button2.BackgroundColor = System.Drawing.Color.Green;
+                    Button2.BackgroundColor = System.Drawing.Color.Yellow;
                     break;
                 case 3:
-                    Button3.BackgroundColor = System.Drawing.Color.Green;
+                    Button3.BackgroundColor = System.Drawing.Color.Yellow;
                     break;
                 case 4:
-                    Button4.BackgroundColor = System.Drawing.Color.Green;
+                    Button4.BackgroundColor = System.Drawing.Color.Yellow;
                     break;
                 case 5:
-                    Button5.BackgroundColor = System.Drawing.Color.Green;
+                    Button5.BackgroundColor = System.Drawing.Color.Yellow;
                     break;
                 case 6:
-                    Button6.BackgroundColor = System.Drawing.Color.Green;
+                    Button6.BackgroundColor = System.Drawing.Color.Yellow;
                     break;
                 default:
                     break;

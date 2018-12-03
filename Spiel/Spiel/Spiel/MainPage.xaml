@@ -5,15 +5,17 @@
              x:Class="Spiel.MainPage">
 
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-            <Button  Text="Spiel1" Clicked="Button_Clicked_1"   x:Name="Button1"/>
-            <Button  Text="Spiel2" Clicked="Button_Clicked_2" x:Name="Button2" />
-            <Button Text="Spiel3" Clicked="Button_Clicked_3" x:Name="Button3" />
-            <Button Text="Spiel 4" Clicked="Button_Clicked_4" x:Name="Button4" />
-            <Button Text="Spiel 5" Clicked="Button_Clicked_5" x:Name="Button5" />
-            <Button Text="Spiel 6" Clicked="Button_Clicked_6" x:Name="Button6" />
 
-        </StackLayout>
+        <AbsoluteLayout BackgroundColor="Black" Opacity="0.85">
+            <Button  Text="Spiel 1" FontSize="34" Clicked="Button_Clicked_1" x:Name="Button1" AbsoluteLayout.LayoutBounds="0, 0, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button  Text="Spiel 2" FontSize="34" Clicked="Button_Clicked_2" x:Name="Button2"  AbsoluteLayout.LayoutBounds="1, 0, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button Text="Spiel 3" FontSize="34" Clicked="Button_Clicked_3" x:Name="Button3"  AbsoluteLayout.LayoutBounds="0, 0.5, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button Text="Spiel 4" FontSize="34" Clicked="Button_Clicked_4" x:Name="Button4"  AbsoluteLayout.LayoutBounds="1, 0.5, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button Text="Spiel 5" FontSize="34"  Clicked="Button_Clicked_5" x:Name="Button5"  AbsoluteLayout.LayoutBounds="0, 1, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+            <Button Text="Spiel 6" FontSize="34" Clicked="Button_Clicked_6" x:Name="Button6"  AbsoluteLayout.LayoutBounds="1, 1, 0.4, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="LightSkyBlue"/>
+
+           
+        </AbsoluteLayout>
     </ContentPage.Content>
 
 </ContentPage>
