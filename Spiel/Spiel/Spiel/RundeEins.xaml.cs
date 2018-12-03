@@ -75,7 +75,7 @@ namespace Spiel
 
         };
 
-        public int[] RedBox = new int[] { 1, 4, 3, 4, 1, 2, 4, 1, 3, 2, 2, 2, 3, 4, 2, 3, 3, 2, 3, 4 };
+        public int[] YellowBox = new int[] { 1, 4, 3, 4, 1, 2, 4, 1, 3, 2, 2, 2, 3, 4, 2, 3, 3, 2, 3, 4 };
 
         public async Task RotationRandom(int i)
         {
@@ -162,12 +162,12 @@ namespace Spiel
             for (int i = 0; i < 20; i++)
             {
                 PositionMovedToTheRight = 0;
-                DrawBoxesGreen();
+                DrawBoxesBlue();
                 await MoveToCenterInRow();
-                DrawBoxRed(RedBox[i]);
+                DrawBoxYellow(YellowBox[i]);
                 await FadeBoxesToOne(1000);
                 await Task.Delay(1000);
-                DrawBoxesGreen();
+                DrawBoxesBlue();
                 await Task.Delay(1000);
 
                 await RotationRandom(Rotationsreihenfolge[i, 0]);
@@ -192,7 +192,7 @@ namespace Spiel
                 await Fragezeichen.FadeTo(1, 50);
                 await Task.Delay(1150);
                 await Fragezeichen.FadeTo(0, 50);
-                DrawBoxRed(RedBox[i]);
+                DrawBoxYellow(YellowBox[i]);
                 await Task.Delay(2750);
                 await FadeBoxesToZero(1000);
 
@@ -209,7 +209,7 @@ namespace Spiel
             await Task.Delay(1200);
             Countdown10.FadeTo(0, 0);
             PositionMovedToTheRight = 0;
-            DrawBoxesGreen();
+            DrawBoxesBlue();
             await MoveToCenterInRow();
             await FadeBoxesToOne(1000);
             await Task.Delay(1000);
@@ -1698,23 +1698,23 @@ namespace Spiel
                 );
         }
 
-        public void DrawBoxRed(int i)
+        public void DrawBoxYellow(int i)
         {
             if (i == 1)
             {
-                Box1.Color = System.Drawing.Color.Red;
+                Box1.Color = System.Drawing.Color.Yellow;
             }
             if (i == 2)
             {
-                Box2.Color = System.Drawing.Color.Red;
+                Box2.Color = System.Drawing.Color.Yellow;
             }
             if (i == 3)
             {
-                Box3.Color = System.Drawing.Color.Red;
+                Box3.Color = System.Drawing.Color.Yellow;
             }
             if (i == 4)
             {
-                Box4.Color = System.Drawing.Color.Red;
+                Box4.Color = System.Drawing.Color.Yellow;
             }
         }
 
@@ -1728,13 +1728,13 @@ namespace Spiel
 
         }
 
-        public void DrawBoxesGreen()
+        public void DrawBoxesBlue()
         {
 
-            Box1.Color = System.Drawing.Color.Green;
-            Box2.Color = System.Drawing.Color.Green;
-            Box3.Color = System.Drawing.Color.Green;
-            Box4.Color = System.Drawing.Color.Green;
+            Box1.Color = System.Drawing.Color.LightSkyBlue;
+            Box2.Color = System.Drawing.Color.LightSkyBlue;
+            Box3.Color = System.Drawing.Color.LightSkyBlue;
+            Box4.Color = System.Drawing.Color.LightSkyBlue;
 
         }
 
