@@ -214,11 +214,11 @@ namespace RotationsTester
             await Task.Delay(1000);
 
 
-            await RotateNine();
-            await RotateNine();
 
-            await RotateNinePointOne();
-            await RotateNinePointOne();
+            await RotateEightPointThree();
+            await RotateEightPointThree();
+            await RotateEightPointThree();
+            await RotateEightPointThree();
 
 
 
@@ -1388,6 +1388,108 @@ namespace RotationsTester
 
         }
 
+        public async Task RotateEightPointThree(uint t = 750, uint t2 = 1875, uint t3 = 625)
+        {
+            StoreNames();
+
+            LeftBox.AnchorX = ZweiPositionen;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = -(ZweiPositionen - 1);
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, t - 100, Easing.CubicIn),
+                RightBox.RotateTo(-180, t, Easing.CubicOut),
+
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY + 50, t),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 50, t)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+
+
+            LeftBox.TranslationX += 100;
+            MiddleLeftBox.TranslationX += 0;
+            MiddleRightBox.TranslationX += 0;
+            RightBox.TranslationX += -100;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            // Zweiter Teil
+
+            LeftBox.AnchorX = -(EinePosition - 1);
+            LeftBox.AnchorY = EinePosition;
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleLeftBox.AnchorY = -(EinePosition - 1);
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            MiddleRightBox.AnchorY = -(EinePosition - 1);
+            RightBox.AnchorX = EinePosition;
+            RightBox.AnchorY = EinePosition;
+
+            Easing easing = Easing.SinInOut;
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(540, t2, easing),
+                MiddleLeftBox.RotateTo(540, t2, easing),
+                MiddleRightBox.RotateTo(540, t2, easing),
+                RightBox.RotateTo(540, t2, easing),
+
+                LeftBox.TranslateTo(LeftBox.TranslationX, LeftBox.TranslationY - 100, t3, easing),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY - 100, t3, easing),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY - 100, t3, easing),
+                RightBox.TranslateTo(RightBox.TranslationX, RightBox.TranslationY - 100, t3, easing)
+
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            LeftBox.AnchorY = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorY = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorY = 0.5;
+            RightBox.AnchorX = 0.5;
+            RightBox.AnchorY = 0.5;
+
+
+            LeftBox.TranslationX += -50;
+            LeftBox.TranslationY += 50;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleLeftBox.TranslationY += -50;
+            MiddleRightBox.TranslationX += -50;
+            MiddleRightBox.TranslationY += -50;
+            RightBox.TranslationX += 50;
+            RightBox.TranslationY += 50;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            // Teil Drei
+
+
+            await Task.WhenAll(
+                LeftBox.TranslateTo(LeftBox.TranslationX - 50, LeftBox.TranslationY + 50, t3),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX, MiddleLeftBox.TranslationY + 100, t3, easing),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX, MiddleRightBox.TranslationY + 100, t3, easing),
+                RightBox.TranslateTo(RightBox.TranslationX + 50, RightBox.TranslationY + 50, t3)
+                );
+
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameMiddleRight;
+            NameMiddleRight = NameChanger;
+
+        }
+
         public async Task RotateNine(uint t = 750, uint t2 = 500, uint t3 = 500)
         {
             StoreNames();
@@ -1523,6 +1625,90 @@ namespace RotationsTester
             NameMiddleLeft = NameRight;
             NameRight = NameMiddleRight;
             NameMiddleRight = NameChanger;
+
+        }
+
+        public async Task RotateNinePointTwo(uint t = 750, uint t2 = 750, uint t3 = 750)
+        {
+            StoreNames();
+
+            LeftBox.AnchorX = ZweiPositionen;
+            MiddleLeftBox.AnchorX = ZweiPositionen;
+            MiddleRightBox.AnchorX = ZweiPositionen;
+            RightBox.AnchorX = -(DreiPositionen - 1);
+
+            await Task.WhenAll(
+                LeftBox.RotateTo(-90, t, Easing.SinInOut),
+                MiddleLeftBox.RotateTo(90, t, Easing.SinInOut),
+                MiddleRightBox.RotateTo(-180, t, Easing.SinInOut),
+                RightBox.RotateTo(-180, t, Easing.SinInOut)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            RightBox.AnchorX = 0.5;
+
+
+            LeftBox.TranslationX += 50;
+            LeftBox.TranslationY += 50;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleLeftBox.TranslationY += -50;
+            MiddleRightBox.TranslationX += 100;
+            RightBox.TranslationX += -150;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            // Zweiter Teil
+
+
+            RightBox.AnchorX = ZweiPositionen;
+            RightBox.AnchorY = -(ZweiPositionen - 1);
+            MiddleRightBox.AnchorX = -(ZweiPositionen - 1);
+            MiddleRightBox.AnchorY = ZweiPositionen;
+
+            await Task.WhenAll(
+
+                LeftBox.TranslateTo(LeftBox.TranslationX + 50, LeftBox.TranslationY, t2, Easing.SinInOut),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX + 50, MiddleLeftBox.TranslationY, t2, Easing.SinInOut),
+                MiddleRightBox.RotateTo(180, t2, Easing.SinInOut),
+                RightBox.RotateTo(180, t2, Easing.SinInOut)
+                );
+
+            // Set Anchor to normal and compensate the translation
+
+            MiddleRightBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorY = 0.5;
+            RightBox.AnchorX = 0.5;
+            RightBox.AnchorY = 0.5;
+
+            MiddleRightBox.TranslationX += -100;
+            MiddleRightBox.TranslationY += 100; 
+            RightBox.TranslationX += 100;
+            RightBox.TranslationY += -100;
+
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            // Dritter Teil
+
+            await Task.WhenAll(
+
+                LeftBox.TranslateTo(LeftBox.TranslationX + 50, LeftBox.TranslationY - 50, t3, Easing.SinInOut),
+                MiddleLeftBox.TranslateTo(MiddleLeftBox.TranslationX - 50, MiddleLeftBox.TranslationY + 50, t3, Easing.SinInOut),
+                MiddleRightBox.TranslateTo(MiddleRightBox.TranslationX - 100, MiddleRightBox.TranslationY - 100, t3, Easing.SinInOut),
+                RightBox.TranslateTo(RightBox.TranslationX - 50, RightBox.TranslationY + 100, t3, Easing.SinInOut)
+                );
+
+            NameChanger = NameLeft;
+            NameLeft = NameMiddleRight;
+            NameMiddleRight = NameMiddleLeft;
+            NameMiddleLeft = NameRight;
+            NameRight = NameChanger;
 
         }
 
