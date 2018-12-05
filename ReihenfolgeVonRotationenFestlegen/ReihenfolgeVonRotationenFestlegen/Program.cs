@@ -10,13 +10,13 @@ namespace ReihenfolgeVonRotationenFestlegen
     {
         static void Main(string[] args)
         {
-            List<int> GewaehlteZahlen = new List<int>();
+            List<double> GewaehlteZahlen = new List<double>();
             t = 6000;
             while (t > 0)
             {
                 Console.WriteLine("Geben sie Rotationszahl ein, Sie haben noch {0} Sekunden:", t);
 
-                int.TryParse(Console.ReadLine(),out int b);
+                double.TryParse(Console.ReadLine(),out double b);
                 a = b;
                 Zeitrunterzaehlen();
 
@@ -28,7 +28,7 @@ namespace ReihenfolgeVonRotationenFestlegen
             Console.WriteLine("Diese Zahlen haben Sie gewählt:");
 
             //Console.WriteLine();
-            foreach (int Rotation in GewaehlteZahlen)
+            foreach (double Rotation in GewaehlteZahlen)
             {
                 Console.WriteLine(Rotation);
             }
@@ -39,13 +39,16 @@ namespace ReihenfolgeVonRotationenFestlegen
         }
 
             
-        public static int a { get; set; }
-        public static int t { get; set; }
+        public static double a { get; set; }
+        public static double t { get; set; }
 
         public static void Zeitrunterzaehlen()
         {
             switch (a)
             {
+                case 0.5:
+                    t += 5000;
+                    break;
                 case 1:
                     t -= 500;
                     break;
