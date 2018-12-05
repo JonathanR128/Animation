@@ -214,11 +214,11 @@ namespace RotationsTester
             await Task.Delay(1000);
 
 
-            await RotateFifteen(2000, 2000);
-            await RotateFifteen();
-            await RotateFifteen();
-            await RotateFifteen();
-            await RotateFifteen();
+            await RotateFour(1500, 2250, 3000);
+            await RotateFour(1500, 2250, 3000);
+            await RotateFour(1500, 2250, 3000);
+            await RotateFour(1500, 2250, 3000);
+
 
             await MoveBackInCorners();
             await Task.Delay(2750);
@@ -671,7 +671,6 @@ namespace RotationsTester
 
 
         }
-
 
         public async Task RotateSix(uint t = 750, uint t2 = 750)
         {
@@ -2161,6 +2160,43 @@ namespace RotationsTester
             NameMiddleRight = NameChanger;
         }
 
+        public async Task RotateThirteenPointOne(uint t = 750)
+        {
+            StoreNames();
+            Easing easing = Easing.SinInOut;
+
+            LeftBox.AnchorX = DreiPositionen;
+            MiddleLeftBox.AnchorX = EinePosition;
+            MiddleRightBox.AnchorX = -(EinePosition - 1);
+            RightBox.AnchorX = -(DreiPositionen - 1);
+            await Task.WhenAll(
+                LeftBox.RotateTo(180, t, easing),
+                MiddleLeftBox.RotateTo(-180, t, easing),
+                MiddleRightBox.RotateTo(-180, t, easing),
+                RightBox.RotateTo(180, t, easing)
+                );
+
+            // Set Anchor to normal and compensate the translation
+            LeftBox.AnchorX = 0.5;
+            MiddleLeftBox.AnchorX = 0.5;
+            MiddleRightBox.AnchorX = 0.5;
+            LeftBox.TranslationX += 150;
+            MiddleLeftBox.TranslationX += 50;
+            MiddleRightBox.TranslationX += -50;
+            RightBox.TranslationX += -150;
+
+            LeftBox.Rotation = 0;
+            MiddleLeftBox.Rotation = 0;
+            MiddleRightBox.Rotation = 0;
+            RightBox.Rotation = 0;
+
+            NameChanger = NameLeft;
+            NameLeft = NameRight;
+            NameRight = NameChanger;
+            NameChanger = NameMiddleLeft;
+            NameMiddleLeft = NameMiddleRight;
+            NameMiddleRight = NameChanger;
+        }
 
         public async Task RotateFourteen(uint t = 750)
         {
