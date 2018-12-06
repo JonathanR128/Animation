@@ -49,9 +49,9 @@ namespace Spiel
         public BoxView RightBox { get; set; }
 
 
-        public int[,] Rotationsreihenfolge = new int[,]
+        public double[,] Rotationsreihenfolge = new double[,]
         {
-            { 20, 5, 17, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
+            { 3.1, 5, 17, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
             { 22, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 10, 19, 16, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
