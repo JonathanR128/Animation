@@ -79,52 +79,52 @@ namespace RotationsTester
             switch (i)
             {
                 case 1:
-                    await RotateOne();
+                    await RotateOne(0);
                     break;
                 case 2:
-                    await RotateTwo();
+                    await RotateTwo(0);
                     break;
                 case 3:
-                    await RotateThree();
+                    await RotateThree(0);
                     break;
                 case 4:
-                    await RotateFour();
+                    await RotateFour(0, 0, 0);
                     break;
                 case 5:
-                    await RotateFive();
+                    await RotateFive(0, 0);
                     break;
                 case 6:
-                    await RotateSix();
+                    await RotateSix(0, 0);
                     break;
                 case 7:
-                    await RotateSeven();
+                    await RotateSeven(0, 0);
                     break;
                 case 8:
-                    await RotateEight();
+                    await RotateEight(0, 0, 0);
                     break;
                 case 9:
-                    await RotateNine();
+                    await RotateNine(0, 0, 0);
                     break;
                 case 10:
-                    await RotateTen();
+                    await RotateTen(0, 0, 0);
                     break;
                 case 11:
-                    await RotateEleven();
+                    await RotateEleven(0);
                     break;
                 case 12:
-                    await RotateTwelve();
+                    await RotateTwelve(0, 0, 0);
                     break;
                 case 13:
-                    await RotateThirteen();
+                    await RotateThirteen(0);
                     break;
                 case 14:
-                    await RotateThreePointOne();
+                    await RotateThreePointOne(0);
                     break;
                 case 15:
-                    await RotateFourPointOne();
+                    await RotateFourPointOne(0, 0, 0);
                     break;
                 case 16:
-                    await RotateSixPointOne();
+                    await RotateSixPointOne(0,);
                     break;
                 case 17:
                     await RotateSixPointTwo();
@@ -148,6 +148,324 @@ namespace RotationsTester
                     break;
 
             }
+        }
+
+        public async Task RotationStarten(double i)
+        {
+            if (i == 1)
+            {
+                await RotateOne(0);
+            }
+            if (i == 2)
+            {
+                await RotateTwo(0);
+            }
+            if (i == 3)
+            {
+                await RotateThree(0);
+            }
+            if (i == 3.1)
+            {
+                await RotateThreePointOne(0);
+            }
+            if (i == 4)
+            {
+                await RotateFour(0, 0, 0);
+            }
+            if (i == 4.1)
+            {
+                await RotateFourPointOne(0, 0, 0);
+            }
+            if (i == 5)
+            {
+                await RotateFive(0, 0);
+            }
+            if (i == 5.1)
+            {
+                await RotateFivePointOne(0, 0);
+            }
+            if (i == 6)
+            {
+                await RotateSix(0, 0);
+            }
+            if (i == 6.1)
+            {
+                await RotateSixPointOne(0, 0);
+            }
+            if (i == 6.2)
+            {
+                await RotateSixPointTwo(0, 0);
+            }
+            if (i == 7)
+            {
+                await RotateSeven(0, 0);
+            }
+            if (i == 7.1)
+            {
+                await RotateSevenPointOne(0, 0);
+            }
+            if (i == 7.2)
+            {
+                await RotateSevenPointTwo(0, 0);
+            }
+            if (i == 7.3)
+            {
+                await RotateSevenPointThree(0, 0);
+            }
+            if (i == 8)
+            {
+                await RotateEight(0, 0, 0);
+            }
+            if (i == 8.1)
+            {
+                await RotateEightPointOne(0, 0, 0);
+            }
+            if (i == 8.2)
+            {
+                await RotateEightPointTwo(0, 0, 0);
+            }
+            if (i == 8.3)
+            {
+                await RotateEightPointThree(0, 0, 0);
+            }
+            if (i == 9)
+            {
+                await RotateNine(0, 0, 0);
+            }
+            if (i == 9.1)
+            {
+                await RotateNinePointOne(0, 0, 0);
+            }
+            if (i == 9.2)
+            {
+                await RotateNinePointTwo(0, 0, 0);
+            }
+            if (i == 10)
+            {
+                await RotateTen(0, 0, 0);
+            }
+            if (i == 11)
+            {
+                await RotateEleven(0);
+            }
+            if (i == 11.1)
+            {
+                await RotateElevenPointOne(0);
+            }
+            if (i == 11.2)
+            {
+                await RotateElevenPointTwo(0);
+            }
+            if (i == 12)
+            {
+                await RotateTwelve(0, 0, 0);
+            }
+            if (i == 12.1)
+            {
+                await RotateTwelvePointOne(0, 0, 0);
+            }
+            if (i == 13)
+            {
+                await RotateThirteen(0);
+            }
+            if (i == 13.1)
+            {
+                await RotateThirteenPointOne(0);
+            }
+            if (i == 14)
+            {
+                await RotateFourteen(0);
+            }
+            if (i == 14.1)
+            {
+                await RotateFourteen(0);
+            }
+            if (i == 15)
+            {
+                await RotateFifteen(0, 0);
+            }
+        }
+
+        //public async Task RotationStarten(double i)
+        //{
+        //    if(i == 1)
+        //    {
+        //        await RotateOne();
+        //    }
+        //    if(i == 2)
+        //    {
+        //        await RotateTwo();
+        //    }
+        //    if(i == 3)
+        //    {
+        //        await RotateThree();
+        //    }
+        //    if(i == 3.1)
+        //    {
+        //        await RotateThreePointOne();
+        //    }
+        //    if(i == 4)
+        //    {
+        //        await RotateFour();
+        //    }
+        //    if (i == 4.1)
+        //    {
+        //        await RotateFourPointOne();
+        //    }
+        //    if (i == 5)
+        //    {
+        //        await RotateFive();
+        //    }
+        //    if (i == 5.1)
+        //    {
+        //        await RotateFivePointOne();
+        //    }
+        //    if (i == 6)
+        //    {
+        //        await RotateSix();
+        //    }
+        //    if (i == 6.1)
+        //    {
+        //        await RotateSixPointOne();
+        //    }
+        //    if (i == 6.2)
+        //    {
+        //        await RotateSixPointTwo();
+        //    }
+        //    if (i == 7)
+        //    {
+        //        await RotateSeven();
+        //    }
+        //    if (i == 7.1)
+        //    {
+        //        await RotateSevenPointOne();
+        //    }
+        //    if(i == 7.2)
+        //    {
+        //        await RotateSevenPointTwo();
+        //    }
+        //    if(i == 7.3)
+        //    {
+        //        await RotateSevenPointThree();
+        //    }
+        //    if(i == 8)
+        //    {
+        //        await RotateEight();
+        //    }
+        //    if(i == 8.1)
+        //    {
+        //        await RotateEightPointOne();
+        //    }
+        //    if(i == 8.2)
+        //    {
+        //        await RotateEightPointTwo();
+        //    }
+        //    if(i == 8.3)
+        //    {
+        //        await RotateEightPointThree();
+        //    }
+        //    if(i == 9)
+        //    {
+        //        await RotateNine();
+        //    }
+        //    if(i == 9.1)
+        //    {
+        //        await RotateNinePointOne();
+        //    }
+        //    if(i == 9.2)
+        //    {
+        //        await RotateNinePointTwo();
+        //    }
+        //    if(i == 10)
+        //    {
+        //        await RotateTen();
+        //    }
+        //    if(i == 11)
+        //    {
+        //        await RotateEleven();
+        //    }
+        //    if(i == 11.1)
+        //    {
+        //        await RotateElevenPointOne();
+        //    }
+        //    if(i == 11.2)
+        //    {
+        //        await RotateElevenPointTwo();
+        //    }
+        //    if(i == 12)
+        //    {
+        //        await RotateTwelve();
+        //    }
+        //    if(i == 12.1)
+        //    {
+        //        await RotateTwelvePointOne();
+        //    }
+        //    if(i == 13)
+        //    {
+        //        await RotateThirteen();
+        //    }
+        //    if(i == 13.1)
+        //    {
+        //        await RotateThirteenPointOne();
+        //    }
+        //    if(i == 14)
+        //    {
+        //        await RotateFourteen();
+        //    }
+        //    if(i == 14.1)
+        //    {
+        //        await RotateFourteen();
+        //    }
+        //    if(i == 15)
+        //    {
+        //        await RotateFifteen();
+        //    }
+        //}
+
+        public async Task EckenTester()
+        {
+
+            await Task.Delay(1200);
+
+            for (int i = 0; i < 20; i++)
+            {
+                PositionMovedToTheRight = 0;
+                await MoveToCenterInRow();
+                DrawPaintOnBoxes();
+                await FadeBoxesToOne(1000);
+
+                await RotationRandom(Rotationsreihenfolge[i, 0]);
+                await RotationRandom(Rotationsreihenfolge[i, 1]);
+                await RotationRandom(Rotationsreihenfolge[i, 2]);
+                await RotationRandom(Rotationsreihenfolge[i, 3]);
+                await RotationRandom(Rotationsreihenfolge[i, 4]);
+                await RotationRandom(Rotationsreihenfolge[i, 5]);
+                await RotationRandom(Rotationsreihenfolge[i, 6]);
+                await RotationRandom(Rotationsreihenfolge[i, 7]);
+                await RotationRandom(Rotationsreihenfolge[i, 8]);
+                await RotationRandom(Rotationsreihenfolge[i, 9]);
+                await RotationRandom(Rotationsreihenfolge[i, 10]);
+                await RotationRandom(Rotationsreihenfolge[i, 11]);
+
+                Label1.FadeTo(1);
+                Label2.FadeTo(1);
+                Label3.FadeTo(1);
+                Label4.FadeTo(1);
+
+                await MoveBackInCorners();
+                await Fragezeichen.FadeTo(1, 50);
+                await Task.Delay(1150);
+                await Fragezeichen.FadeTo(0, 50);
+                DrawBoxRed(RedBox[i]);
+                await Task.Delay(2750);
+                await FadeBoxesToZero(1000);
+
+                Label1.FadeTo(0);
+                Label2.FadeTo(0);
+                Label3.FadeTo(0);
+                Label4.FadeTo(0);
+            }
+
         }
 
 
