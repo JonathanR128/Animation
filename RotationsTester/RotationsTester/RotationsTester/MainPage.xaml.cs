@@ -23,9 +23,9 @@ namespace RotationsTester
             ZweiPositionen = 1.75;
             EinePosition = 1.125;
 
-
+            EckenTester();
            // MoveAsync();
-            MoveTester();
+           // MoveTester();
         }
 
 
@@ -49,7 +49,7 @@ namespace RotationsTester
 
         public int[,] Rotationsreihenfolge = new int[,]
         {
-            { 20, 5, 17, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
+            { 3, 5, 2, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
             { 22, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 10, 19, 16, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -124,10 +124,10 @@ namespace RotationsTester
                     await RotateFourPointOne(0, 0, 0);
                     break;
                 case 16:
-                    await RotateSixPointOne(0,);
+                    await RotateSixPointOne(0,0);
                     break;
                 case 17:
-                    await RotateSixPointTwo();
+                    await RotateSixPointTwo(0, 0);
                     break;
                 case 18:
                     await RotateEightPointOne();
@@ -434,18 +434,18 @@ namespace RotationsTester
                 DrawPaintOnBoxes();
                 await FadeBoxesToOne(1000);
 
-                await RotationRandom(Rotationsreihenfolge[i, 0]);
-                await RotationRandom(Rotationsreihenfolge[i, 1]);
-                await RotationRandom(Rotationsreihenfolge[i, 2]);
-                await RotationRandom(Rotationsreihenfolge[i, 3]);
-                await RotationRandom(Rotationsreihenfolge[i, 4]);
-                await RotationRandom(Rotationsreihenfolge[i, 5]);
-                await RotationRandom(Rotationsreihenfolge[i, 6]);
-                await RotationRandom(Rotationsreihenfolge[i, 7]);
-                await RotationRandom(Rotationsreihenfolge[i, 8]);
-                await RotationRandom(Rotationsreihenfolge[i, 9]);
-                await RotationRandom(Rotationsreihenfolge[i, 10]);
-                await RotationRandom(Rotationsreihenfolge[i, 11]);
+                await RotationStarten(Rotationsreihenfolge[i, 0]);
+                await RotationStarten(Rotationsreihenfolge[i, 1]);
+                await RotationStarten(Rotationsreihenfolge[i, 2]);
+                await RotationStarten(Rotationsreihenfolge[i, 3]);
+                await RotationStarten(Rotationsreihenfolge[i, 4]);
+                await RotationStarten(Rotationsreihenfolge[i, 5]);
+                await RotationStarten(Rotationsreihenfolge[i, 6]);
+                await RotationStarten(Rotationsreihenfolge[i, 7]);
+                await RotationStarten(Rotationsreihenfolge[i, 8]);
+                await RotationStarten(Rotationsreihenfolge[i, 9]);
+                await RotationStarten(Rotationsreihenfolge[i, 10]);
+                await RotationStarten(Rotationsreihenfolge[i, 11]);
 
                 Label1.FadeTo(1);
                 Label2.FadeTo(1);
@@ -453,10 +453,7 @@ namespace RotationsTester
                 Label4.FadeTo(1);
 
                 await MoveBackInCorners();
-                await Fragezeichen.FadeTo(1, 50);
-                await Task.Delay(1150);
-                await Fragezeichen.FadeTo(0, 50);
-                DrawBoxRed(RedBox[i]);
+
                 await Task.Delay(2750);
                 await FadeBoxesToZero(1000);
 
