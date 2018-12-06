@@ -52,7 +52,7 @@ namespace Spiel
 
         public double[,] Rotationsreihenfolge = new double[,]
         {
-            { 20, 5, 17, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
+            { 3.1, 5.1, 3.1, 3.1, 3.1, 3.1, 0, 0, 0, 0, 0, 0 },
             { 22, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 10, 19, 16, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -77,6 +77,141 @@ namespace Spiel
 
         public int[] RedBox = new int[] { 1, 4, 3, 4, 1, 2, 4, 1, 3, 2, 2, 2, 3, 4, 2, 3, 3, 2, 3, 4 };
 
+        public async Task RotationStarten(double i)
+        {
+            if (i == 1)
+            {
+                await RotateOne();
+            }
+            if (i == 2)
+            {
+                await RotateTwo();
+            }
+            if (i == 3)
+            {
+                await RotateThree();
+            }
+            if (i == 3.1)
+            {
+                await RotateThreePointOne();
+            }
+            if (i == 4)
+            {
+                await RotateFour();
+            }
+            if (i == 4.1)
+            {
+                await RotateFourPointOne();
+            }
+            if (i == 5)
+            {
+                await RotateFive();
+            }
+            if (i == 5.1)
+            {
+                await RotateFivePointOne();
+            }
+            if (i == 6)
+            {
+                await RotateSix();
+            }
+            if (i == 6.1)
+            {
+                await RotateSixPointOne();
+            }
+            if (i == 6.2)
+            {
+                await RotateSixPointTwo();
+            }
+            if (i == 7)
+            {
+                await RotateSeven();
+            }
+            if (i == 7.1)
+            {
+                await RotateSevenPointOne();
+            }
+            if (i == 7.2)
+            {
+                await RotateSevenPointTwo();
+            }
+            if (i == 7.3)
+            {
+                await RotateSevenPointThree();
+            }
+            if (i == 8)
+            {
+                await RotateEight();
+            }
+            if (i == 8.1)
+            {
+                await RotateEightPointOne();
+            }
+            if (i == 8.2)
+            {
+                await RotateEightPointTwo();
+            }
+            if (i == 8.3)
+            {
+                await RotateEightPointThree();
+            }
+            if (i == 9)
+            {
+                await RotateNine();
+            }
+            if (i == 9.1)
+            {
+                await RotateNinePointOne();
+            }
+            if (i == 9.2)
+            {
+                await RotateNinePointTwo();
+            }
+            if (i == 10)
+            {
+                await RotateTen();
+            }
+            if (i == 11)
+            {
+                await RotateEleven();
+            }
+            if (i == 11.1)
+            {
+                await RotateElevenPointOne();
+            }
+            if (i == 11.2)
+            {
+                await RotateElevenPointTwo();
+            }
+            if (i == 12)
+            {
+                await RotateTwelve();
+            }
+            if (i == 12.1)
+            {
+                await RotateTwelvePointOne();
+            }
+            if (i == 13)
+            {
+                await RotateThirteen();
+            }
+            if (i == 13.1)
+            {
+                await RotateThirteenPointOne();
+            }
+            if (i == 14)
+            {
+                await RotateFourteen();
+            }
+            if (i == 14.1)
+            {
+                await RotateFourteen();
+            }
+            if (i == 15)
+            {
+                await RotateFifteen();
+            }
+        }
 
         public async Task MoveAsync()
         {
@@ -94,18 +229,18 @@ namespace Spiel
                 DrawBoxesWhite();
                 await Task.Delay(1000);
 
-                await RotationRandom(Rotationsreihenfolge[i, 0]);
-                await RotationRandom(Rotationsreihenfolge[i, 1]);
-                await RotationRandom(Rotationsreihenfolge[i, 2]);
-                await RotationRandom(Rotationsreihenfolge[i, 3]);
-                await RotationRandom(Rotationsreihenfolge[i, 4]);
-                await RotationRandom(Rotationsreihenfolge[i, 5]);
-                await RotationRandom(Rotationsreihenfolge[i, 6]);
-                await RotationRandom(Rotationsreihenfolge[i, 7]);
-                await RotationRandom(Rotationsreihenfolge[i, 8]);
-                await RotationRandom(Rotationsreihenfolge[i, 9]);
-                await RotationRandom(Rotationsreihenfolge[i, 10]);
-                await RotationRandom(Rotationsreihenfolge[i, 11]);
+                await RotationStarten(Rotationsreihenfolge[i, 0]);
+                await RotationStarten(Rotationsreihenfolge[i, 1]);
+                await RotationStarten(Rotationsreihenfolge[i, 2]);
+                await RotationStarten(Rotationsreihenfolge[i, 3]);
+                await RotationStarten(Rotationsreihenfolge[i, 4]);
+                await RotationStarten(Rotationsreihenfolge[i, 5]);
+                await RotationStarten(Rotationsreihenfolge[i, 6]);
+                await RotationStarten(Rotationsreihenfolge[i, 7]);
+                await RotationStarten(Rotationsreihenfolge[i, 8]);
+                await RotationStarten(Rotationsreihenfolge[i, 9]);
+                await RotationStarten(Rotationsreihenfolge[i, 10]);
+                await RotationStarten(Rotationsreihenfolge[i, 11]);
 
                 Label1.FadeTo(1);
                 Label2.FadeTo(1);
