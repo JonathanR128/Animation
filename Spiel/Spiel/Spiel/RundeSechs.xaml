@@ -6,43 +6,43 @@
         <AbsoluteLayout BackgroundColor="Black" Opacity="0.88">
             <Label x:Name="AnzeigeSpielNummer" Text="Spiel 6" XAlign="Center" YAlign="Center" FontSize="66" TextColor="White" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="1"/>
-            <Label x:Name="Label1" Text="1" FontSize="78" TextColor="White" AbsoluteLayout.LayoutBounds="0, 0, 120, 120"
+            <Label x:Name="Label1" Text="1" FontSize="78" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0, 0, 120, 120"
                   AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0" />
-            <Label x:Name="Label2" Text="2" FontSize="78" XAlign="End"  YAlign="Start" TextColor="White" AbsoluteLayout.LayoutBounds="1, 0, 120, 120"
+            <Label x:Name="Label2" Text="2" FontSize="78" XAlign="End"  YAlign="Start" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="1, 0, 120, 120"
                   AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
-            <Label x:Name="Label3" Text="3" XAlign="Start" YAlign="End" FontSize="78" TextColor="White" AbsoluteLayout.LayoutBounds="0, 1, 120, 120"
+            <Label x:Name="Label3" Text="3" XAlign="Start" YAlign="End" FontSize="78" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0, 1, 120, 120"
                   AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
-            <Label x:Name="Label4" Text="4" FontSize="78" TextColor="White" XAlign="End" YAlign="End" AbsoluteLayout.LayoutBounds="1, 1, 120, 120"
+            <Label x:Name="Label4" Text="4" FontSize="78" TextColor="LawnGreen" XAlign="End" YAlign="End" AbsoluteLayout.LayoutBounds="1, 1, 120, 120"
                   AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
-            <BoxView x:Name="Box1" Color="LightSkyBlue"  AbsoluteLayout.LayoutBounds="0, 0, 40, 40"
+            <BoxView x:Name="Box1" Color="White"  AbsoluteLayout.LayoutBounds="0, 0, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
-            <BoxView x:Name="Box2" Color="LightSkyBlue"  AbsoluteLayout.LayoutBounds="1, 0, 40, 40"
+            <BoxView x:Name="Box2" Color="White"  AbsoluteLayout.LayoutBounds="1, 0, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0"/>
-            <BoxView x:Name="Box3" Color="LightSkyBlue"  AbsoluteLayout.LayoutBounds="0, 1, 40, 40"
+            <BoxView x:Name="Box3" Color="White"  AbsoluteLayout.LayoutBounds="0, 1, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0" />
-            <BoxView x:Name="Box4" Color="LightSkyBlue"  AbsoluteLayout.LayoutBounds="1, 1, 40, 40"
+            <BoxView x:Name="Box4" Color="White"  AbsoluteLayout.LayoutBounds="1, 1, 40, 40"
                 AbsoluteLayout.LayoutFlags="PositionProportional" Opacity="0" />
-            <Label x:Name="Countdown10" Text="10" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown10" Text="10" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown9" Text="9" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown9" Text="9" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown8" Text="8" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown8" Text="8" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown7" Text="7" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown7" Text="7" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown6" Text="6" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown6" Text="6" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown5" Text="5" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown5" Text="5" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown4" Text="4" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown4" Text="4" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown3" Text="3" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown3" Text="3" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown2" Text="2" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown2" Text="2" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Countdown1" Text="1" XAlign="Center" YAlign="Center" FontSize="66" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
+            <Label x:Name="Countdown1" Text="1" XAlign="Center" YAlign="Center" FontSize="66" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 100" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
-            <Label x:Name="Fragezeichen" Text="?" XAlign="Center" YAlign="Center" FontSize="72" TextColor="Orange" AbsoluteLayout.LayoutBounds="0.5, 0.5, 120, 120" 
+            <Label x:Name="Fragezeichen" Text="?" XAlign="Center" YAlign="Center" FontSize="72" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 120, 120" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0" />
 
         </AbsoluteLayout>
