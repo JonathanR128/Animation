@@ -47,10 +47,10 @@ namespace RotationsTester
         public BoxView RightBox { get; set; }
 
 
-        public int[,] Rotationsreihenfolge = new int[,]
+        public double[,] Rotationsreihenfolge = new double[,]
         {
-            { 3, 5, 2, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
-            { 22, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 6.2, 7, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 8, 11, 5.1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 10, 19, 16, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 15, 6, 9, 13, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -482,18 +482,18 @@ namespace RotationsTester
                 DrawBoxesWhite();
                 await Task.Delay(1000);
 
-                await RotationRandom(Rotationsreihenfolge[i, 0]);
-                await RotationRandom(Rotationsreihenfolge[i, 1]);
-                await RotationRandom(Rotationsreihenfolge[i, 2]);
-                await RotationRandom(Rotationsreihenfolge[i, 3]);
-                await RotationRandom(Rotationsreihenfolge[i, 4]);
-                await RotationRandom(Rotationsreihenfolge[i, 5]);
-                await RotationRandom(Rotationsreihenfolge[i, 6]);
-                await RotationRandom(Rotationsreihenfolge[i, 7]);
-                await RotationRandom(Rotationsreihenfolge[i, 8]);
-                await RotationRandom(Rotationsreihenfolge[i, 9]);
-                await RotationRandom(Rotationsreihenfolge[i, 10]);
-                await RotationRandom(Rotationsreihenfolge[i, 11]);
+                await RotationStarten(Rotationsreihenfolge[i, 0]);
+                await RotationStarten(Rotationsreihenfolge[i, 1]);
+                await RotationStarten(Rotationsreihenfolge[i, 2]);
+                await RotationStarten(Rotationsreihenfolge[i, 3]);
+                await RotationStarten(Rotationsreihenfolge[i, 4]);
+                await RotationStarten(Rotationsreihenfolge[i, 5]);
+                await RotationStarten(Rotationsreihenfolge[i, 6]);
+                await RotationStarten(Rotationsreihenfolge[i, 7]);
+                await RotationStarten(Rotationsreihenfolge[i, 8]);
+                await RotationStarten(Rotationsreihenfolge[i, 9]);
+                await RotationStarten(Rotationsreihenfolge[i, 10]);
+                await RotationStarten(Rotationsreihenfolge[i, 11]);
 
                 Label1.FadeTo(1);
                 Label2.FadeTo(1);
