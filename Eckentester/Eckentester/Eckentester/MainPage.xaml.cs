@@ -80,135 +80,135 @@ namespace Eckentester
         {
             if (i == 1)
             {
-                await RotateOne(50);
+                await RotateOne(200);
             }
             if (i == 2)
             {
-                await RotateTwo(50);
+                await RotateTwo(200);
             }
             if (i == 3)
             {
-                await RotateThree(50);
+                await RotateThree(200);
             }
             if (i == 3.1)
             {
-                await RotateThreePointOne(50);
+                await RotateThreePointOne(200);
             }
             if (i == 4)
             {
-                await RotateFour(50, 50, 50);
+                await RotateFour(200, 200, 200);
             }
             if (i == 4.1)
             {
-                await RotateFourPointOne(50, 50, 50);
+                await RotateFourPointOne(200, 200, 200);
             }
             if (i == 5)
             {
-                await RotateFive(50, 50);
+                await RotateFive(200, 200);
             }
             if (i == 5.1)
             {
-                await RotateFivePointOne(50, 50);
+                await RotateFivePointOne(200, 200);
             }
             if (i == 6)
             {
-                await RotateSix(50, 50);
+                await RotateSix(200, 200);
             }
             if (i == 6.1)
             {
-                await RotateSixPointOne(50, 50);
+                await RotateSixPointOne(200, 200);
             }
             if (i == 6.2)
             {
-                await RotateSixPointTwo(50, 50);
+                await RotateSixPointTwo(200, 200);
             }
             if (i == 7)
             {
-                await RotateSeven(50, 50);
+                await RotateSeven(200, 200);
             }
             if (i == 7.1)
             {
-                await RotateSevenPointOne(50, 50);
+                await RotateSevenPointOne(200, 200);
             }
             if (i == 7.2)
             {
-                await RotateSevenPointTwo(50, 50);
+                await RotateSevenPointTwo(200, 200);
             }
             if (i == 7.3)
             {
-                await RotateSevenPointThree(50, 50);
+                await RotateSevenPointThree(200, 200);
             }
             if (i == 8)
             {
-                await RotateEight(50, 50, 50);
+                await RotateEight(200, 200, 200);
             }
             if (i == 8.1)
             {
-                await RotateEightPointOne(50, 50, 50);
+                await RotateEightPointOne(200, 200, 200);
             }
             if (i == 8.2)
             {
-                await RotateEightPointTwo(50, 50, 50);
+                await RotateEightPointTwo(200, 200, 200);
             }
             if (i == 8.3)
             {
-                await RotateEightPointThree(50, 50, 50);
+                await RotateEightPointThree(200, 200, 200);
             }
             if (i == 9)
             {
-                await RotateNine(50, 50, 50);
+                await RotateNine(200, 200, 200);
             }
             if (i == 9.1)
             {
-                await RotateNinePointOne(50, 50, 50);
+                await RotateNinePointOne(200, 200, 200);
             }
             if (i == 9.2)
             {
-                await RotateNinePointTwo(50, 50, 50);
+                await RotateNinePointTwo(200, 200, 200);
             }
             if (i == 10)
             {
-                await RotateTen(50, 50, 50);
+                await RotateTen(200, 200, 200);
             }
             if (i == 11)
             {
-                await RotateEleven(50);
+                await RotateEleven(200);
             }
             if (i == 11.1)
             {
-                await RotateElevenPointOne(50);
+                await RotateElevenPointOne(200);
             }
             if (i == 11.2)
             {
-                await RotateElevenPointTwo(50);
+                await RotateElevenPointTwo(200);
             }
             if (i == 12)
             {
-                await RotateTwelve(50, 50, 50);
+                await RotateTwelve(200, 200, 200);
             }
             if (i == 12.1)
             {
-                await RotateTwelvePointOne(50, 50, 50);
+                await RotateTwelvePointOne(200, 200, 200);
             }
             if (i == 13)
             {
-                await RotateThirteen(50);
+                await RotateThirteen(200);
             }
             if (i == 13.1)
             {
-                await RotateThirteenPointOne(50);
+                await RotateThirteenPointOne(200);
             }
             if (i == 14)
             {
-                await RotateFourteen(50);
+                await RotateFourteen(200);
             }
             if (i == 14.1)
             {
-                await RotateFourteen(50);
+                await RotateFourteen(200);
             }
             if (i == 15)
             {
-                await RotateFifteen(50, 50);
+                await RotateFifteen(200, 200);
             }
         }
 
@@ -380,7 +380,7 @@ namespace Eckentester
 
                 await MoveBackInCorners();
 
-                await Task.Delay(2750);
+                await Task.Delay(3550);
                 await FadeBoxesToZero(1000);
 
                 Label1.FadeTo(0);
