@@ -51,24 +51,24 @@ namespace RotationsTester
         {
             { 6.2, 7, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 8, 11, 5.1, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 10, 19, 16, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 15, 6, 9, 13, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 7, 12, 11, 14, 1, 0, 0, 0, 0, 0, 0, 0},
-            { 6, 3, 8, 21, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 5, 17, 1, 20, 13, 0, 0, 0, 0, 0, 0, 0 },
-            { 7, 22, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 16, 19, 2, 10, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 3, 6, 8, 21, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 13, 6, 15, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 7, 12, 11, 14, 1, 0, 0, 0, 0, 0, 0, 0},
-            { 6, 3, 8, 21, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 20, 5, 17, 1, 13, 0, 0, 0, 0, 0, 0, 0 },
-            { 7, 22, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 16, 10, 19, 2, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 6, 8, 3, 9, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 9, 6, 25, 13, 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 7, 12, 1, 11, 14, 0, 0, 0, 0, 0, 0, 0}
+            { 9.2, 4, 14.1, 13.1, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 12.1, 10, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 15, 6.1, 7.3, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 4.1, 14, 2, 1, 9.1, 0, 0, 0, 0, 0, 0, 0},
+            { 8.1, 7.1, 1, 12, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 3.1, 5.1, 9, 6.2, 2, 0, 0, 0, 0, 0, 0, 0 },
+            { 14, 7, 8.1, 10, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 11, 12, 13.1, 15, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 5.1, 6.1, 3, 11.1, 14, 0, 0, 0, 0, 0, 0, 0 },
+            { 9.2, 11.2, 2, 14, 5, 0, 0, 0, 0, 0, 0, 0 },
+            { 3.1, 4.1, 8.3, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            { 11, 12, 15, 13, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 4, 9.1, 6.2, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 1, 10, 11.2, 8, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 1, 7.3, 6.1, 13, 2, 0, 0, 0, 0, 0, 0, 0 },
+            { 13, 12, 15, 6.2, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 7.2, 7.3, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            { 10, 3, 7.3, 13.1, 14.1, 0, 0, 0, 0, 0, 0, 0}
 
         };
 
@@ -154,135 +154,135 @@ namespace RotationsTester
         {
             if (i == 1)
             {
-                await RotateOne(0);
+                await RotateOne(50);
             }
             if (i == 2)
             {
-                await RotateTwo(0);
+                await RotateTwo(50);
             }
             if (i == 3)
             {
-                await RotateThree(0);
+                await RotateThree(50);
             }
             if (i == 3.1)
             {
-                await RotateThreePointOne(0);
+                await RotateThreePointOne(50);
             }
             if (i == 4)
             {
-                await RotateFour(0, 0, 0);
+                await RotateFour(50, 50, 50);
             }
             if (i == 4.1)
             {
-                await RotateFourPointOne(0, 0, 0);
+                await RotateFourPointOne(50, 50, 50);
             }
             if (i == 5)
             {
-                await RotateFive(0, 0);
+                await RotateFive(50, 50);
             }
             if (i == 5.1)
             {
-                await RotateFivePointOne(0, 0);
+                await RotateFivePointOne(50, 50);
             }
             if (i == 6)
             {
-                await RotateSix(0, 0);
+                await RotateSix(50, 50);
             }
             if (i == 6.1)
             {
-                await RotateSixPointOne(0, 0);
+                await RotateSixPointOne(50, 50);
             }
             if (i == 6.2)
             {
-                await RotateSixPointTwo(0, 0);
+                await RotateSixPointTwo(50, 50);
             }
             if (i == 7)
             {
-                await RotateSeven(0, 0);
+                await RotateSeven(50, 50);
             }
             if (i == 7.1)
             {
-                await RotateSevenPointOne(0, 0);
+                await RotateSevenPointOne(50, 50);
             }
             if (i == 7.2)
             {
-                await RotateSevenPointTwo(0, 0);
+                await RotateSevenPointTwo(50, 50);
             }
             if (i == 7.3)
             {
-                await RotateSevenPointThree(0, 0);
+                await RotateSevenPointThree(50, 50);
             }
             if (i == 8)
             {
-                await RotateEight(0, 0, 0);
+                await RotateEight(50, 50, 50);
             }
             if (i == 8.1)
             {
-                await RotateEightPointOne(0, 0, 0);
+                await RotateEightPointOne(50, 50, 50);
             }
             if (i == 8.2)
             {
-                await RotateEightPointTwo(0, 0, 0);
+                await RotateEightPointTwo(50, 50, 50);
             }
             if (i == 8.3)
             {
-                await RotateEightPointThree(0, 0, 0);
+                await RotateEightPointThree(50, 50, 50);
             }
             if (i == 9)
             {
-                await RotateNine(0, 0, 0);
+                await RotateNine(50, 50, 50);
             }
             if (i == 9.1)
             {
-                await RotateNinePointOne(0, 0, 0);
+                await RotateNinePointOne(50, 50, 50);
             }
             if (i == 9.2)
             {
-                await RotateNinePointTwo(0, 0, 0);
+                await RotateNinePointTwo(50, 50, 50);
             }
             if (i == 10)
             {
-                await RotateTen(0, 0, 0);
+                await RotateTen(50, 50, 50);
             }
             if (i == 11)
             {
-                await RotateEleven(0);
+                await RotateEleven(50);
             }
             if (i == 11.1)
             {
-                await RotateElevenPointOne(0);
+                await RotateElevenPointOne(50);
             }
             if (i == 11.2)
             {
-                await RotateElevenPointTwo(0);
+                await RotateElevenPointTwo(50);
             }
             if (i == 12)
             {
-                await RotateTwelve(0, 0, 0);
+                await RotateTwelve(50, 50, 50);
             }
             if (i == 12.1)
             {
-                await RotateTwelvePointOne(0, 0, 0);
+                await RotateTwelvePointOne(50, 50, 50);
             }
             if (i == 13)
             {
-                await RotateThirteen(0);
+                await RotateThirteen(50);
             }
             if (i == 13.1)
             {
-                await RotateThirteenPointOne(0);
+                await RotateThirteenPointOne(50);
             }
             if (i == 14)
             {
-                await RotateFourteen(0);
+                await RotateFourteen(50);
             }
             if (i == 14.1)
             {
-                await RotateFourteen(0);
+                await RotateFourteen(50);
             }
             if (i == 15)
             {
-                await RotateFifteen(0, 0);
+                await RotateFifteen(50, 50);
             }
         }
 
