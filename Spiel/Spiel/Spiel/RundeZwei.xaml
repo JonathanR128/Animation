@@ -45,6 +45,9 @@
                    AbsoluteLayout.LayoutFlags="All" Opacity="0"/>
             <Label x:Name="Fragezeichen" Text="?" XAlign="Center" YAlign="Center" FontSize="72" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 120, 120" 
                    AbsoluteLayout.LayoutFlags="All" Opacity="0" />
+            <Label x:Name="End" Text="End" XAlign="Center" YAlign="Center" FontSize="78" TextColor="LawnGreen" AbsoluteLayout.LayoutBounds="0.5, 0.5, 120, 120" 
+                   AbsoluteLayout.LayoutFlags="All" Opacity="0" />
+
 
         </AbsoluteLayout>
 
