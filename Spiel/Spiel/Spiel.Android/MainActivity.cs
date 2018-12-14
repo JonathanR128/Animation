@@ -27,6 +27,7 @@ namespace Spiel.Droid
 
         public int value { get; set; }
         public int enter { get; set; }
+        public int counterMotion { get; set; }
 
         public override bool OnKeyUp(Keycode keyCode, KeyEvent e)
         {
@@ -46,21 +47,14 @@ namespace Spiel.Droid
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
 
-            if (enter == 0)
+            if (enter == 1)
             {
-
                 if (keyCode == Keycode.Back)
                 {
-                    if (value == 6)
-                    {
-                        value = 0;
-                    }
-                    value += 1;
+                    value = 0;
+                    enter = 0;
                     App.Current.MainPage = new MainPage(value, enter);
-                    return true;
-
-                }
-               
+                }               
             }
             
             if (keyCode == Keycode.DpadCenter)
@@ -80,8 +74,32 @@ namespace Spiel.Droid
 
         public override bool OnGenericMotionEvent(MotionEvent e)
         {
+            if (enter == 0)
+            {
+                counterMotion += 1;
+
+                if (counterMotion == 15)
+                {
+
+                    counterMotion = 0;
+                    if (value == 6)
+                    {
+                        value = 0;
+                    }
+                    value += 1;
+                    App.Current.MainPage = new MainPage(value, enter);
+                    return true;
+                }
+
+              
+            }
             return base.OnGenericMotionEvent(e);
         }
+        //public override bool OnGenericMotionEvent(MotionEvent e)
+        //{
+        //    return base.OnGenericMotionEvent(e);
+        //}
+
 
     }
 }
