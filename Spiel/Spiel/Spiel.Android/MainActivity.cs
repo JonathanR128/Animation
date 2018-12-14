@@ -44,6 +44,7 @@ namespace Spiel.Droid
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
+
             if (enter == 0)
             {
 
@@ -73,6 +74,11 @@ namespace Spiel.Droid
             }
 
             return true;
+        }
+
+        public override bool OnGenericMotionEvent(MotionEvent e)
+        {
+            return base.OnGenericMotionEvent(e);
         }
 
     }
