@@ -260,6 +260,8 @@ namespace Spiel
                 Label3.FadeTo(0);
                 Label4.FadeTo(0);
             }
+            await End.FadeTo(1, 1000);
+            await Task.Delay(1500);
 
         }
 
