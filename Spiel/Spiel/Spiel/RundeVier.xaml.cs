@@ -260,6 +260,8 @@ namespace Spiel
                 Label4.FadeTo(0);
             }
 
+            await End.FadeTo(1, 1000);
+            await Task.Delay(1500);
         }
 
         public async Task StartSequenz()
