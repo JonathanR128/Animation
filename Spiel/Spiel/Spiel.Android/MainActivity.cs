@@ -62,6 +62,7 @@ namespace Spiel.Droid
                 }
                
             }
+            // alfjkööasdljf
             if (keyCode == Keycode.DpadCenter)
             {
                 
