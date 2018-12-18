@@ -16,7 +16,7 @@ namespace Spiel
         {
             InitializeComponent();
 
-            StartButton.Text = "Test";
+            StartButton.Text = "Start Spiel " + value.ToString();
         }
     }
 }

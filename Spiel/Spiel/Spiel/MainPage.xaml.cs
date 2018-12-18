@@ -45,10 +45,7 @@ namespace Spiel
             {
                 LoadStartPage(value);
             }
-            if (enter == 2)
-            {
-                LoadSpiel(value);
-            }
+
 
             async Task LoadStartPage(int i)
             {
@@ -57,31 +54,6 @@ namespace Spiel
             }            
         }
 
-        public async Task LoadSpiel(int i)
-        {
-            await Task.Delay(10);
-            switch (i)
-            {
-                case 1:
-                    App.Current.MainPage = new RundeEins();
-                    break;
-                case 2:
-                    App.Current.MainPage = new RundeZwei();
-                    break;
-                case 3:
-                    App.Current.MainPage = new RundeDrei();
-                    break;
-                case 4:
-                    App.Current.MainPage = new RundeVier();
-                    break;
-                case 5:
-                    App.Current.MainPage = new RundeFuenf();
-                    break;
-                case 6:
-                    App.Current.MainPage = new RundeSechs();
-                    break;
-            }
-        }
 
         public int a { get; set; }
 

@@ -5,8 +5,8 @@
     <ContentPage.Content>
 
         <AbsoluteLayout BackgroundColor="Black" Opacity="0.88">
-            <Button Text="Start Spiel" FontSize="34" x:Name="StartButton" AbsoluteLayout.LayoutBounds="0, 0, 0.8, 0.25"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="White"/>
-           
+            <!--<Button Text="Start Spiel" FontSize="90" x:Name="StartButton" AbsoluteLayout.LayoutBounds="0, 0.25, 1, 0.75"  AbsoluteLayout.LayoutFlags="All" BackgroundColor="White"/>-->
+            <Label Text="Start Spiel" FontSize="90" x:Name="StartButton" XAlign="Center" YAlign="Center"  TextColor="LawnGreen"/>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -46,7 +46,19 @@ namespace Spiel.Droid
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
-
+            if (enter == 0)
+            {
+                if (keyCode == Keycode.Back)
+                {
+                      if (value == 6)
+                      { 
+                          value = 0;
+                      }
+                      value += 1;
+                      App.Current.MainPage = new MainPage(value, enter);
+                      return true;
+                }
+            }
             if ((enter == 1) || (enter == 2))
             {
                 if (keyCode == Keycode.Back)
@@ -63,7 +75,27 @@ namespace Spiel.Droid
                 if ((enter == 1) && (value != 0))
                 {
                     enter += 1;
-                    App.Current.MainPage = new MainPage(value, enter);
+                    switch (value)
+                    {
+                        case 1:
+                            App.Current.MainPage = new RundeEins();
+                            break;
+                        case 2:
+                            App.Current.MainPage = new RundeZwei();
+                            break;
+                        case 3:
+                            App.Current.MainPage = new RundeDrei();
+                            break;
+                        case 4:
+                            App.Current.MainPage = new RundeVier();
+                            break;
+                        case 5:
+                            App.Current.MainPage = new RundeFuenf();
+                            break;
+                        case 6:
+                            App.Current.MainPage = new RundeSechs();
+                            break;
+                    }
                 }
                 if ((enter == 0) && (value != 0))                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
                 {
@@ -78,29 +110,29 @@ namespace Spiel.Droid
             return true;
         }
 
-        public override bool OnGenericMotionEvent(MotionEvent e)
-        {
-            if (enter == 0)
-            {
-                counterMotion += 1;
+        //public override bool OnGenericMotionEvent(MotionEvent e)
+        //{
+        //    if (enter == 0)
+        //    {
+        //        counterMotion += 1;
 
-                if (counterMotion == 15)
-                {
+        //        if (counterMotion == 15)
+        //        {
 
-                    counterMotion = 0;
-                    if (value == 6)
-                    {
-                        value = 0;
-                    }
-                    value += 1;
-                    App.Current.MainPage = new MainPage(value, enter);
-                    return true;
-                }
+        //            counterMotion = 0;
+        //            if (value == 6)
+        //            {
+        //                value = 0;
+        //            }
+        //            value += 1;
+        //            App.Current.MainPage = new MainPage(value, enter);
+        //            return true;
+        //        }
 
               
-            }
-            return base.OnGenericMotionEvent(e);
-        }
+        //    }
+        //    return base.OnGenericMotionEvent(e);
+        //}
         //public override bool OnGenericMotionEvent(MotionEvent e)
         //{
         //    return base.OnGenericMotionEvent(e);
