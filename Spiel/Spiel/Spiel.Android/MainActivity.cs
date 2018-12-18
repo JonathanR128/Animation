@@ -47,7 +47,7 @@ namespace Spiel.Droid
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
 
-            if (enter == 1)
+            if ((enter == 1) || (enter == 2))
             {
                 if (keyCode == Keycode.Back)
                 {
@@ -59,12 +59,18 @@ namespace Spiel.Droid
             
             if (keyCode == Keycode.DpadCenter)
             {
-                
+
+                if ((enter == 1) && (value != 0))
+                {
+                    enter += 1;
+                    App.Current.MainPage = new MainPage(value, enter);
+                }
                 if ((enter == 0) && (value != 0))                                             // if damit man mit wiederholtem Enter nicht das Spiel neu startet
                 {
                     enter += 1;
                     App.Current.MainPage = new MainPage(value, enter);
                 }
+
 
                 return true;
             }

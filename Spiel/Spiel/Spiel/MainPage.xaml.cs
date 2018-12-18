@@ -39,17 +39,23 @@ namespace Spiel
                     break;
                 default:
                     break;
-            }   
-            
+            }
+
             if (enter == 1)
             {
+                LoadStartPage(value);
+            }
+            if (enter == 2)
+            {
                 LoadSpiel(value);
-            } 
-            
+            }
+
+            async Task LoadStartPage(int i)
+            {
+                await Task.Delay(10);
+                App.Current.MainPage = new Start(value, 0);
+            }            
         }
-
-        public int a { get; set; }
-
 
         public async Task LoadSpiel(int i)
         {
@@ -77,8 +83,7 @@ namespace Spiel
             }
         }
 
-
-
+        public int a { get; set; }
 
         public void Button_Clicked_1(object sender, EventArgs e)
         {
